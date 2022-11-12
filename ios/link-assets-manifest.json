@@ -1,0 +1,41 @@
+{
+  "migIndex": 1,
+  "data": [
+    {
+      "path": "App/Global/fonts/Vazir/Vazir-Black.ttf",
+      "sha1": "594dc3344ad14903c247615427d1009709f0f5a4"
+    },
+    {
+      "path": "App/Global/fonts/Vazir/Vazir-Bold.ttf",
+      "sha1": "2e6c9df9f775373fb1988ae8529aa8f05313dae6"
+    },
+    {
+      "path": "App/Global/fonts/Vazir/Vazir-Light.ttf",
+      "sha1": "9f1e2934098a6a4a7c5584c8f3fa24a707070da3"
+    },
+    {
+      "path": "App/Global/fonts/Vazir/Vazir-Medium.ttf",
+      "sha1": "295f7e02c9b157e7ea63ad09613b00ceab85c5cd"
+    },
+    {
+      "path": "App/Global/fonts/Vazir/Vazir-Thin.ttf",
+      "sha1": "a6aa450ee6e0f85786474ca6b04827ef97e81af4"
+    },
+    {
+      "path": "App/Global/fonts/Vazir/Vazir.ttf",
+      "sha1": "f22b219824026e490a581ddb3b36b07997dff0e3"
+    },
+    {
+      "path": "App/Global/fonts/iranyekan/iranyekanbold(fanum).ttf",
+      "sha1": "45441edaad25f94e3183a9904375dec247e92d78"
+    },
+    {
+      "path": "App/Global/fonts/iranyekan/iranyekanlight(fanum).ttf",
+      "sha1": "08e5c02b0a5e3bdd87e46394f6164db8725b7579"
+    },
+    {
+      "path": "App/Global/fonts/iranyekan/iranyekanregular(fanum).ttf",
+      "sha1": "c51f5093ecd33c80d654fde28f33097d4692a256"
+    }
+  ]
+}
