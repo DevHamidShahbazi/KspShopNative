@@ -20,6 +20,10 @@ export default StylesGlobal = StyleSheet.create({
         shadowColor: "rgba(0,0,0,0.67)",
         elevation: 2,
     },
+    Shadow_lg : {
+        shadowColor: "rgba(0,0,0,0.67)",
+        elevation: 10,
+    },
     Card_Header : {
         width : "100%",
         borderTopLeftRadius :20 ,
