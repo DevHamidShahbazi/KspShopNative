@@ -4,6 +4,7 @@ import {Text, View,TextInput,TouchableOpacity} from 'react-native';
 import RegisterStyles from './components/RegisterStyles';
 import GlobalStyles from '../../Global/components/GlobalStyles';
 import Icon from 'react-native-vector-icons/dist/FontAwesome5';
+import axios from "axios";
 
 export default function Register (props) {
     const [Eye,setEye] = useState(false);
@@ -26,18 +27,18 @@ export default function Register (props) {
         //     })
         // });
 
-        // axios.post('http://192.168.100.15:8000/api/v_1_0', {
-        //     name: Name,
-        //     phone: Phone,
-        //     password: Password,
-        //     password_confirmation: PasswordConfirmation,
-        // })
-        //     .then(function (response) {
-        //         console.log(response);
-        //     })
-        //     .catch(function (error) {
-        //         console.log(error);
-        //     });
+        axios.post('http://192.168.100.15:8000/api/v_1_0/register', {
+            name: Name,
+            phone: Phone,
+            password: Password,
+            password_confirmation: PasswordConfirmation,
+        })
+            .then(function (response) {
+                console.log(response);
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
     }
  return (
      <React.Fragment>
