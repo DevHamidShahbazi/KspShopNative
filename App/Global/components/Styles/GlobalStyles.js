@@ -13,7 +13,7 @@ export default StylesGlobal = StyleSheet.create({
     Text_Btn_Royal : {
         color : 'white',
         fontFamily:"Vazir",
-        fontSize:15,
+        fontSize:17,
         textAlign:'center'
     },
     Shadow : {

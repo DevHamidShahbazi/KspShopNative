@@ -7,7 +7,7 @@ import GlobalStyles from '../../../Global/components/Styles/GlobalStyles';
 import RegisterStyles from './RegisterStyles';
 
 export function handleRegister (Fields,setErrors) {
-    axios.post('register', {
+    axios.post('v_1_0/register', {
         name: Fields.name,
         phone: Fields.phone,
         password: Fields.password,

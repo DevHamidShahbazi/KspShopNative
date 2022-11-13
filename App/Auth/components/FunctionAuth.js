@@ -4,6 +4,7 @@ import LinearGradient from "react-native-linear-gradient";
 import {Text, TextInput, TouchableOpacity, View} from 'react-native';
 import {Error} from '../../Global/components/Alerts/GlobalAlert';
 import Icon from 'react-native-vector-icons/dist/FontAwesome5';
+import GlobalStyles from '../../Global/components/Styles/GlobalStyles';
 
 export function GradientAuth (props) {
     return (
@@ -16,7 +17,7 @@ export function GradientAuth (props) {
 export function BoxAuth (props) {
     return (
         <React.Fragment>
-            <View style={StylesAuth.Box}>
+            <View style={[StylesAuth.Box,GlobalStyles.Shadow_lg]}>
                 <Text style={StylesAuth.Header_box}>{props.title}</Text>
                 <Error message={props.Errors}/>
                 <View style={StylesAuth.Body_box}>
@@ -37,12 +38,12 @@ export function InputGroupAuth (props) {
                 <TextInput keyboardType={props.type}
                            onChangeText={val => props.handleChange(val,props.name)}
                            placeholderTextColor="rgba(0,0,0,0.70)"
-                           style={StylesAuth.Input} placeholder={props.placeholder}/>
+                           style={StylesAuth.Input}
+                           placeholder={props.placeholder}/>
             </View>
         </React.Fragment>
     );
 }
-
 
 export function InputGroupPassAuth (props) {
     return (

@@ -49,6 +49,7 @@ export default  StylesAuth = StyleSheet.create({
         marginBottom : "5%",
     },
     Input : {
+        fontFamily:'Vazir',
         width : "90%",
         textAlign : 'right',
         color:'black',
