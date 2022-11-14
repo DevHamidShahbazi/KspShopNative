@@ -1,8 +1,23 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 import LinearGradient from "react-native-linear-gradient";
 
-export default function Basket (props) {
+export default function Basket ({navigation ,Route}) {
+
+    useEffect(()=>{
+        navigation.setOptions({
+            title:'سبد خرید',
+            headerStyle: {
+                backgroundColor: '#eee',
+            },
+            headerTitleAlign: 'center',
+            headerTintColor: '#000',
+            headerTitleStyle: {
+                fontFamily:'Vazir-Bold'
+            },
+        })
+    },[]);
+
     const StylesBasket = StyleSheet.create({
         Home : {
             height:'100%',

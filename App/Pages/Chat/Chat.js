@@ -1,8 +1,23 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 import LinearGradient from "react-native-linear-gradient";
 
-export default function Chat (props) {
+export default function Chat ({navigation ,Route}) {
+
+    useEffect(()=>{
+        navigation.setOptions({
+            title:'پیام رسان',
+            headerStyle: {
+                backgroundColor: '#eee',
+            },
+            headerTitleAlign: 'center',
+            headerTintColor: '#000',
+            headerTitleStyle: {
+                fontFamily:'Vazir-Bold'
+            },
+        })
+    },[]);
+
     const StylesChat = StyleSheet.create({
         Home : {
             height:'100%',

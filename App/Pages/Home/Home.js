@@ -1,8 +1,22 @@
-import React from 'react';
-import {Image, StyleSheet, View,Text} from 'react-native';
+import React, {useEffect} from 'react';
+import {StyleSheet, View,Text} from 'react-native';
 import LinearGradient from "react-native-linear-gradient";
+export default function Home ({navigation ,Route}) {
 
-export default function Home (props) {
+    useEffect(()=>{
+        navigation.setOptions({
+            title:'خانه',
+            headerStyle: {
+                backgroundColor: '#eee',
+            },
+            headerTitleAlign: 'center',
+            headerTintColor: '#000',
+            headerTitleStyle: {
+                fontFamily:'Vazir-Bold'
+            },
+        })
+    },[]);
+
     const StylesHome = StyleSheet.create({
         Home : {
             height:'100%',

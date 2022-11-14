@@ -1,6 +1,7 @@
+import React from 'react';
 import {StyleSheet} from 'react-native';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 export default StylesGlobal = StyleSheet.create({
-
     Btn_Royal:{
         display : 'flex',
         justifyContent:'center',
@@ -44,3 +45,14 @@ export default StylesGlobal = StyleSheet.create({
     },
 
 });
+
+
+export function TabScreenOptions (label,Icon) {
+    return {
+        tabBarLabelStyle:{fontFamily:'Vazir'},
+        tabBarLabel: label,
+        tabBarIcon: ({ color, size }) => (
+            <MaterialCommunityIcons name={Icon} color={color} size={size} />
+        ),
+    }
+}
