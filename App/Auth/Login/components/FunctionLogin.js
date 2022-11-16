@@ -35,10 +35,10 @@ export function BtnSubmitLogin (props) {
     );
 }
 
-export function GoToForgetPasswordFromLogin (props) {
+export function GoToForgetPasswordFromLogin ({navigation}) {
     return (
         <React.Fragment>
-            <TouchableOpacity activeOpacity={.4}>
+            <TouchableOpacity activeOpacity={.4} onPress={() => navigation.navigate('Basket')}>
                 <Text style={LoginStyles.Text_Go_To_ForgetPassword}>
                     رمز عبور را فراموش کردم !!
                 </Text>
@@ -46,11 +46,11 @@ export function GoToForgetPasswordFromLogin (props) {
         </React.Fragment>
     );
 }
- export function GoToRegisterFromLogin (props) {
+ export function GoToRegisterFromLogin ({navigation}) {
      return (
          <React.Fragment>
              <TouchableOpacity activeOpacity={.4}>
-                 <Text style={LoginStyles.Text_Go_To_Register}>
+                 <Text style={LoginStyles.Text_Go_To_Register} onPress={() => navigation.navigate('Register')}>
                      هنوز ثبت نام نکردم !!
                  </Text>
              </TouchableOpacity>

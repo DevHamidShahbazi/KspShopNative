@@ -1,8 +1,8 @@
-import React,{useState} from 'react';
+import React,{useState,useEffect} from 'react';
 import {UseSetFields} from '../../Global/components/Hooks/CustomHooks';
 import {BtnSubmitRegister, GoToLoginFromRegister, handleRegister, InputGroupPassConfirmAuth,} from './components/FunctionRegister';
 import {BoxAuth, GradientAuth, InputGroupAuth, InputGroupPassAuth} from '../components/FunctionAuth';
-export default function Register (props) {
+export default function Register ({navigation ,Route}) {
     const [Eye,setEye] = useState(false);
     const [Errors,setErrors] = useState('');
     const {Fields,handleChange} = UseSetFields({
@@ -19,8 +19,8 @@ export default function Register (props) {
                  <InputGroupAuth name={'phone'} type={'numeric'} icon='mobile-alt' handleChange={handleChange} placeholder="شماره موبایل" />
                  <InputGroupPassAuth name={'password'} Eye={Eye} setEye={setEye} icon='lock' handleChange={handleChange} placeholder="رمز عبور" />
                  <InputGroupPassConfirmAuth name={'password_confirmation'} Eye={Eye}  handleChange={handleChange} placeholder="تکرار رمز عبور" />
-                 <BtnSubmitRegister handleRegister={handleRegister} Fields={Fields} setErrors={setErrors}/>
-                 <GoToLoginFromRegister/>
+                 <BtnSubmitRegister navigation={navigation} handleRegister={handleRegister} Fields={Fields} setErrors={setErrors}/>
+                 <GoToLoginFromRegister navigation={navigation} />
              </BoxAuth>
          </GradientAuth>
      </React.Fragment>

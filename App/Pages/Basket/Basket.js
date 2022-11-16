@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, Text, View,TouchableOpacity} from 'react-native';
 import LinearGradient from "react-native-linear-gradient";
 
 export default function Basket ({navigation ,Route}) {
@@ -43,6 +43,12 @@ export default function Basket ({navigation ,Route}) {
                     <Text style={StylesBasket.text}>
                         سبدخرید
                     </Text>
+                    <TouchableOpacity onPress={() => navigation.navigate('Panel',{screen:'Login',initial: false})}>
+                    {/*<TouchableOpacity onPress={() => console.log('test')} >*/}
+                        <Text>
+                            ورود
+                        </Text>
+                    </TouchableOpacity>
                 </View>
             </LinearGradient>
         </React.Fragment>

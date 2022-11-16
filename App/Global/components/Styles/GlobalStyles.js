@@ -49,6 +49,7 @@ export default StylesGlobal = StyleSheet.create({
 
 export function TabScreenOptions (label,Icon) {
     return {
+        headerShown: false,
         tabBarLabelStyle:{fontFamily:'Vazir'},
         tabBarLabel: label,
         tabBarIcon: ({ color, size }) => (
