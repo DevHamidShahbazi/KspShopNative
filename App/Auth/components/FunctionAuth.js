@@ -5,7 +5,29 @@ import {Text, TextInput, TouchableOpacity, View} from 'react-native';
 import {Error} from '../../Global/components/Alerts/GlobalAlert';
 import Icon from 'react-native-vector-icons/dist/FontAwesome5';
 import GlobalStyles from '../../Global/components/Styles/GlobalStyles';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
+export function ResponseData_Register_and_Login ({response,setErrors,navigation}) {
+    const {data} = response;
+    if (data.status == 'success'){
+        setErrors('')
+        AsyncStorage.setItem('Auth',true)
+        AsyncStorage.setItem('api_token',data.api_token)
+        AsyncStorage.setItem('user',{
+            'level':data.level,
+            'email':data.email,
+            'phone':data.phone,
+            'name':data.name,
+            'image':data.image,
+            'sizes_file':data.sizes_file,
+            'verify':data.verify,
+        })
+        navigation.navigate('Home')
+    }else {
+        setErrors(data.message);
+    }
+     return null;
+}
 export function GradientAuth (props) {
     return (
         <LinearGradient style={StylesAuth.ContainerRegister} colors={['#eee', '#70c8b7', '#0e3f5f']} >

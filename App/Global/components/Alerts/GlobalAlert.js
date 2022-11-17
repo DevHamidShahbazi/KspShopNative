@@ -27,11 +27,6 @@ export function Error (props) {
             textAlign: 'center',
             color: 'white'
         },
-        Danger : {
-            fontFamily: 'Vazir',
-            fontSize: 15,
-            color: 'white',
-        }
     });
     if (props.message != undefined){
         const list =
@@ -43,12 +38,6 @@ export function Error (props) {
         return (
             <View style={[StylesError.MainError,{ display : Object.keys(props.message).length == 0 ? 'none' : 'flex'  }]}>
                 <View style={StylesError.ContainerError}>
-                    <View style={{justifyContent:'flex-end',flexDirection:'row',width:'100%'}}>
-                        <Text style={StylesError.Danger}>
-                            خطا !!
-                        </Text>
-                        <Icon style={{marginLeft: 5}} name="ban" size={18} color="white" />
-                    </View>
                     {list}
                 </View>
             </View>

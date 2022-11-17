@@ -1,22 +1,19 @@
 import React from 'react';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import {Text, TouchableOpacity} from 'react-native';
 import GlobalStyles from '../../../Global/components/Styles/GlobalStyles';
 import axios from 'axios';
 import LoginStyles from './LoginStyle';
+import {ResponseData_Register_and_Login} from '../../components/FunctionAuth';
 
 
-export function handleLogin (Fields,setErrors) {
+export function handleLogin (Fields,setErrors,navigation) {
     axios.post('v_1_0/login', {
         username: Fields.username,
         password: Fields.password,
     })
         .then(function (response) {
-            const {data} = response;
-            if (data.status == 'success'){
-                console.log(data)
-            }else {
-                setErrors(data.message);
-            }
+            ResponseData_Register_and_Login(response,setErrors,navigation)
         })
         .catch(function (error) {
             console.log(error);

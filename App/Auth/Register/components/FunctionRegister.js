@@ -1,39 +1,28 @@
 import React from 'react';
 import axios from 'axios';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
 import {Text, TextInput, TouchableOpacity, View} from 'react-native';
 import StylesAuth from '../../components/StylesAuth';
 import Icon from 'react-native-vector-icons/dist/FontAwesome5';
 import GlobalStyles from '../../../Global/components/Styles/GlobalStyles';
 import RegisterStyles from './RegisterStyles';
 
-import {BoxAuth} from '../../components/FunctionAuth';
+import {BoxAuth, ResponseData_Register_and_Login} from '../../components/FunctionAuth';
 
 export function handleRegister (Fields,setErrors,navigation) {
-    // axios.post('v_1_0/register', {
-    //     name: Fields.name,
-    //     phone: Fields.phone,
-    //     password: Fields.password,
-    //     password_confirmation: Fields.password_confirmation,
-    // })
-    //     .then(function (response) {
-    //         const {data} = response;
-    //         if (data.status == 'success'){
-    //             AsyncStorage.setTtem('user',
-    //                     {
-    //                         'name': Fields.name,
-    //                         'phone': Fields.phone,
-    //                         'level': Fields.level,
-    //                     },error => console.log(error)
-    //                     // error => setErrors({'message':['ارتباط برقرار نشد']})
-    //                 );
-    //             navigation.navigate('Home')
-    //         }else {
-    //             setErrors(data.message);
-    //         }
-    //     })
-    //     .catch(function (error) {
-    //         console.log(error);
-    //     });
+    axios.post('v_1_0/register', {
+        name: Fields.name,
+        phone: Fields.phone,
+        password: Fields.password,
+        password_confirmation: Fields.password_confirmation,
+    })
+        .then(function (response) {
+            ResponseData_Register_and_Login(response,setErrors,navigation)
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
 }
 
 export function InputGroupPassConfirmAuth (props) {
