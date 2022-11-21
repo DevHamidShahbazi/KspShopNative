@@ -43,7 +43,7 @@ export default function Basket ({navigation ,Route}) {
                     <Text style={StylesBasket.text}>
                         سبدخرید
                     </Text>
-                    <TouchableOpacity onPress={() => navigation.navigate('Panel',{screen:'Login',initial: false})}>
+                    <TouchableOpacity onPress={() => navigation.navigate('Panel',{screen:'Verify'})}>
                     {/*<TouchableOpacity onPress={() => console.log('test')} >*/}
                         <Text>
                             ورود

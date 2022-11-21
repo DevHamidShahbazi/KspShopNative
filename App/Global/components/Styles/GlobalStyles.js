@@ -7,7 +7,7 @@ export default StylesGlobal = StyleSheet.create({
         justifyContent:'center',
         alignItems:'center',
         width:"100%",
-        borderRadius: 25,
+        borderRadius: 20,
         padding: 10,
         backgroundColor : '#213854',
     },

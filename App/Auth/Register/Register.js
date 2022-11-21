@@ -2,7 +2,8 @@ import React,{useState,useEffect} from 'react';
 import {UseSetFields} from '../../Global/components/Hooks/CustomHooks';
 import {BtnSubmitRegister, GoToLoginFromRegister, handleRegister, InputGroupPassConfirmAuth,} from './components/FunctionRegister';
 import {BoxAuth, GradientAuth, InputGroupAuth, InputGroupPassAuth} from '../components/FunctionAuth';
-export default function Register ({navigation ,Route}) {
+import AsyncStorage from '@react-native-async-storage/async-storage';
+export default function Register ({navigation ,route,Auth,setAuth,setVerify,setUser}) {
     const [Eye,setEye] = useState(false);
     const [Errors,setErrors] = useState('');
     const {Fields,handleChange} = UseSetFields({
@@ -19,7 +20,7 @@ export default function Register ({navigation ,Route}) {
                  <InputGroupAuth name={'phone'} type={'numeric'} icon='mobile-alt' handleChange={handleChange} placeholder="شماره موبایل" />
                  <InputGroupPassAuth name={'password'} Eye={Eye} setEye={setEye} icon='lock' handleChange={handleChange} placeholder="رمز عبور" />
                  <InputGroupPassConfirmAuth name={'password_confirmation'} Eye={Eye}  handleChange={handleChange} placeholder="تکرار رمز عبور" />
-                 <BtnSubmitRegister navigation={navigation} handleRegister={handleRegister} Fields={Fields} setErrors={setErrors}/>
+                 <BtnSubmitRegister navigation={navigation} handleRegister={handleRegister} Fields={Fields} setErrors={setErrors} setAuth={setAuth} setVerify={setVerify} setUser={setUser}/>
                  <GoToLoginFromRegister navigation={navigation} />
              </BoxAuth>
          </GradientAuth>

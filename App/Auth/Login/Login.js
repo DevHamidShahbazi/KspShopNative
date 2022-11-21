@@ -8,8 +8,7 @@ import {
     handleLogin,
 } from './components/FunctionLogin';
 
-export default function Login ({navigation ,Route}) {
-
+export default function Login ({navigation ,route,setVerify,setAuth,setUser}) {
     const [Eye,setEye] = useState(false);
     const [Errors,setErrors] = useState('');
     const {Fields,handleChange} = UseSetFields({
@@ -22,7 +21,7 @@ export default function Login ({navigation ,Route}) {
              <BoxAuth title={'ورود'} Errors={Errors}>
                  <InputGroupAuth name={'username'} type={'default'} icon='mobile-alt' handleChange={handleChange} placeholder="شماره موبایل یا ایمیل خود را وارد کنید" />
                  <InputGroupPassAuth name={'password'} Eye={Eye} setEye={setEye} icon='lock' handleChange={handleChange} placeholder="رمز عبور خود را وارد کنید" />
-                 <BtnSubmitLogin handleLogin={handleLogin} Fields={Fields} setErrors={setErrors}/>
+                 <BtnSubmitLogin handleLogin={handleLogin} Fields={Fields} setErrors={setErrors} setVerify={setVerify} setAuth={setAuth} setUser={setUser}/>
                  <GoToForgetPasswordFromLogin navigation={navigation}/>
                  <GoToRegisterFromLogin navigation={navigation}/>
              </BoxAuth>

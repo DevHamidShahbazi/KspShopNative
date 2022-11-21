@@ -7,22 +7,41 @@ import Icon from 'react-native-vector-icons/dist/FontAwesome5';
 import GlobalStyles from '../../Global/components/Styles/GlobalStyles';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-export function ResponseData_Register_and_Login ({response,setErrors,navigation}) {
+
+export function CheckAuth (setAuth) {
+    AsyncStorage.getItem('Auth',(error, result) => {
+        JSON.parse(result) ? setAuth(true):setAuth(false)
+    })
+    return null;
+}
+export function CheckVerify (setVerify) {
+    AsyncStorage.getItem('verify',(error, result) => {
+        JSON.parse(result) ? setVerify(true):setVerify(false)
+    })
+    return null;
+}
+export function CheckUser (setUser) {
+    AsyncStorage.getItem('user',(error, result) => {
+        JSON.parse(result) == null ? setUser(null):setUser([JSON.parse(result)])
+    })
+    return null;
+}
+export function ResponseData_Register_and_Login (response,setErrors,navigation,setAuth,setVerify,setUser) {
     const {data} = response;
     if (data.status == 'success'){
         setErrors('')
-        AsyncStorage.setItem('Auth',true)
-        AsyncStorage.setItem('api_token',data.api_token)
-        AsyncStorage.setItem('user',{
-            'level':data.level,
-            'email':data.email,
-            'phone':data.phone,
-            'name':data.name,
-            'image':data.image,
-            'sizes_file':data.sizes_file,
-            'verify':data.verify,
-        })
-        navigation.navigate('Home')
+        AsyncStorage.setItem('Auth',JSON.stringify(true))
+        AsyncStorage.setItem('verify',data.user.verify == '1'? JSON.stringify(true):JSON.stringify(false))
+        AsyncStorage.setItem('api_token',data.user.api_token)
+        AsyncStorage.setItem('user',JSON.stringify(data.user))
+        setUser([data.user])
+        setAuth(true)
+        setVerify(data.user.verify == '1'?true:false)
+        if (data.user.verify == '1'){
+            navigation.navigate('Panel',{initial: false})
+        }else {
+            navigation.navigate('Verify',{initial: false})
+        }
     }else {
         setErrors(data.message);
     }

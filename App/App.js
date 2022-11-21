@@ -1,4 +1,4 @@
-import  React from 'react';
+import  React,{useState,useEffect} from 'react';
 import 'react-native-gesture-handler';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
@@ -9,15 +9,32 @@ import Basket from './Pages/Basket/Basket';
 import Chat from './Pages/Chat/Chat';
 import Panel from './Pages/Panel/Panel';
 import {TabScreenOptions} from './Global/components/Styles/GlobalStyles';
+import {CheckAuth, CheckVerify,CheckUser} from './Auth/components/FunctionAuth';
 // .axios.defaults.baseURL = 'https://ksp-shop.com/';
 axios.defaults.baseURL = 'http://192.168.100.15:8000/api/';
 
 export default App = () => {
+    const [Auth,setAuth] = useState(false);
+    const [Verify,setVerify] = useState(false);
+    const [User,setUser] = useState(null);
+    const [Setting,setSetting] = useState(null);
+    useEffect(()=>{
+        CheckAuth(setAuth)
+        CheckVerify(setVerify)
+        CheckUser(setUser)
+    },[]);
+    // console.log({
+    //     'Auth':Auth,
+    //     'Verify':Verify,
+    //     'User':User
+    // })
     const Tab = createBottomTabNavigator();
     return (
         <NavigationContainer>
             <Tab.Navigator initialRouteName="Home" screenOptions={{tabBarHideOnKeyboard: true}}>
-                <Tab.Screen  name="Panel" component={Panel} options={TabScreenOptions('پنل کاربری','account')}/>
+                <Tab.Screen name="Panel"  options={TabScreenOptions('پنل کاربری','account')}>
+                    {(props) => <Panel  {...props} Verify={Verify} setVerify={setVerify} Auth={Auth} setAuth={setAuth} setUser={setUser} User={User}/>}
+                </Tab.Screen>
                 <Tab.Screen name="Chat" component={Chat} options={TabScreenOptions('پیام رسان','chat')}/>
                 <Tab.Screen name="Basket" component={Basket} options={TabScreenOptions('سبد خرید','cart')}/>
                 <Tab.Screen name="Category" component={Category} options={TabScreenOptions('دسته بندی ها','view-dashboard')}/>
