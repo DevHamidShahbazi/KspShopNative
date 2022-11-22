@@ -2,12 +2,13 @@ import React from 'react';
 import {View, Text, TouchableOpacity} from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import GlobalStyles from '../../Global/components/Styles/GlobalStyles';
+import {LogOut} from '../../Auth/components/FunctionAuth';
 
 
 export default function Profile (props) {
-    const {User}=props;
+    const {User,setAuth,setVerify,setUser}=props;
     function setStorage() {
-        console.log('test')
+        LogOut(setAuth,setVerify,setUser)
     }
     return (
         <React.Fragment>
@@ -17,7 +18,7 @@ export default function Profile (props) {
                 </Text>
                 <TouchableOpacity onPress={() => setStorage()} activeOpacity={.7} style={[GlobalStyles.Btn_Royal,GlobalStyles.Shadow_lg,{marginTop:'5%'}]}>
                     <Text style={GlobalStyles.Text_Btn_Royal}>
-                        اجرا
+                        خروج
                     </Text>
                 </TouchableOpacity>
             </View>

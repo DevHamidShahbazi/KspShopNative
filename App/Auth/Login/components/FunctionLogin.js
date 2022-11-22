@@ -7,7 +7,7 @@ import LoginStyles from './LoginStyle';
 import {ResponseData_Register_and_Login} from '../../components/FunctionAuth';
 
 
-export function handleLogin (Fields,setErrors,navigation,setAuth,setVerify,setUser) {
+export function handleLogin (navigation ,Fields,setErrors,setAuth,setVerify,setUser) {
     axios.post('v_1_0/login', {
         username: Fields.username,
         password: Fields.password,
@@ -18,18 +18,6 @@ export function handleLogin (Fields,setErrors,navigation,setAuth,setVerify,setUs
         .catch(function (error) {
             console.log(error);
         });
-}
-
-export function BtnSubmitLogin (props) {
-    return (
-        <React.Fragment>
-            <TouchableOpacity onPress={() => props.handleLogin(props.Fields,props.setErrors,props.setAuth,props.setVerify,props.setUser)} activeOpacity={.7} style={[GlobalStyles.Btn_Royal,GlobalStyles.Shadow_lg,{marginTop:'5%'}]}>
-                <Text style={GlobalStyles.Text_Btn_Royal}>
-                    ورود
-                </Text>
-            </TouchableOpacity>
-        </React.Fragment>
-    );
 }
 
 export function GoToForgetPasswordFromLogin ({navigation}) {
@@ -53,4 +41,12 @@ export function GoToForgetPasswordFromLogin ({navigation}) {
              </TouchableOpacity>
          </React.Fragment>
      );
+ }
+
+ export function NavigationSetOptionsLogin (navigation) {
+     return (
+         navigation.setOptions({
+             headerShown: false
+         })
+     )
  }

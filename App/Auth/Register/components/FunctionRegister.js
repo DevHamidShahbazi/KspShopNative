@@ -24,19 +24,6 @@ export function handleRegister (Fields,setErrors,navigation,setAuth,setVerify,se
             console.log(error);
         });
 }
-export function BtnSubmitRegister (props) {
-    return (
-        <React.Fragment>
-            <TouchableOpacity onPress={() => props.handleRegister(props.Fields,props.setErrors,props.navigation,props.setAuth,props.setVerify,props.setUser)} activeOpacity={.7} style={[GlobalStyles.Btn_Royal,GlobalStyles.Shadow_lg,{marginTop:'5%'}]}>
-                <Text style={GlobalStyles.Text_Btn_Royal}>
-                    ثبت نام
-                </Text>
-            </TouchableOpacity>
-        </React.Fragment>
-    );
-}
-
-
 export function InputGroupPassConfirmAuth (props) {
     return (
         <React.Fragment>
@@ -67,4 +54,13 @@ export function GoToLoginFromRegister ({navigation}) {
             </TouchableOpacity>
         </React.Fragment>
     );
+}
+
+
+export function NavigationSetOptionsRegister (navigation) {
+    return (
+        navigation.setOptions({
+            headerShown: false
+        })
+    )
 }

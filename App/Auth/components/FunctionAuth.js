@@ -2,11 +2,41 @@ import React from 'react';
 import StylesAuth from './StylesAuth';
 import LinearGradient from "react-native-linear-gradient";
 import {Text, TextInput, TouchableOpacity, View} from 'react-native';
-import {Error} from '../../Global/components/Alerts/GlobalAlert';
+import {Error, Success} from '../../Global/components/Alerts/GlobalAlert';
 import Icon from 'react-native-vector-icons/dist/FontAwesome5';
 import GlobalStyles from '../../Global/components/Styles/GlobalStyles';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import axios from 'axios';
 
+
+export function CheckToken (setAuth,setVerify,setUser) {
+
+    AsyncStorage.getItem('api_token',(error, result) => {
+        if (result){
+            axios.post('v_1_0/auth', {},{
+                headers:{
+                    'api_token':result
+                }
+            })
+                .then(function (response) {
+                    const {data} =response;
+                    if (data.status == 'success'){
+                        CheckAuth(setAuth)
+                        CheckVerify(setVerify)
+                        CheckUser(setUser)
+                    }else {
+                        LogOut(setAuth,setVerify,setUser)
+                    }
+                })
+                .catch(function (error) {
+                    console.log(error);
+                });
+        }else {
+            LogOut(setAuth,setVerify,setUser)
+        }
+    })
+    return null;
+}
 
 export function CheckAuth (setAuth) {
     AsyncStorage.getItem('Auth',(error, result) => {
@@ -24,6 +54,16 @@ export function CheckUser (setUser) {
     AsyncStorage.getItem('user',(error, result) => {
         JSON.parse(result) == null ? setUser(null):setUser([JSON.parse(result)])
     })
+    return null;
+}
+
+export function LogOut (setAuth,setVerify,setUser) {
+    AsyncStorage.removeItem('Auth')
+    AsyncStorage.removeItem('verify')
+    AsyncStorage.removeItem('user')
+    setAuth(false)
+    setVerify(false)
+    setUser(null)
     return null;
 }
 export function ResponseData_Register_and_Login (response,setErrors,navigation,setAuth,setVerify,setUser) {
@@ -61,6 +101,9 @@ export function BoxAuth (props) {
             <View style={[StylesAuth.Box,GlobalStyles.Shadow_lg]}>
                 <Text style={StylesAuth.Header_box}>{props.title}</Text>
                 <Error message={props.Errors}/>
+                {
+                    props.Successes != undefined ? <Success message={props.Successes}/>:null
+                }
                 <View style={StylesAuth.Body_box}>
                     {props.children }
                 </View>

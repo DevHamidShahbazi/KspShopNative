@@ -9,7 +9,7 @@ import Basket from './Pages/Basket/Basket';
 import Chat from './Pages/Chat/Chat';
 import Panel from './Pages/Panel/Panel';
 import {TabScreenOptions} from './Global/components/Styles/GlobalStyles';
-import {CheckAuth, CheckVerify,CheckUser} from './Auth/components/FunctionAuth';
+import {CheckToken} from './Auth/components/FunctionAuth';
 // .axios.defaults.baseURL = 'https://ksp-shop.com/';
 axios.defaults.baseURL = 'http://192.168.100.15:8000/api/';
 
@@ -19,9 +19,7 @@ export default App = () => {
     const [User,setUser] = useState(null);
     const [Setting,setSetting] = useState(null);
     useEffect(()=>{
-        CheckAuth(setAuth)
-        CheckVerify(setVerify)
-        CheckUser(setUser)
+        CheckToken(setAuth,setVerify,setUser)
     },[]);
     // console.log({
     //     'Auth':Auth,

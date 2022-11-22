@@ -6,13 +6,7 @@ import Register from '../../Auth/Register/Register';
 import Login from '../../Auth/Login/Login';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import Profile from './Profile';
-import {Text} from 'react-native';
 import VerifyView  from '../../Auth/Verify/Verify';
-import MiddlewareNotAuth from '../../Global/components/middleware/MiddlewareNotAuth';
-import MiddlewareAuth from '../../Global/components/middleware/MiddlewareAuth';
-import MiddlewareVerify from '../../Global/components/middleware/MiddlewareVerify';
-import MiddlewareNotVerify from '../../Global/components/middleware/MiddlewareNotVerify';
-
 const PanelStack = createStackNavigator();
 export default function Panel ({navigation ,route,Auth,setAuth,Verify,setVerify,setUser,User}) {
     useEffect(()=>{
@@ -22,10 +16,10 @@ export default function Panel ({navigation ,route,Auth,setAuth,Verify,setVerify,
     // AsyncStorage.getAllKeys((error, result) => console.log(result))
     //
     // AsyncStorage.multiGet(['Auth', 'verify', 'api_token', 'user',],(errors, result) => {
-    // console.log(JSON.parse(result[3][1] ))
+    // // console.log(JSON.parse(result[3][1] ))
     //     console.log(result)
     // })
-
+    //
     // console.log({
     //     'Auth':Auth,
     //     'Verify':Verify,
@@ -35,10 +29,10 @@ export default function Panel ({navigation ,route,Auth,setAuth,Verify,setVerify,
         <React.Fragment>
             <PanelStack.Navigator>
                 {
-                    Auth && Verify ?
+                    Auth==true && Verify==true ?
                         <React.Fragment>
                             <PanelStack.Screen name="Profile"  >
-                                {(props) => <Profile  {...props} Auth={Auth} setAuth={setAuth} User={User}/>}
+                                {(props) => <Profile  {...props} Auth={Auth} User={User} setAuth={setAuth} setVerify={setVerify} setUser={setUser}/>}
                             </PanelStack.Screen>
                         </React.Fragment>:null
                 }
@@ -54,7 +48,7 @@ export default function Panel ({navigation ,route,Auth,setAuth,Verify,setVerify,
                         </React.Fragment>:null
                 }
                 {
-                    Auth && !Verify ?
+                    Auth==true && Verify==false ?
                         <React.Fragment>
                             <PanelStack.Screen name="Verify">
                                 {(props) => <VerifyView  {...props} Auth={Auth} setAuth={setAuth} setVerify={setVerify} />}

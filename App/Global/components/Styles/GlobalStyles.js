@@ -11,6 +11,27 @@ export default StylesGlobal = StyleSheet.create({
         padding: 10,
         backgroundColor : '#213854',
     },
+    Btn_Primary:{
+        display : 'flex',
+        justifyContent:'center',
+        alignItems:'center',
+        width:"100%",
+        borderRadius: 20,
+        padding: 5,
+        backgroundColor : '#1976D2',
+    },
+    Text_Btn_dark : {
+        color : 'black',
+        fontFamily:"Vazir",
+        fontSize:17,
+        textAlign:'center'
+    },
+    Text_Btn_white : {
+        color : 'white',
+        fontFamily:"Vazir",
+        fontSize:17,
+        textAlign:'center'
+    },
     Text_Btn_Royal : {
         color : 'white',
         fontFamily:"Vazir",
