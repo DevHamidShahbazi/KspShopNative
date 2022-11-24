@@ -1,4 +1,4 @@
-import  React,{useState,useEffect} from 'react';
+import  React,{useState,useEffect,useContext} from 'react';
 import 'react-native-gesture-handler';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
@@ -10,6 +10,7 @@ import Chat from './Pages/Chat/Chat';
 import Panel from './Pages/Panel/Panel';
 import {TabScreenOptions} from './Global/components/Styles/GlobalStyles';
 import {CheckToken} from './Auth/components/FunctionAuth';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 // .axios.defaults.baseURL = 'https://ksp-shop.com/';
 axios.defaults.baseURL = 'http://192.168.100.15:8000/api/';
 

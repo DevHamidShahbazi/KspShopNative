@@ -1,7 +1,18 @@
 import React from 'react';
 import axios from 'axios';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import {CheckAuth, CheckUser, CheckVerify, LogOut} from '../../components/FunctionAuth';
+import {Text} from 'react-native';
+
+
+export function TimerView ({Timer}) {
+    return (
+        <React.Fragment>
+            <Text style={{display:Timer <= 0?'none':'flex',textAlign:'center',marginTop:'2%',fontFamily:'Vazir',fontSize:15,color:'#21252985'}}>
+                ارسال دوباره پیامک تا {Timer} ثانیه دیگر مجاز است
+            </Text>
+        </React.Fragment>
+    );
+}
 
 export function handleVerify (navigation,Fields,setVerify,setErrors,setSuccesses) {
 
@@ -17,7 +28,6 @@ export function handleVerify (navigation,Fields,setVerify,setErrors,setSuccesses
                 .then(function (response) {
                     const {data} = response;
                     if (data.status == 'success'){
-                        console.log('success')
                         AsyncStorage.setItem('Verify',JSON.stringify(true))
                         setErrors('')
                         setVerify(true)
@@ -39,7 +49,7 @@ export function handleVerify (navigation,Fields,setVerify,setErrors,setSuccesses
 
 }
 
-export function handleAgainVerify (navigation,setErrors,setSuccesses) {
+export function handleAgainVerify (navigation,setErrors,setSuccesses,setTimer) {
 
     AsyncStorage.getItem('api_token',(error, result) => {
         if (result){
@@ -52,6 +62,7 @@ export function handleAgainVerify (navigation,setErrors,setSuccesses) {
                     const {data} = response;
                     if (data.status == 'success'){
                         setErrors('')
+                        setTimer(50)
                         setSuccesses('کد برای شما پیامک شد')
                     }else {
                         setSuccesses('')
@@ -74,4 +85,33 @@ export function NavigationSetOptionsVerify (navigation) {
             headerShown: false
         })
     )
+}
+
+export function SendCodeWithViewVerify (setSuccesses,setTimer,setErrors) {
+        AsyncStorage.getItem('user',(error, user) => {
+            if (user){
+                axios.post('v_1_0/verify-show', {
+                    phone:JSON.parse(user).phone
+                },{
+                    headers:{
+                        api_token:JSON.parse(user).api_token
+                    }
+                })
+                    .then(function (response) {
+                        const {data} =response
+                        if (data.status == 'success'){
+                            setErrors('')
+                            setTimer(50)
+                            setSuccesses('کد برای شما پیامک شد')
+                        }else {
+                        }
+                    })
+                    .catch(function (error) {
+                        console.log(error);
+                    });
+            }else {
+                return null;
+            }
+        })
+    return null;
 }

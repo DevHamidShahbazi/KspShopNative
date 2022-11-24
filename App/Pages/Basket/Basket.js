@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect,useContext} from 'react';
 import {StyleSheet, Text, View,TouchableOpacity} from 'react-native';
 import LinearGradient from "react-native-linear-gradient";
 
@@ -43,7 +43,7 @@ export default function Basket ({navigation ,Route}) {
                     <Text style={StylesBasket.text}>
                         سبدخرید
                     </Text>
-                    <TouchableOpacity onPress={() => navigation.navigate('Panel',{screen:'Register'})}>
+                    <TouchableOpacity onPress={() => navigation.navigate('Panel',{screen:'Login'})}>
                     {/*<TouchableOpacity onPress={() => console.log('test')} >*/}
                         <Text>
                             ورود

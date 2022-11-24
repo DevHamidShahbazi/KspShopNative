@@ -7,6 +7,8 @@ import Login from '../../Auth/Login/Login';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import Profile from './Profile';
 import VerifyView  from '../../Auth/Verify/Verify';
+import ForgetPassword from '../../Auth/ForgetPassword/ForgetPassword';
+import VerifyForgetPassword from '../../Auth/VerifyForgetPassword/VerifyForgetPassword';
 const PanelStack = createStackNavigator();
 export default function Panel ({navigation ,route,Auth,setAuth,Verify,setVerify,setUser,User}) {
     useEffect(()=>{
@@ -44,6 +46,12 @@ export default function Panel ({navigation ,route,Auth,setAuth,Verify,setVerify,
                             </PanelStack.Screen>
                             <PanelStack.Screen name="Login">
                                 {(props) => <Login  {...props} Auth={Auth} setAuth={setAuth} setVerify={setVerify} setUser={setUser}/>}
+                            </PanelStack.Screen>
+                            <PanelStack.Screen name="ForgetPassword">
+                                {(props) => <ForgetPassword  {...props} Auth={Auth} setAuth={setAuth} setVerify={setVerify} setUser={setUser} User={User}/>}
+                            </PanelStack.Screen>
+                            <PanelStack.Screen name="VerifyForgetPassword">
+                                {(props) => <VerifyForgetPassword  {...props} Auth={Auth} setAuth={setAuth} setVerify={setVerify}/>}
                             </PanelStack.Screen>
                         </React.Fragment>:null
                 }

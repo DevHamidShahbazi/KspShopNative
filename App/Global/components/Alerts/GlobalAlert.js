@@ -33,7 +33,7 @@ export function Error (props) {
         const list =
             Object.keys(props.message).map((error, index) => (
                 <Text  key={index} style={StylesError.TextError}>
-                    {index+1}.{" "+props.message[error][0]}
+                    {" "+props.message[error][0]}
                 </Text>
             ));
         return (
