@@ -1,8 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import AsyncStorage from '@react-native-async-storage/async-storage';
-
-export default function handleForgetPassword (navigation ,Fields,setErrors,setSuccesses) {
+export default function handleForgetPassword (navigation ,Fields,setErrors) {
     axios.post('v_1_0/forget-password', {
         username: Fields.username,
     })
@@ -10,14 +8,12 @@ export default function handleForgetPassword (navigation ,Fields,setErrors,setSu
             const {data} = response;
             if (data.status == 'success'){
                 setErrors('')
-                if (data.type == 'phone'){
-                    setSuccesses(data.message)
-                    // navigation.navigate('Panel',{screen:'VerifyForgetPassword'})
-                }else {
-                    setSuccesses(data.message)
-                }
+                navigation.navigate('Panel',
+                    {
+                        screen:'VerifyForgetPassword',
+                        params:{UserName:Fields.username}
+                    })
             }else {
-                setSuccesses('');
                 setErrors(data.message);
             }
         })

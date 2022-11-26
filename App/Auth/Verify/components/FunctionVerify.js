@@ -1,20 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import {Text} from 'react-native';
-
-
-export function TimerView ({Timer}) {
-    return (
-        <React.Fragment>
-            <Text style={{display:Timer <= 0?'none':'flex',textAlign:'center',marginTop:'2%',fontFamily:'Vazir',fontSize:15,color:'#21252985'}}>
-                ارسال دوباره پیامک تا {Timer} ثانیه دیگر مجاز است
-            </Text>
-        </React.Fragment>
-    );
-}
-
-export function handleVerify (navigation,Fields,setVerify,setErrors,setSuccesses) {
+export function handleVerify (navigation,Fields,setErrors,setSuccesses) {
 
     AsyncStorage.getItem('api_token',(error, result) => {
         if (result){
@@ -28,9 +15,7 @@ export function handleVerify (navigation,Fields,setVerify,setErrors,setSuccesses
                 .then(function (response) {
                     const {data} = response;
                     if (data.status == 'success'){
-                        AsyncStorage.setItem('Verify',JSON.stringify(true))
                         setErrors('')
-                        setVerify(true)
                         navigation.navigate('Panel',{screen:'Profile'})
                     }else {
                         setSuccesses('')

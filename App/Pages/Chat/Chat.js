@@ -3,8 +3,7 @@ import {StyleSheet, Text, View} from 'react-native';
 import LinearGradient from "react-native-linear-gradient";
 import {NavigationContainer} from '@react-navigation/native';
 
-export default function Chat ({navigation ,Route}) {
-
+export default function Chat ({navigation,route}) {
     useEffect(()=>{
 
         navigation.setOptions({

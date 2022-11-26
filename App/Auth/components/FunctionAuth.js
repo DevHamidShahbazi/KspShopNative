@@ -9,7 +9,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import axios from 'axios';
 
 
-export function CheckToken (setAuth,setVerify,setUser) {
+export function CheckToken (setAuth,setUser) {
 
     AsyncStorage.getItem('api_token',(error, result) => {
         if (result){
@@ -22,17 +22,16 @@ export function CheckToken (setAuth,setVerify,setUser) {
                     const {data} =response;
                     if (data.status == 'success'){
                         CheckAuth(setAuth)
-                        CheckVerify(setVerify)
                         CheckUser(setUser)
                     }else {
-                        LogOut(setAuth,setVerify,setUser)
+                        LogOut(setAuth,setUser)
                     }
                 })
                 .catch(function (error) {
                     console.log(error);
                 });
         }else {
-            LogOut(setAuth,setVerify,setUser)
+            LogOut(setAuth,setUser)
         }
     })
     return null;
@@ -44,12 +43,6 @@ export function CheckAuth (setAuth) {
     })
     return null;
 }
-export function CheckVerify (setVerify) {
-    AsyncStorage.getItem('verify',(error, result) => {
-        JSON.parse(result) ? setVerify(true):setVerify(false)
-    })
-    return null;
-}
 export function CheckUser (setUser) {
     AsyncStorage.getItem('user',(error, result) => {
         JSON.parse(result) == null ? setUser(null):setUser([JSON.parse(result)])
@@ -57,31 +50,27 @@ export function CheckUser (setUser) {
     return null;
 }
 
-export function LogOut (setAuth,setVerify,setUser) {
+export function LogOut (setAuth,setUser) {
     AsyncStorage.removeItem('Auth')
-    AsyncStorage.removeItem('verify')
     AsyncStorage.removeItem('user')
     setAuth(false)
-    setVerify(false)
     setUser(null)
     return null;
 }
-export function ResponseData_Register_and_Login (response,setErrors,navigation,setAuth,setVerify,setUser) {
+export function ResponseData_Register_and_Login (response,setErrors,navigation,setAuth,setUser) {
     const {data} = response;
     if (data.status == 'success'){
         setErrors('')
         AsyncStorage.setItem('Auth',JSON.stringify(true))
-        AsyncStorage.setItem('verify',data.user.verify == '1'? JSON.stringify(true):JSON.stringify(false))
         AsyncStorage.setItem('api_token',data.user.api_token)
-        AsyncStorage.setItem('user',JSON.stringify(data.user))
+        AsyncStorage.setItem('user',JSON.stringify(data.user[0]))
         setUser([data.user])
         setAuth(true)
-        setVerify(data.user.verify == '1'?true:false)
-        if (data.user.verify == '1'){
+        // if (data.user.verify == '1'){
             navigation.navigate('Panel',{initial: false})
-        }else {
-            navigation.navigate('Verify',{initial: false})
-        }
+        // }else {
+        //     navigation.navigate('Verify',{initial: false})
+        // }
     }else {
         setErrors(data.message);
     }
@@ -145,6 +134,17 @@ export function InputGroupPassAuth (props) {
                     <Icon name={props.Eye?'eye':'eye-slash'} size={15} color="rgba(0,0,0,0.70)" />
                 </TouchableOpacity>
             </View>
+        </React.Fragment>
+    );
+}
+
+
+export function TimerView ({Timer}) {
+    return (
+        <React.Fragment>
+            <Text style={{display:Timer <= 0?'none':'flex',textAlign:'center',marginTop:'2%',fontFamily:'Vazir',fontSize:15,color:'#21252985'}}>
+                ارسال دوباره پیامک تا {Timer} ثانیه دیگر مجاز است
+            </Text>
         </React.Fragment>
     );
 }
