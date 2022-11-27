@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-export function handleVerify (navigation,Fields,setErrors,setSuccesses) {
+export function handleVerify (navigation,Fields,setErrors,setSuccesses,setUser,setAuth) {
 
     AsyncStorage.getItem('api_token',(error, result) => {
         if (result){
@@ -16,6 +16,8 @@ export function handleVerify (navigation,Fields,setErrors,setSuccesses) {
                     const {data} = response;
                     if (data.status == 'success'){
                         setErrors('')
+                        setUser(data.user)
+                        setAuth(true)
                         navigation.navigate('Panel',{screen:'Profile'})
                     }else {
                         setSuccesses('')

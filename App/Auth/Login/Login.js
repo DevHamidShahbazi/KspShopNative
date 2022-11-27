@@ -1,10 +1,13 @@
-import React, {useState,useEffect} from 'react';
+import React, {useState,useEffect,useContext} from 'react';
 import {BoxAuth, GradientAuth, InputGroupAuth, InputGroupPassAuth} from '../components/FunctionAuth';
 import {UseSetFields} from '../../Global/components/Hooks/CustomHooks';
 import {GoToForgetPasswordFromLogin, GoToRegisterFromLogin, handleLogin, NavigationSetOptionsLogin,} from './components/FunctionLogin';
 import GlobalStyles from '../../Global/components/Styles/GlobalStyles';
 import {Text, TouchableOpacity} from 'react-native';
-export default function Login ({navigation ,route,setAuth,setUser}) {
+import {AuthContext, UserContext} from '../../Global/components/Context/CustomContext';
+export default function Login ({navigation ,route}) {
+    const {User,setUser} = useContext(UserContext)
+    const {Auth,setAuth} = useContext(AuthContext)
     const [Eye,setEye] = useState(false);
     const [Errors,setErrors] = useState('');
     const {Fields,handleChange} = UseSetFields({
@@ -23,7 +26,7 @@ export default function Login ({navigation ,route,setAuth,setUser}) {
                      <Text style={GlobalStyles.Text_Btn_Royal}>ورود</Text>
                  </TouchableOpacity>
                  <GoToForgetPasswordFromLogin navigation={navigation}/>
-                 <GoToRegisterFromLogin navigation={navigation}/>
+                 <GoToRegisterFromLogin navigation={navigation} setErrors={setErrors}/>
              </BoxAuth>
          </GradientAuth>
      );

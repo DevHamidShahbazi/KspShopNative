@@ -1,8 +1,10 @@
-import React from 'react';
-export default function MiddlewareNotVerify (props) {
-    const {Verify,children} = props;
-    if (Verify != null){
-        if (!Verify){
+import React,{useContext} from 'react';
+import LoadingScreen from '../../../Pages/Loading/LoadingScreen';
+import {UserContext} from '../Context/CustomContext';
+export default function MiddlewareNotVerify ({children}) {
+    const {User,setUser} = useContext(UserContext);
+    if (User != null){
+        if (User.verify == '0'){
             return (
                 <React.Fragment>
                     {children}
@@ -15,5 +17,7 @@ export default function MiddlewareNotVerify (props) {
                 </React.Fragment>
             )
         }
+    }else {
+        <LoadingScreen/>
     }
 }

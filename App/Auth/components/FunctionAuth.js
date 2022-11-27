@@ -21,6 +21,8 @@ export function CheckToken (setAuth,setUser) {
                 .then(function (response) {
                     const {data} =response;
                     if (data.status == 'success'){
+                        AsyncStorage.removeItem('user')
+                        AsyncStorage.setItem('user',JSON.stringify(data.user))
                         CheckAuth(setAuth)
                         CheckUser(setUser)
                     }else {
@@ -45,7 +47,7 @@ export function CheckAuth (setAuth) {
 }
 export function CheckUser (setUser) {
     AsyncStorage.getItem('user',(error, result) => {
-        JSON.parse(result) == null ? setUser(null):setUser([JSON.parse(result)])
+        JSON.parse(result) == null ? setUser(null):setUser(JSON.parse(result))
     })
     return null;
 }
@@ -53,6 +55,7 @@ export function CheckUser (setUser) {
 export function LogOut (setAuth,setUser) {
     AsyncStorage.removeItem('Auth')
     AsyncStorage.removeItem('user')
+    AsyncStorage.removeItem('api_token')
     setAuth(false)
     setUser(null)
     return null;
@@ -63,14 +66,10 @@ export function ResponseData_Register_and_Login (response,setErrors,navigation,s
         setErrors('')
         AsyncStorage.setItem('Auth',JSON.stringify(true))
         AsyncStorage.setItem('api_token',data.user.api_token)
-        AsyncStorage.setItem('user',JSON.stringify(data.user[0]))
-        setUser([data.user])
+        AsyncStorage.setItem('user',JSON.stringify(data.user))
+        setUser(data.user)
         setAuth(true)
-        // if (data.user.verify == '1'){
-            navigation.navigate('Panel',{initial: false})
-        // }else {
-        //     navigation.navigate('Verify',{initial: false})
-        // }
+        navigation.navigate('Panel',{initial: false})
     }else {
         setErrors(data.message);
     }

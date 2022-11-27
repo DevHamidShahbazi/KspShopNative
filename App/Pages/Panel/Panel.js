@@ -1,73 +1,51 @@
 import React,{useEffect,useState,useContext} from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import 'react-native-gesture-handler';
-import StylesPanel,{NavigationSetOptionsPanel} from './components/PanelStyles';
+import {NavigationSetOptionsPanel} from './components/PanelStyles';
 import Register from '../../Auth/Register/Register';
 import Login from '../../Auth/Login/Login';
-import AsyncStorage from '@react-native-async-storage/async-storage';
 import Profile from './Profile';
 import VerifyScreen  from '../../Auth/Verify/Verify';
 import ForgetPassword from '../../Auth/ForgetPassword/ForgetPassword';
 import VerifyForgetPassword from '../../Auth/VerifyForgetPassword/VerifyForgetPassword';
-import LoadingScreen from '../Loading/LoadingScreen';
-import {AuthContext} from '../../Global/components/Context/CustomContext';
+import MiddlewareAuth from '../../Global/components/middleware/MiddlewareAuth';
+import MiddlewareNotAuth from '../../Global/components/middleware/MiddlewareNotAuth';
+import MiddlewareVerifyShow from '../../Global/components/middleware/MiddlewareVerifyShow';
+import MiddlewareVerify from '../../Global/components/middleware/MiddlewareVerify';
 const PanelStack = createStackNavigator();
 export default function Panel ({navigation ,route}) {
-    const Auth = useContext(AuthContext);
-    // console.log(Auth);
     useEffect(()=>{
         NavigationSetOptionsPanel(navigation)
     },[]);
-    // AsyncStorage.clear();
-    // AsyncStorage.getAllKeys((error, result) => console.log(result))
-    // AsyncStorage.multiGet(['Auth', 'api_token', 'user',],(errors, result) => {
-    // // console.log(JSON.parse(result[3][1] ))
-    //     console.log(result)
-    // })
-    // console.log({
-    //     'Auth':Auth,
-    //     'User':User,
-    // })
     return (
         <React.Fragment>
-            <PanelStack.Navigator>
-                <PanelStack.Screen name="Profile" component={Profile}/>
-            </PanelStack.Navigator>
+
+            <MiddlewareAuth>
+                <MiddlewareVerify>
+                    <PanelStack.Navigator>
+                        <PanelStack.Screen name="Profile" component={Profile}/>
+                    </PanelStack.Navigator>
+                </MiddlewareVerify>
+            </MiddlewareAuth>
+
+            <MiddlewareNotAuth>
+                <PanelStack.Navigator>
+                    <PanelStack.Screen name="Register" component={Register} />
+                    <PanelStack.Screen name="Login" component={Login}/>
+                    <PanelStack.Screen name="ForgetPassword" component={ForgetPassword} />
+                    <PanelStack.Screen name="VerifyForgetPassword" component={VerifyForgetPassword}/>
+                </PanelStack.Navigator>
+            </MiddlewareNotAuth>
+
+            <MiddlewareAuth>
+                <MiddlewareVerifyShow>
+                    <PanelStack.Navigator>
+                        <PanelStack.Screen name="Verify" component={VerifyScreen}/>
+                    </PanelStack.Navigator>
+                </MiddlewareVerifyShow>
+            </MiddlewareAuth>
+
         </React.Fragment>
     );
 }
-
-
-
-//
-// {
-//     Auth==true && User != null  ?
-//         <>
-//             <PanelStack.Screen name="Profile" component={Profile} initialParams={{Auth:Auth}} />
-//         </>:
-//         <React.Fragment>
-//             <PanelStack.Screen name="LoadingProfile" component={LoadingScreen} initialParams={{Auth:Auth,User:User}} />
-//         </React.Fragment>
-// }
-//
-// {
-//     Auth==false && User == null ?
-//         <>
-//             <PanelStack.Screen name="Register" component={Register} initailParams={{Auth:Auth,setUser:setUser,setAuth:setAuth}}/>
-//             <PanelStack.Screen name="Login" component={Login} initailParams={{Auth:Auth,setUser:setUser,setAuth:setAuth}}/>
-//             <PanelStack.Screen name="ForgetPassword" component={ForgetPassword} initailParams={{Auth:Auth,setUser:setUser,setAuth:setAuth,User:User}}/>
-//             <PanelStack.Screen name="VerifyForgetPassword" component={VerifyForgetPassword} initailParams={{Auth:Auth,setUser:setUser,setAuth:setAuth}}/>
-//         </>:
-//         <React.Fragment>
-//             <PanelStack.Screen name="LoadingAuth" component={LoadingScreen} initialParams={{Auth:Auth,User:User}} />
-//         </React.Fragment>
-// }
-// {
-//     User != null && (User[0].email == null || User[0].verify == '0') ?
-//         <>
-//             <PanelStack.Screen name="Verify" component={VerifyScreen} initailParams={{setAuth:setAuth,setUser:setUser}}/>
-//         </>:
-//         <React.Fragment>
-//             <PanelStack.Screen name="LoadingVerify" component={LoadingScreen} initialParams={{Auth:Auth,User:User}} />
-//         </React.Fragment>
-// }

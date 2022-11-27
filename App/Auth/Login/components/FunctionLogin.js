@@ -29,10 +29,10 @@ export function GoToForgetPasswordFromLogin ({navigation}) {
         </React.Fragment>
     );
 }
- export function GoToRegisterFromLogin ({navigation}) {
+ export function GoToRegisterFromLogin ({navigation,setErrors}) {
      return (
          <React.Fragment>
-             <TouchableOpacity activeOpacity={.4} onPress={() => navigation.navigate('Register')}>
+             <TouchableOpacity activeOpacity={.4} onPress={() => {setErrors(''),navigation.navigate('Register')}}>
                  <Text style={LoginStyles.Text_Go_To_Register}>
                      هنوز ثبت نام نکردم !!
                  </Text>

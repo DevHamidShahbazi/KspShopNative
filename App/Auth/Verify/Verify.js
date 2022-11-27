@@ -1,4 +1,4 @@
-import React,{useState,useEffect} from 'react';
+import React, {useState, useEffect, useContext} from 'react';
 import { Text, TouchableOpacity,View} from 'react-native';
 import {BoxAuth, GradientAuth, InputGroupAuth, TimerView} from '../components/FunctionAuth';
 import {UseSetFields} from '../../Global/components/Hooks/CustomHooks';
@@ -9,8 +9,11 @@ import {
     SendCodeWithViewVerify,
 } from './components/FunctionVerify';
 import GlobalStyles from '../../Global/components/Styles/GlobalStyles';
+import {AuthContext, UserContext} from '../../Global/components/Context/CustomContext';
 
 export default function VerifyScreen ({navigation}) {
+    const {User,setUser} = useContext(UserContext)
+    const {Auth,setAuth} = useContext(AuthContext)
     const [Errors,setErrors] = useState('');
     const [Timer,setTimer] = useState(0);
     const [Successes,setSuccesses] = useState('');
@@ -27,7 +30,7 @@ export default function VerifyScreen ({navigation}) {
             <GradientAuth>
                 <BoxAuth title={'کد ارسال شده را وارد کنید'} Errors={Errors} Successes={Successes}>
                     <InputGroupAuth  name={'code'} type={'numeric'} icon='mobile-alt' handleChange={handleChange} placeholder="کد ارسال شده را وارد کنید" />
-                    <TouchableOpacity onPress={() => handleVerify(navigation,Fields,setErrors,setSuccesses)} activeOpacity={.7} style={[GlobalStyles.Btn_Royal,GlobalStyles.Shadow_lg,{marginTop:'5%'}]}>
+                    <TouchableOpacity onPress={() => handleVerify(navigation,Fields,setErrors,setSuccesses,setUser,setAuth)} activeOpacity={.7} style={[GlobalStyles.Btn_Royal,GlobalStyles.Shadow_lg,{marginTop:'5%'}]}>
                         <Text style={GlobalStyles.Text_Btn_Royal}>
                             تایید
                         </Text>

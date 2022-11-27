@@ -1,11 +1,10 @@
-import React,{createContext,useState} from 'react';
-
-
-const AuthContext = createContext(false);
-const UserContext = createContext(null);
-const NameContext = createContext({
-    name:'Hamid',
-    setName:(value) => {console.log(value)},
+import React,{createContext} from 'react';
+const AuthContext = createContext({
+    Auth:null,
+    setAuth:() => {}
 });
-
-export {AuthContext,UserContext,NameContext}
+const UserContext = createContext({
+    User:null,
+    setUser:() => {}
+});
+export {AuthContext,UserContext}

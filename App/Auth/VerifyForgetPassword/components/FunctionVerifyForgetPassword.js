@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import {Button} from 'react-native'
 
 export function handleVerifyForgetPassword (navigation,Fields,setErrors,setSuccesses,UserName,setAuth,setUser) {
     axios.post('v_1_0/verify/forget-password', {
@@ -15,7 +16,7 @@ export function handleVerifyForgetPassword (navigation,Fields,setErrors,setSucce
                 AsyncStorage.setItem('api_token',data.user.api_token)
                 AsyncStorage.setItem('user',JSON.stringify(data.user))
                 setAuth(true)
-                setUser([data.user])
+                setUser(data.user)
                 navigation.navigate('Panel')
             }else {
                 setSuccesses('')
@@ -46,4 +47,18 @@ export function handleAgainVerifyForgetPassword (navigation,setErrors,setSuccess
             console.log(error);
         });
     return null
+}
+
+export function NavigationSetOptionsForgetPassword (navigation) {
+    return (
+        navigation.setOptions({
+            headerTitle:'رمز عبور را فراموش کردم',
+            headerTitleStyle: {
+                fontFamily:'Vazir',
+            },
+            headerStyle: {
+                backgroundColor: '#eee',
+            },
+        })
+    )
 }

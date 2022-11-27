@@ -1,9 +1,11 @@
-import React from 'react';
+import React,{useContext} from 'react';
+import LoadingScreen from '../../../Pages/Loading/LoadingScreen';
+import {AuthContext} from '../Context/CustomContext';
 
-export default function MiddlewareNotAuth (props) {
-    const {Auth,children} = props;
+export default function MiddlewareNotAuth ({children}) {
+    const {Auth,setAuth} = useContext(AuthContext);
     if (Auth != null){
-        if (!Auth){
+        if (Auth==false){
             return (
                 <React.Fragment>
                     {children}
@@ -16,5 +18,7 @@ export default function MiddlewareNotAuth (props) {
                 </React.Fragment>
             )
         }
+    }else {
+        <LoadingScreen/>
     }
 }

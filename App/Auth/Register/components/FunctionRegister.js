@@ -1,14 +1,11 @@
 import React from 'react';
 import axios from 'axios';
-import AsyncStorage from '@react-native-async-storage/async-storage';
-
 import {Text, TextInput, TouchableOpacity, View} from 'react-native';
 import StylesAuth from '../../components/StylesAuth';
 import Icon from 'react-native-vector-icons/dist/FontAwesome5';
-import GlobalStyles from '../../../Global/components/Styles/GlobalStyles';
 import RegisterStyles from './RegisterStyles';
 
-import {BoxAuth, ResponseData_Register_and_Login} from '../../components/FunctionAuth';
+import {ResponseData_Register_and_Login} from '../../components/FunctionAuth';
 
 export function handleRegister (Fields,setErrors,navigation,setAuth,setUser) {
     axios.post('v_1_0/register', {
@@ -44,10 +41,10 @@ export function InputGroupPassConfirmAuth (props) {
 
 
 
-export function GoToLoginFromRegister ({navigation}) {
+export function GoToLoginFromRegister ({navigation,setErrors}) {
     return (
         <React.Fragment>
-            <TouchableOpacity activeOpacity={.4} onPress={() => navigation.navigate('Login')}>
+            <TouchableOpacity activeOpacity={.4} onPress={() => {setErrors('');navigation.navigate('Login')}}>
                 <Text style={RegisterStyles.Text_before_Register}>
                     قبلا ثبت نام کرده ام!!
                 </Text>
