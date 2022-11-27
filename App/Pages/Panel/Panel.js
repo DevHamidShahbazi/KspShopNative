@@ -5,7 +5,6 @@ import 'react-native-gesture-handler';
 import {NavigationSetOptionsPanel} from './components/PanelStyles';
 import Register from '../../Auth/Register/Register';
 import Login from '../../Auth/Login/Login';
-import Profile from './Profile';
 import VerifyScreen  from '../../Auth/Verify/Verify';
 import ForgetPassword from '../../Auth/ForgetPassword/ForgetPassword';
 import VerifyForgetPassword from '../../Auth/VerifyForgetPassword/VerifyForgetPassword';
@@ -13,6 +12,7 @@ import MiddlewareAuth from '../../Global/components/middleware/MiddlewareAuth';
 import MiddlewareNotAuth from '../../Global/components/middleware/MiddlewareNotAuth';
 import MiddlewareVerifyShow from '../../Global/components/middleware/MiddlewareVerifyShow';
 import MiddlewareVerify from '../../Global/components/middleware/MiddlewareVerify';
+import Profile from '../Profile/Profile';
 const PanelStack = createStackNavigator();
 export default function Panel ({navigation ,route}) {
     useEffect(()=>{

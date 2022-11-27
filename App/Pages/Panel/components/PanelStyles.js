@@ -26,6 +26,7 @@ export function NavigationSetOptionsPanel (navigation) {
             title:'پنل کاربری',
             headerStyle: {
                 backgroundColor: '#eee',
+                elevation:0,
             },
             headerTitleAlign: 'center',
             headerTintColor: '#000',
