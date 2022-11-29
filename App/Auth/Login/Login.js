@@ -1,10 +1,10 @@
 import React, {useState,useEffect,useContext} from 'react';
 import {BoxAuth, GradientAuth, InputGroupAuth, InputGroupPassAuth} from '../components/FunctionAuth';
-import {UseSetFields} from '../../Global/components/Hooks/CustomHooks';
+import {UseSetFields} from '../../Global/Hooks/CustomHooks';
 import {GoToForgetPasswordFromLogin, GoToRegisterFromLogin, handleLogin, NavigationSetOptionsLogin,} from './components/FunctionLogin';
-import GlobalStyles from '../../Global/components/Styles/GlobalStyles';
+import GlobalStyles from '../../Global/Styles/GlobalStyles';
 import {Text, TouchableOpacity} from 'react-native';
-import {AuthContext, UserContext} from '../../Global/components/Context/CustomContext';
+import {AuthContext, UserContext} from '../../Global/Context/CustomContext';
 export default function Login ({navigation ,route}) {
     const {User,setUser} = useContext(UserContext)
     const {Auth,setAuth} = useContext(AuthContext)

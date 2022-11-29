@@ -1,23 +1,13 @@
-import React,{useEffect,useState,useContext} from 'react';
-import { createStackNavigator } from '@react-navigation/stack';
-import AsyncStorage from '@react-native-async-storage/async-storage';
 import 'react-native-gesture-handler';
-import {NavigationSetOptionsPanel} from './components/PanelStyles';
-import Register from '../../Auth/Register/Register';
-import Login from '../../Auth/Login/Login';
-import VerifyScreen  from '../../Auth/Verify/Verify';
-import ForgetPassword from '../../Auth/ForgetPassword/ForgetPassword';
-import VerifyForgetPassword from '../../Auth/VerifyForgetPassword/VerifyForgetPassword';
-import MiddlewareAuth from '../../Global/components/middleware/MiddlewareAuth';
-import MiddlewareNotAuth from '../../Global/components/middleware/MiddlewareNotAuth';
-import MiddlewareVerifyShow from '../../Global/components/middleware/MiddlewareVerifyShow';
-import MiddlewareVerify from '../../Global/components/middleware/MiddlewareVerify';
-import Profile from '../Profile/Profile';
+import { createStackNavigator } from '@react-navigation/stack';
+import {
+    MiddlewareAuth, MiddlewareVerify, MiddlewareNotAuth, MiddlewareVerifyShow,
+    Profile, EditProfile, Register, Login, ForgetPassword,Comments,React,
+    ResetPassword,VerifyForgetPassword, VerifyScreen, Orders, PurchasedProducts,
+} from './components/PanelFunctions';
+import About from '../../About/About';
 const PanelStack = createStackNavigator();
 export default function Panel ({navigation ,route}) {
-    useEffect(()=>{
-        NavigationSetOptionsPanel(navigation)
-    },[]);
     return (
         <React.Fragment>
 
@@ -25,6 +15,12 @@ export default function Panel ({navigation ,route}) {
                 <MiddlewareVerify>
                     <PanelStack.Navigator>
                         <PanelStack.Screen name="Profile" component={Profile}/>
+                        <PanelStack.Screen name="EditProfile" component={EditProfile}/>
+                        <PanelStack.Screen name="Orders" component={Orders}/>
+                        <PanelStack.Screen name="PurchasedProducts" component={PurchasedProducts}/>
+                        <PanelStack.Screen name="Comments" component={Comments}/>
+                        <PanelStack.Screen name="ResetPassword" component={ResetPassword}/>
+                        <PanelStack.Screen name="About" component={About}/>
                     </PanelStack.Navigator>
                 </MiddlewareVerify>
             </MiddlewareAuth>

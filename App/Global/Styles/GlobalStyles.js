@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet} from 'react-native';
+import {StyleSheet, View} from 'react-native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 export default StylesGlobal = StyleSheet.create({
     Btn_Royal:{
@@ -18,7 +18,7 @@ export default StylesGlobal = StyleSheet.create({
         width:"100%",
         borderRadius: 20,
         padding: 5,
-        backgroundColor : '#1976D2',
+        backgroundColor : '#0891b2',
     },
     Text_Btn_dark : {
         color : 'black',
@@ -61,20 +61,18 @@ export default StylesGlobal = StyleSheet.create({
         width : "100%",
         position: "relative",
         backgroundColor: "#fff",
-        borderRadius: 20,
+        borderRadius: 15,
         fontFamily:"Vazir"
     },
-
+    Input : {
+        backgroundColor:'#fff',
+        fontFamily:'Vazir',
+        width : "100%",
+        textAlign : 'right',
+        color:'black',
+        borderColor : 'rgba(0,0,0,0.21)',
+        borderWidth : .8,
+        borderRadius: 8,
+        padding : 5,
+    },
 });
-
-
-export function TabScreenOptions (label,Icon) {
-    return {
-        headerShown: false,
-        tabBarLabelStyle:{fontFamily:'Vazir'},
-        tabBarLabel: label,
-        tabBarIcon: ({ color, size }) => (
-            <MaterialCommunityIcons name={Icon} color={color} size={size} />
-        ),
-    }
-}

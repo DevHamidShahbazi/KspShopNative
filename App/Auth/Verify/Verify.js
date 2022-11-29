@@ -1,15 +1,15 @@
 import React, {useState, useEffect, useContext} from 'react';
 import { Text, TouchableOpacity,View} from 'react-native';
 import {BoxAuth, GradientAuth, InputGroupAuth, TimerView} from '../components/FunctionAuth';
-import {UseSetFields} from '../../Global/components/Hooks/CustomHooks';
+import {UseSetFields} from '../../Global/Hooks/CustomHooks';
 import {
     handleAgainVerify,
     handleVerify,
     NavigationSetOptionsVerify,
     SendCodeWithViewVerify,
 } from './components/FunctionVerify';
-import GlobalStyles from '../../Global/components/Styles/GlobalStyles';
-import {AuthContext, UserContext} from '../../Global/components/Context/CustomContext';
+import GlobalStyles from '../../Global/Styles/GlobalStyles';
+import {AuthContext, UserContext} from '../../Global/Context/CustomContext';
 
 export default function VerifyScreen ({navigation}) {
     const {User,setUser} = useContext(UserContext)

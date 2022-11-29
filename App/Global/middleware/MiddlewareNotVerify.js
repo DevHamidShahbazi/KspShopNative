@@ -1,12 +1,10 @@
 import React,{useContext} from 'react';
-import LoadingScreen from '../../../Pages/Loading/LoadingScreen';
-import {AuthContext, UserContext} from '../Context/CustomContext';
-
-export default function MiddlewareAuth ({children}) {
-    const {Auth,setAuth} = useContext(AuthContext);
+import LoadingScreen from '../../Pages/Loading/LoadingScreen';
+import {UserContext} from '../Context/CustomContext';
+export default function MiddlewareNotVerify ({children}) {
     const {User,setUser} = useContext(UserContext);
-    if (Auth != null){
-        if (Auth==true){
+    if (User != null){
+        if (User.verify == '0'){
             return (
                 <React.Fragment>
                     {children}

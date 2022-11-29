@@ -3,7 +3,7 @@ import axios from 'axios';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {Button, Text, TouchableOpacity} from 'react-native';
 import handleForgetPassword from '../../ForgetPassword/components/ForgetPasswordFunction';
-import GlobalStyles from '../../../Global/components/Styles/GlobalStyles';
+import GlobalStyles from '../../../Global/Styles/GlobalStyles';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import {lightGreen50} from 'react-native-paper/lib/typescript/styles/colors';
 

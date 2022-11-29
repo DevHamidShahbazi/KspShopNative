@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {BoxAuth, GradientAuth, InputGroupAuth} from '../components/FunctionAuth';
-import {UseSetFields} from '../../Global/components/Hooks/CustomHooks';
-import GlobalStyles from '../../Global/components/Styles/GlobalStyles';
+import {UseSetFields} from '../../Global/Hooks/CustomHooks';
+import GlobalStyles from '../../Global/Styles/GlobalStyles';
 import {Text, TouchableOpacity} from 'react-native';
 import handleForgetPassword from './components/ForgetPasswordFunction';
 import {NavigationSetOptionsLogin} from '../Login/components/FunctionLogin';

@@ -1,11 +1,12 @@
 import React,{useContext} from 'react';
-import LoadingScreen from '../../../Pages/Loading/LoadingScreen';
-import {AuthContext} from '../Context/CustomContext';
+import LoadingScreen from '../../Pages/Loading/LoadingScreen';
+import {AuthContext, UserContext} from '../Context/CustomContext';
 
-export default function MiddlewareNotAuth ({children}) {
+export default function MiddlewareAuth ({children}) {
     const {Auth,setAuth} = useContext(AuthContext);
+    const {User,setUser} = useContext(UserContext);
     if (Auth != null){
-        if (Auth==false){
+        if (Auth==true){
             return (
                 <React.Fragment>
                     {children}

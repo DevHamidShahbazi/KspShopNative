@@ -2,9 +2,9 @@ import React from 'react';
 import StylesAuth from './StylesAuth';
 import LinearGradient from "react-native-linear-gradient";
 import {Text, TextInput, TouchableOpacity, View} from 'react-native';
-import {Error, Success} from '../../Global/components/Alerts/GlobalAlert';
+import {Error, Success} from '../../Global/Alerts/GlobalAlert';
 import Icon from 'react-native-vector-icons/dist/FontAwesome5';
-import GlobalStyles from '../../Global/components/Styles/GlobalStyles';
+import GlobalStyles from '../../Global/Styles/GlobalStyles';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import axios from 'axios';
 
