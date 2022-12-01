@@ -1,8 +1,6 @@
 import React from 'react';
 import {TouchableOpacity} from 'react-native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-import {CustomBadge} from '../../../Global/Styles/GlobalStyles';
-
 export function NavigationSetOptionsAbout (navigation) {
     return (
         navigation.setOptions({

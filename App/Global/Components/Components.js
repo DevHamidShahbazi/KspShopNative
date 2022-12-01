@@ -32,7 +32,9 @@ export const CustomTextInput = ({name,value,type,placeholder,handleChange,styleI
 };
 
 export function TabScreenOptions (label,Icon) {
+
     return {
+        tabBarActiveTintColor:'#213854',
         headerShown: false,
         tabBarLabelStyle:{fontFamily:'Vazir'},
         tabBarLabel: label,

@@ -4,8 +4,10 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 import {CustomBadge} from '../../../../Global/Components/Components';
 const ProfileStyles = StyleSheet.create({
     Body:{
-        flex:5,
-        justifyContent:'center'
+        // backgroundColor:'blue',
+        flex:10,
+        justifyContent:'center',
+        margin:10
     },
     Items:{
         paddingRight:"5%",

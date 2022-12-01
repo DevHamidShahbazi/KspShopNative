@@ -1,4 +1,6 @@
-export {default as React} from 'react';
+import {createStackNavigator} from '@react-navigation/stack';
+export const PanelStack = createStackNavigator();
+export {default as React,useEffect,useCallback,useState,useContext} from 'react';
 export {default as MiddlewareAuth} from '../../../../Global/middleware/MiddlewareAuth';
 export {default as MiddlewareVerify} from '../../../../Global/middleware/MiddlewareVerify';
 export {default as MiddlewareNotAuth} from '../../../../Global/middleware/MiddlewareNotAuth';
@@ -14,3 +16,5 @@ export {default as Orders} from '../../Orders/Index/Orders';
 export {default as PurchasedProducts} from '../../PurchasedProducts/Index/PurchasedProducts';
 export {default as Comments} from '../../Comments/Comments';
 export {default as ResetPassword} from '../../ResetPassword/ResetPassword';
+export {default as About} from '../../../About/About';
+export {DisplayTabBarContext} from '../../../../Global/Context/CustomContext';

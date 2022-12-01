@@ -1,6 +1,7 @@
 import React, {useEffect,useState,useContext} from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 import LinearGradient from "react-native-linear-gradient";
+import { getFocusedRouteNameFromRoute } from '@react-navigation/native';
 import {NavigationContainer} from '@react-navigation/native';
 
 export default function Chat ({navigation,route}) {
@@ -17,6 +18,7 @@ export default function Chat ({navigation,route}) {
                 fontFamily:'Vazir-Bold'
             },
         })
+
     },[]);
 
     const StylesChat = StyleSheet.create({

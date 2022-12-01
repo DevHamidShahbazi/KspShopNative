@@ -1,7 +1,9 @@
 import React from 'react';
 import axios from 'axios';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import {Text} from 'react-native';
+import {Text, View} from 'react-native';
+import PanelStyles from '../../Index/components/PanelStyles';
+import GlobalStyles from '../../../../Global/Styles/GlobalStyles';
 
 export const handleEditProfile = (navigation ,Fields,setErrors,setUser,setSuccesses) => {
     AsyncStorage.getItem('api_token',(error, result) => {
@@ -43,5 +45,19 @@ export const handleEditProfile = (navigation ,Fields,setErrors,setUser,setSucces
 export function TextWarningPhoneMustNotNull (phone) {
     return phone==null? <Text style={{fontFamily:'Vazir',color:'red',textAlign:'center'}}>برای خرید از فروشگاه لازم است شماره موبایل خود را وارد و تایید کنید</Text>:null;
 }
+
+export const EditProfileHeader = () => {
+     return (
+        <React.Fragment>
+            <View style={PanelStyles.Header_Panel}>
+                {/*<View style={[PanelStyles.Box_Header_Panel,GlobalStyles.Shadow_lg]}>*/}
+                {/*    <Text style={PanelStyles.Text_Box_Header_Panel}>*/}
+                {/*        ویرایش اطلاعات*/}
+                {/*    </Text>*/}
+                {/*</View>*/}
+            </View>
+        </React.Fragment>
+     );
+};
 
 

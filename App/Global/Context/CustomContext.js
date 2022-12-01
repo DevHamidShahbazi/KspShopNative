@@ -7,4 +7,8 @@ const UserContext = createContext({
     User:null,
     setUser:() => {}
 });
-export {AuthContext,UserContext}
+const DisplayTabBarContext = createContext({
+    DisplayTabBar:true,
+    setDisplayTabBar:() => {}
+});
+export {AuthContext,UserContext,DisplayTabBarContext}
