@@ -29,7 +29,7 @@ export default StylesGlobal = StyleSheet.create({
     Text_Btn_white : {
         color : 'white',
         fontFamily:"Vazir",
-        fontSize:17,
+        fontSize:15,
         textAlign:'center'
     },
     Text_Btn_Royal : {

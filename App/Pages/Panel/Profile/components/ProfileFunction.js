@@ -32,16 +32,16 @@ export function ProfileBody ({User,navigation}) {
     return (
         <React.Fragment>
             <View style={ProfileStyles.Body}>
-                    <View style={ProfileStyles.Items}>
-                        <ScrollView showsVerticalScrollIndicator={false}>
-                            <ProfileItemBody to={'EditProfile'} navigation={navigation} name="ویرایش اطلاعات" icon="card-account-details" badge={User.phone == null?true:false}  style={{borderTopColor:'rgba(0,0,0,0)'}}/>
-                            <ProfileItemBody to={'Orders'} navigation={navigation} name="سفارش ها" icon="clipboard-text-multiple"/>
-                            <ProfileItemBody to={'PurchasedProducts'} navigation={navigation} name="محصولات خریداری شده" icon="credit-card-multiple"/>
-                            <ProfileItemBody to={'Comments'} navigation={navigation} name="نظرات من" icon="comment-text-multiple"/>
-                            <ProfileItemBody to={'ResetPassword'} navigation={navigation} name="تغییر رمز عبور" icon="shield-lock"/>
-                            <ProfileItemBody name="خروج از حساب کاربری" icon="power" style={{borderBottomColor:'rgba(0,0,0,0)'}}/>
-                        </ScrollView>
-                    </View>
+                <View style={ProfileStyles.Items}>
+                    <ScrollView showsVerticalScrollIndicator={false}>
+                        <ProfileItemBody to={'EditProfile'} navigation={navigation} name="ویرایش اطلاعات" icon="card-account-details" badge={User.phone == null?true:false}  style={{borderTopColor:'rgba(0,0,0,0)'}}/>
+                        <ProfileItemBody to={'Orders'} navigation={navigation} name="سفارش ها" icon="clipboard-text-multiple"/>
+                        <ProfileItemBody to={'PurchasedProducts'} navigation={navigation} name="محصولات خریداری شده" icon="credit-card-multiple"/>
+                        <ProfileItemBody to={'Comments'} navigation={navigation} name="نظرات من" icon="comment-text-multiple"/>
+                        <ProfileItemBody to={'ResetPassword'} navigation={navigation} name="تغییر رمز عبور" icon="shield-lock"/>
+                        <ProfileItemBody name="خروج از حساب کاربری" icon="power" style={{borderBottomColor:'rgba(0,0,0,0)'}}/>
+                    </ScrollView>
+                </View>
             </View>
         </React.Fragment>
     );
@@ -50,12 +50,14 @@ export function ProfileBody ({User,navigation}) {
 export function ProfileItemBody ({name,icon,style,badge,navigation,to}) {
     return (
         <React.Fragment>
-            <TouchableOpacity onPress={() => to?navigation.navigate(to):console.log('test') } style={[ProfileStyles.Item_Body,style]} activeOpacity={.5}>
-                <Icon name="angle-left" size={25} color="rgba(0,0,0,0.70)" />
-                <View style={ProfileStyles.Container_Item_Body}>
-                    {badge?<CustomBadge/>:null}
-                    <Text style={ProfileStyles.Name_Item_Body}>{name}</Text>
-                    <MaterialCommunityIcons name={icon} size={25} color="rgba(0,0,0,0.70)" />
+            <TouchableOpacity onPress={() => to?navigation.navigate(to):console.log('test') } activeOpacity={.7} >
+                <View style={[ProfileStyles.Item_Body,style]}>
+                    <Icon name="angle-left" size={25} color="rgba(0,0,0,0.70)" />
+                    <View style={ProfileStyles.Container_Item_Body}>
+                        {badge?<CustomBadge/>:null}
+                        <Text style={ProfileStyles.Name_Item_Body}>{name}</Text>
+                        <MaterialCommunityIcons name={icon} size={25} color="rgba(0,0,0,0.70)" />
+                    </View>
                 </View>
             </TouchableOpacity>
         </React.Fragment>

@@ -44,3 +44,36 @@ export function TabScreenOptions (label,Icon) {
     }
 }
 export const CustomBadge = (style) => <View style={{backgroundColor:'red',borderRadius:25,width:12,height:12,marginRight:5,marginLeft:5,style}}/>
+
+
+export const TextTypeStatus = (Status) => {
+     if (Status === 'unpaid') {
+         return 'پرداخت نشده'
+     }else if (Status === 'paid'){
+         return 'پرداخت شده'
+     }else if (Status === 'posted'){
+         return 'پست شده'
+     }else if (Status === 'prepare'){
+         return 'درحال ارسال'
+     }else if (Status === 'received'){
+         return 'تحویل داده شده'
+     }else {
+         return  null
+     }
+};
+
+export const ColorTypeStatus = (Status) => {
+    if (Status === 'unpaid') {
+        return '#dc2626'
+    }else if (Status === 'paid'){
+        return '#2563eb'
+    }else if (Status === 'posted'){
+        return '#c084fc'
+    }else if (Status === 'prepare'){
+        return '#38bdf8'
+    }else if (Status === 'received'){
+        return '#059669'
+    }else {
+        return  null
+    }
+};
