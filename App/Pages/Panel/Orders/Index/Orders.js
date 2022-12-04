@@ -1,7 +1,7 @@
 import React,{useState,useEffect} from 'react';
 import {NavigationSetOptionsPanel} from '../../Index/components/PanelStyles';
 import {FlatList, ActivityIndicator, View,Image} from 'react-native';
-import OrdersItem, {GetOrders} from './components/OrdersFunction';
+import OrdersItem, {GetOrders, ImgEmpty} from './components/OrdersFunction';
 
 export default function Orders ({navigation,route}) {
     const [Loading,setLoading] = useState(true);
@@ -15,9 +15,7 @@ export default function Orders ({navigation,route}) {
         <React.Fragment>
             <View style={{flex:1,justifyContent:'center',backgroundColor:'#e5e7eb'}}>
                 <ActivityIndicator style={{display:Loading?'flex':'none'}} animating={Loading} size="large" color="#213854" />
-                <View style={{display:IsEmpty?'flex':'none',justifyContent:'center',alignItems:'center'}}>
-                    <Image  style={{width:300, height: 300}} source={require('../../../../Global/Images/box-empty.png')}/>
-                </View>
+                <ImgEmpty IsEmpty={IsEmpty}/>
                 <FlatList
                     data={Orders}
                     renderItem={({item}) => <OrdersItem item={item}/>}

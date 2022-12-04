@@ -6,6 +6,7 @@ import collect from 'collect.js';
 import {ColorTypeStatus, TextTypeStatus} from '../../../../../Global/Components/Components';
 import GlobalStyles from '../../../../../Global/Styles/GlobalStyles';
 import OrdersStyles from './OrdersStyles';
+import { useNavigation } from '@react-navigation/native';
 
 export const GetOrders =(setOrders,setLoading,setIsEmpty) => {
     AsyncStorage.getItem('api_token',(error, result) => {
@@ -34,13 +35,21 @@ export const GetOrders =(setOrders,setLoading,setIsEmpty) => {
     })
 }
 
+export function ImgEmpty ({IsEmpty}) {
+    return (
+        <View style={{display:IsEmpty?'flex':'none',justifyContent:'center',alignItems:'center'}}>
+            <Image  style={{width:300, height: 300}} source={require('../../../../../Global/Images/box-empty.png')}/>
+        </View>
+    );
+}
+
 export default function OrdersItem ({item}) {
     return (
         <React.Fragment>
             <View style={OrdersStyles.Container}>
                 <Header created_at={item.created_at} status={item.status}/>
                 <Body price={item.price} price_data={item.price_data} status={item.status} images={item.images}/>
-                <Footer status={item.status} tax={item.tax}/>
+                <Footer item={item}/>
             </View>
         </React.Fragment>
     );
@@ -82,21 +91,22 @@ const Body = ({price,price_data,status,images}) => {
      );
 };
 
-const Footer = ({status,tax}) => {
+const Footer = ({item}) => {
      return (
          <View style={OrdersStyles.Footer}>
              {
-                 tax != '0' && status != 'unpaid'?
-                     <Btn text={'فاکتور رسمی'} type={'ShowFactor'}/>:null
+                 item.tax != '0' && item.status != 'unpaid'?
+                     <Btn to={'Company'} item={item} text={'فاکتور رسمی'} type={'ShowFactor'}/>:null
              }
-             <Btn text={'مشاهده سفارش'} type={'ShowOrder'}/>
+             <Btn to={'Order'} item={item} text={'مشاهده سفارش'} type={'ShowOrder'}/>
          </View>
      );
 };
 
-const Btn = ({text,type}) => {
+const Btn = ({item,text,type,to}) => {
+    const navigation = useNavigation();
      return (
-         <TouchableNativeFeedback  background={TouchableNativeFeedback.Ripple('#e4e4e4')}>
+         <TouchableNativeFeedback onPress={() => navigation.navigate(to,{order:item})}  background={TouchableNativeFeedback.Ripple('#e4e4e4')}>
              <View style={[OrdersStyles.Btn,type=='ShowFactor'?{backgroundColor:'fff'}:null]}>
                  <Text style={[type=='ShowOrder'?GlobalStyles.Text_Btn_white:GlobalStyles.Text_Btn_dark]}>
                      {text}

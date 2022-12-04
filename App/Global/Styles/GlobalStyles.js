@@ -21,18 +21,23 @@ export default StylesGlobal = StyleSheet.create({
         backgroundColor : '#0891b2',
     },
     Text_Btn_dark : {
+        alignItems:'center',
         color : 'black',
         fontFamily:"Vazir",
         fontSize:17,
         textAlign:'center'
     },
     Text_Btn_white : {
+        justifyContent:'center',
+        alignItems:'center',
         color : 'white',
         fontFamily:"Vazir",
         fontSize:15,
         textAlign:'center'
     },
     Text_Btn_Royal : {
+        justifyContent:'center',
+        alignItems:'center',
         color : 'white',
         fontFamily:"Vazir",
         fontSize:17,

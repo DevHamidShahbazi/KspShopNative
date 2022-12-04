@@ -1,14 +1,13 @@
 import React from 'react';
 import {StyleSheet, TouchableOpacity} from 'react-native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import {CardStyleInterpolators} from '@react-navigation/stack';
 
 const PanelStyles = StyleSheet.create({
     Container_Header_Panel:{
-        // backgroundColor : 'red',
         flex:2,
     },
     Header_Panel : {
-        // bottom: "5%",
         borderBottomLeftRadius:40,
         borderBottomRightRadius:40,
         backgroundColor : '#213854',
@@ -34,12 +33,33 @@ export default PanelStyles;
 
 
 export function NavigationSetOptionsPanel (navigation,title) {
+
+    const config = {
+        animation: 'spring',
+        config: {
+            stiffness: 500,
+            damping: 500,
+            mass: 3,
+            overshootClamping: true,
+            restDisplacementThreshold: 0.01,
+            restSpeedThreshold: 0.01,
+        },
+    };
+
     navigation.setOptions({
+        gestureEnabled:true,
+        gestureDirection:'horizontal',
+        cardStyleInterpolator:CardStyleInterpolators.forHorizontalIOS,
+        transitionSpec:{
+          open:config,
+          close:config,
+        },
         headerTitle: title,
         headerTitleAlign: 'center',
         headerTitleStyle: {
-            fontFamily:'Vazir',
-            color:'#fff'
+            // fontFamily:'Vazir',
+            color:'#fff',
+            fontFamily:'iranyekanbold(fanum)'
         },
         headerStyle: {
             backgroundColor: '#213854',

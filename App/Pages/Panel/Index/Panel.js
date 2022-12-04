@@ -6,6 +6,8 @@ import {
     ResetPassword,VerifyForgetPassword,VerifyScreen,Orders,PurchasedProducts,
     About,useCallback,PanelStack,DisplayTabBarContext
 } from './components/PanelFunctions';
+import Order from '../Orders/Order/Order';
+import Company from '../Compnay/Company';
 export default function Panel ({navigation ,route}) {
     // const {DisplayTabBar,setDisplayTabBar} = useContext(DisplayTabBarContext);
     // useFocusEffect(
@@ -22,6 +24,8 @@ export default function Panel ({navigation ,route}) {
                         <PanelStack.Screen name="Profile" component={Profile}/>
                         <PanelStack.Screen name="EditProfile" component={EditProfile}/>
                         <PanelStack.Screen name="Orders" component={Orders}/>
+                        <PanelStack.Screen name="Order" component={Order}/>
+                        <PanelStack.Screen name="Company" component={Company}/>
                         <PanelStack.Screen name="PurchasedProducts" component={PurchasedProducts}/>
                         <PanelStack.Screen name="Comments" component={Comments}/>
                         <PanelStack.Screen name="ResetPassword" component={ResetPassword}/>
