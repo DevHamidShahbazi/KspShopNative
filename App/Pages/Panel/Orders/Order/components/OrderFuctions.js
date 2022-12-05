@@ -8,7 +8,7 @@ import GlobalStyles from '../../../../../Global/Styles/GlobalStyles';
 export function OrderTopItems ({order}) {
     return (
         <React.Fragment>
-            <View style={[GlobalStyles.Card,GlobalStyles.Shadow,{borderRadius:5,padding:2}]}>
+            <View style={[GlobalStyles.Card,GlobalStyles.Shadow,{borderRadius:5,padding:'2%'}]}>
                 <View style={{flexDirection:'row'}}>
                     <View style={{flex:2,alignItems:'flex-end'}}>
                         <StatusWithValue title={'وضعیت'} status={order.status}/>

@@ -6,6 +6,8 @@ import GlobalStyles from '../../Global/Styles/GlobalStyles';
 import {handleVerifyForgetPassword,handleAgainVerifyForgetPassword} from './components/FunctionVerifyForgetPassword';
 import {NavigationSetOptionsVerify} from '../Verify/components/FunctionVerify';
 import {AuthContext, UserContext} from '../../Global/Context/CustomContext';
+import {GoToRegisterFromLogin} from '../Login/components/FunctionLogin';
+import LoginStyles from '../Login/components/LoginStyle';
 
 export default function VerifyForgetPassword ({navigation ,route}) {
     const {User,setUser} = useContext(UserContext)
@@ -36,6 +38,12 @@ export default function VerifyForgetPassword ({navigation ,route}) {
                     </Text>
                 </TouchableOpacity>
                 <TimerView Timer={Timer}/>
+
+                <TouchableOpacity activeOpacity={.4} onPress={() => {setErrors(''),navigation.navigate('Login')}}>
+                    <Text style={LoginStyles.Text_Go_To_Register}>
+                        بازگشت به صفحه ورود !!
+                    </Text>
+                </TouchableOpacity>
             </BoxAuth>
         </GradientAuth>
     );

@@ -7,6 +7,7 @@ import Icon from 'react-native-vector-icons/dist/FontAwesome5';
 import GlobalStyles from '../../Global/Styles/GlobalStyles';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import axios from 'axios';
+import LoginStyles from '../Login/components/LoginStyle';
 
 
 export function CheckToken (setAuth,setUser) {

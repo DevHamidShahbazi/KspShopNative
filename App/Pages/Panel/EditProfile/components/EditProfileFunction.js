@@ -18,7 +18,6 @@ export const handleEditProfile = (navigation ,Fields,setErrors,setUser,setSucces
             })
                 .then(function (response) {
                     const {data} = response;
-                    console.log(data)
                     if (data.status == 'success'){
                         setErrors('')
                         AsyncStorage.removeItem('user')

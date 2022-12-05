@@ -3,6 +3,26 @@ import {Text, TextInput, View} from 'react-native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import GlobalStyles from '../Styles/GlobalStyles';
 
+
+export function TextRegular ({children,style}) {
+    return (
+        <React.Fragment>
+            <Text style={[style,{color:'#000',fontFamily:'Vazir'}]}>
+                {children}
+            </Text>
+        </React.Fragment>
+    );
+}
+
+export function TextBold ({children,style}) {
+    return (
+        <React.Fragment>
+            <Text style={[style,{color:'#000',fontFamily:'Vazir-Bold'}]}>
+                {children}
+            </Text>
+        </React.Fragment>
+    );
+}
 const LabelTextInput = ({Label,require}) => {
      return (
          <View style={[!require?{marginTop:"5%"}:null,{marginBottom:'2%',justifyContent:'flex-end',flexWrap:'wrap-reverse'}]}>
@@ -13,6 +33,7 @@ const LabelTextInput = ({Label,require}) => {
          </View>
      );
 };
+
 export const CustomTextInput = ({name,value,type,placeholder,handleChange,styleInput,styleContainer,Eye,Label,disable,require}) => {
     return (
         <View style={styleContainer}>

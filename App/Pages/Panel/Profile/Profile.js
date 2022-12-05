@@ -20,7 +20,7 @@ export default function Profile ({navigation,route}) {
         <React.Fragment>
             <View style={{flex:1,backgroundColor:'#fff'}}>
                 <ProfileHeader User={User}/>
-                <ProfileBody User={User} navigation={navigation} />
+                <ProfileBody User={User} navigation={navigation} setUser={setUser} setAuth={setAuth} />
             </View>
         </React.Fragment>
     );

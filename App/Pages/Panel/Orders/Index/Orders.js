@@ -1,6 +1,6 @@
 import React,{useState,useEffect} from 'react';
 import {NavigationSetOptionsPanel} from '../../Index/components/PanelStyles';
-import {FlatList, ActivityIndicator, View,Image} from 'react-native';
+import {FlatList, ActivityIndicator, View,RefreshControl} from 'react-native';
 import OrdersItem, {GetOrders, ImgEmpty} from './components/OrdersFunction';
 
 export default function Orders ({navigation,route}) {
@@ -17,6 +17,12 @@ export default function Orders ({navigation,route}) {
                 <ActivityIndicator style={{display:Loading?'flex':'none'}} animating={Loading} size="large" color="#213854" />
                 <ImgEmpty IsEmpty={IsEmpty}/>
                 <FlatList
+                    refreshControl={
+                        <RefreshControl
+                            refreshing={false}
+                            onRefresh={() => GetOrders(setOrders,setLoading,setIsEmpty)}
+                        />
+                    }
                     data={Orders}
                     renderItem={({item}) => <OrdersItem item={item}/>}
                     keyExtractor={item => item.id}

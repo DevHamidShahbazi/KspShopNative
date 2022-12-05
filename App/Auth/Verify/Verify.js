@@ -10,6 +10,7 @@ import {
 } from './components/FunctionVerify';
 import GlobalStyles from '../../Global/Styles/GlobalStyles';
 import {AuthContext, UserContext} from '../../Global/Context/CustomContext';
+import LoginStyles from '../Login/components/LoginStyle';
 
 export default function VerifyScreen ({navigation}) {
     const {User,setUser} = useContext(UserContext)

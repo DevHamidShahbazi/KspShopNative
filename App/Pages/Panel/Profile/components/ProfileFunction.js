@@ -6,6 +6,7 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 import GlobalStyles from '../../../../Global/Styles/GlobalStyles';
 import {CustomBadge} from '../../../../Global/Components/Components';
 import PanelStyles from '../../Index/components/PanelStyles';
+import {LogOut} from '../../../../Auth/components/FunctionAuth';
 
 
 export function ProfileHeader ({User}) {
@@ -28,7 +29,7 @@ export function ProfileHeader ({User}) {
     );
 }
 
-export function ProfileBody ({User,navigation}) {
+export function ProfileBody ({User,navigation,setUser,setAuth}) {
     return (
         <React.Fragment>
             <View style={ProfileStyles.Body}>
@@ -39,7 +40,7 @@ export function ProfileBody ({User,navigation}) {
                         <ProfileItemBody to={'PurchasedProducts'} navigation={navigation} name="محصولات خریداری شده" icon="credit-card-multiple"/>
                         <ProfileItemBody to={'Comments'} navigation={navigation} name="نظرات من" icon="comment-text-multiple"/>
                         <ProfileItemBody to={'ResetPassword'} navigation={navigation} name="تغییر رمز عبور" icon="shield-lock"/>
-                        <ProfileItemBody name="خروج از حساب کاربری" icon="power" style={{borderBottomColor:'rgba(0,0,0,0)'}}/>
+                        <ProfileItemBody name="خروج از حساب کاربری" icon="power" setUser={setUser} setAuth={setAuth} style={{borderBottomColor:'rgba(0,0,0,0)'}}/>
                     </ScrollView>
                 </View>
             </View>
@@ -47,10 +48,10 @@ export function ProfileBody ({User,navigation}) {
     );
 }
 
-export function ProfileItemBody ({name,icon,style,badge,navigation,to}) {
+export function ProfileItemBody ({name,icon,style,badge,navigation,to,setAuth,setUser}) {
     return (
         <React.Fragment>
-            <TouchableOpacity onPress={() => to?navigation.navigate(to):console.log('test') } activeOpacity={.7} >
+            <TouchableOpacity onPress={() => to?navigation.navigate(to):LogOut(setAuth,setUser) } activeOpacity={.7} >
                 <View style={[ProfileStyles.Item_Body,style]}>
                     <Icon name="angle-left" size={25} color="rgba(0,0,0,0.70)" />
                     <View style={ProfileStyles.Container_Item_Body}>
