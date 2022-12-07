@@ -20,7 +20,7 @@ export default function Panel ({navigation ,route}) {
 
             <MiddlewareAuth>
                 <MiddlewareVerify>
-                    <PanelStack.Navigator >
+                    <PanelStack.Navigator>
                         <PanelStack.Screen name="Profile" component={Profile}/>
                         <PanelStack.Screen name="EditProfile" component={EditProfile}/>
                         <PanelStack.Screen name="Orders" component={Orders}/>

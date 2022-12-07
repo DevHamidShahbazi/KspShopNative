@@ -19,7 +19,7 @@ export const GetOrders =(setOrders,setLoading,setIsEmpty) => {
                 .then(function (response) {
                     const {data} = response;
                     if (data.status == 'success'){
-                        if (collect(data).first()){
+                        if (collect(data.orders).first()){
                             setIsEmpty(false)
                         }else {
                             setIsEmpty(true)
@@ -34,15 +34,6 @@ export const GetOrders =(setOrders,setLoading,setIsEmpty) => {
         }
     })
 }
-
-export function ImgEmpty ({IsEmpty}) {
-    return (
-        <View style={{display:IsEmpty?'flex':'none',justifyContent:'center',alignItems:'center'}}>
-            <Image  style={{width:300, height: 300}} source={require('../../../../../Global/Images/box-empty.png')}/>
-        </View>
-    );
-}
-
 export default function OrdersItem ({item}) {
     return (
         <React.Fragment>

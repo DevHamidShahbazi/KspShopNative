@@ -1,11 +1,13 @@
 import React from 'react';
-import {Text, View} from 'react-native';
+import {Alert, Text, TouchableOpacity, View} from 'react-native';
 import {CustomTextInput} from '../../../../Global/Components/Components';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import axios from 'axios';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import GlobalStyles from '../../../../Global/Styles/GlobalStyles';
+import {CompanyStyles} from './CompanyStyles';
 
-export function handleSubmitCompanyWithText (Fields,order,setSuccesses,setErrors) {
+export function handleSubmitCompanyWithText (Fields,order,setErrors,handleChange) {
     AsyncStorage.getItem('api_token',(error, result) => {
         if (result){
             axios.post('v_1_0/update/company', {
@@ -25,7 +27,8 @@ export function handleSubmitCompanyWithText (Fields,order,setSuccesses,setErrors
                 .then(function (response) {
                     const {data} = response;
                     if (data.status == 'success'){
-                        setSuccesses(data.message)
+                        handleChange('0','status')
+                        Alert.alert('انجام شد',data.message)
                     }else {
                         setErrors(data.message)
                     }
@@ -39,10 +42,37 @@ export function handleSubmitCompanyWithText (Fields,order,setSuccesses,setErrors
 
     })
 }
+
+export const CompanyObjectStates = (company) => {
+     return {
+         name_company: company ? company.name_company:null,
+         code_company: company ? company.code_company:null,
+         name: company ? company.name:null,
+         code_melli: company ? company.code_melli:null,
+         code_post: company ? company.code_post:null,
+         address: company ? company.address:null,
+         status: company ? company.status:null,
+         image: company ? company.image:null,
+     };
+};
+export function CompanySection ({children,title,style}) {
+    return (
+        <React.Fragment>
+            <View style={[GlobalStyles.Card,style]}>
+                <CompanyHeader>
+                    {title}
+                </CompanyHeader>
+                <View style={{flex:1,paddingRight:'5%',paddingLeft:'5%'}}>
+                    {children}
+                </View>
+            </View>
+        </React.Fragment>
+    );
+}
 export function CompanyHeader ({children}) {
     return (
         <React.Fragment>
-            <View style={{backgroundColor:'#213854',padding:10,borderTopRightRadius: 15,borderTopLeftRadius: 15}}>
+            <View style={[CompanyStyles.CompanyHeader]}>
                 <Text style={{fontFamily:'Vazir',fontSize:15,color:'#fff',textAlign:'center'}}>
                     {children}
                 </Text>
@@ -54,8 +84,8 @@ export function CompanyHeader ({children}) {
 export function CompanyAlertStatus ({status}) {
     return (
         <React.Fragment>
-            <View style={{display:status==null?'none':'flex',backgroundColor:status==0?'#bae6fd':'#ccfbf1',flexDirection:'row',justifyContent:'center',marginTop:"3%",borderWidth:1,borderColor:"#065f46",marginBottom:"1%",padding:5,borderRadius:5}}>
-                <Text style={{justifyContent:'center',alignItems:'center',padding:4,fontFamily:'Vazir-Bold',color:'#065f46'}} >
+            <View style={[CompanyStyles.AlertStatus,{display:status==null?'none':'flex',backgroundColor:status==0?'#bae6fd':'#f0fdf4'}]}>
+                <Text style={[CompanyStyles.AlertStatusText]} >
                     {status==0?'اطلاعات شما در انتظار تایید می باشد':'اطلاعات شما مورد تایید قرار گرفته است'}
                 </Text>
                 <MaterialCommunityIcons style={{textAlign:'right'}} name={`shield-${status==0?'alert':'check'}-outline`} color={'#065f46'} size={30} />
@@ -77,7 +107,7 @@ export function CompanyInputs ({Fields,handleChange}) {
             />
             <CustomTextInput
                 handleChange={handleChange}
-                value={Fields.code_company?JSON.stringify(Fields.code_company):Fields.code_company}
+                value={Fields.code_company}
                 name={'code_company'}
                 type={'numeric'}
                 Label={'کد اقتصادی شرکت'}
@@ -93,7 +123,7 @@ export function CompanyInputs ({Fields,handleChange}) {
             />
             <CustomTextInput
                 handleChange={handleChange}
-                value={Fields.code_melli?JSON.stringify(Fields.code_melli):Fields.code_melli}
+                value={Fields.code_melli}
                 name={'code_melli'}
                 type={'numeric'}
                 Label={'کدملی مدیرعامل شرکت'}
@@ -101,9 +131,9 @@ export function CompanyInputs ({Fields,handleChange}) {
             />
             <CustomTextInput
                 handleChange={handleChange}
-                value={Fields.code_post?JSON.stringify(Fields.code_post):Fields.code_post}
-                name={'code_post'}
-                type={'numeric'}
+                value={Fields.code_post}
+                name={'numeric'}
+                type={'default'}
                 Label={'کدپستی شرکت'}
                 placeholder={'کدپستی شرکت را وارد کنید'}
             />

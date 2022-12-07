@@ -4,13 +4,11 @@ import {NavigationSetOptionsPanel} from '../Index/components/PanelStyles';
 import GlobalStyles from '../../../Global/Styles/GlobalStyles';
 import {CustomTextInput} from '../../../Global/Components/Components';
 import {UseSetFields} from '../../../Global/Hooks/CustomHooks';
-import {DisplayTabBarContext, UserContext} from '../../../Global/Context/CustomContext';
+import { UserContext} from '../../../Global/Context/CustomContext';
 import {Error, Success} from '../../../Global/Alerts/GlobalAlert';
 import {EditProfileHeader, handleEditProfile, TextWarningPhoneMustNotNull} from './components/EditProfileFunction';
-import { useFocusEffect } from '@react-navigation/native';
 
 export default function EditProfile ({navigation,route}) {
-    const {DisplayTabBar,setDisplayTabBar} = useContext(DisplayTabBarContext);
     const {User,setUser} = useContext(UserContext)
     const [Errors,setErrors] = useState('');
     const [Successes,setSuccesses] = useState('');
@@ -18,18 +16,12 @@ export default function EditProfile ({navigation,route}) {
         name: User.name,
         phone: User.phone,
     });
-    useFocusEffect(
-        React.useCallback(() => {
-            setDisplayTabBar(false)
-        }, [])
-    );
     useEffect(()=>{
         NavigationSetOptionsPanel(navigation,'ویرایش اطلاعات')
     },[]);
     return (
         <React.Fragment>
             <ScrollView contentContainerStyle={{flex:1,justifyContent:'center',alignItems:'center',backgroundColor:'#fff'}}>
-                <EditProfileHeader/>
                 <View style={{padding:15,flex:1,width:"100%"}}>
                     <TextWarningPhoneMustNotNull phone={User.phone}/>
                     <Error message={Errors}/>

@@ -3,33 +3,17 @@ import {NavigationSetOptionsPanel} from '../Index/components/PanelStyles';
 import {Text,ScrollView,View,TouchableOpacity} from 'react-native';
 import {CompanyStyles} from './components/CompanyStyles';
 import GlobalStyles from '../../../Global/Styles/GlobalStyles';
-import {
-    CompanyAlertStatus,
-    CompanyHeader,
-    CompanyInputs,
-    handleSubmitCompanyWithText,
-} from './components/CompanyFunction';
+import {CompanyAlertStatus, CompanySection, CompanyInputs, handleSubmitCompanyWithText, CompanyObjectStates,} from './components/CompanyFunction';
 import {DisplayTabBarContext} from '../../../Global/Context/CustomContext';
 import { useFocusEffect } from '@react-navigation/native';
 import {UseSetFields} from '../../../Global/Hooks/CustomHooks';
-import {Error, Success} from '../../../Global/Alerts/GlobalAlert';
-
+import {Error} from '../../../Global/Alerts/GlobalAlert';
 export default function Company ({navigation,route}) {
     const {company}=route.params.order;
     const {order}=route.params;
-    const {DisplayTabBar,setDisplayTabBar} = useContext(DisplayTabBarContext);
+    const {setDisplayTabBar} = useContext(DisplayTabBarContext);
     const [Errors,setErrors] = useState('');
-    const [Successes,setSuccesses] = useState('');
-    const {Fields,handleChange} = UseSetFields({
-        name_company: company ? company.name_company:null,
-        code_company: company ? company.code_company:null,
-        name: company ? company.name:null,
-        code_melli: company ? company.code_melli:null,
-        code_post: company ? company.code_post:null,
-        address: company ? company.address:null,
-        status: company ? company.status:null,
-        image: company ? company.image:null,
-    });
+    const {Fields,handleChange} = UseSetFields(CompanyObjectStates(company));
     useFocusEffect(
         React.useCallback(() => {
             setDisplayTabBar(false)
@@ -41,23 +25,54 @@ export default function Company ({navigation,route}) {
     return (
         <React.Fragment>
             <ScrollView style={[CompanyStyles.Container]} showsVerticalScrollIndicator={false}>
-                <View style={[GlobalStyles.Card]}>
-                    <CompanyHeader>
-                        جهت صدور فاکتور رسمی فرم زیر را تکمیل کنید
-                    </CompanyHeader>
-                    <View style={{flex:1,paddingRight:'5%',paddingLeft:'5%'}}>
-                        <CompanyAlertStatus status={Fields.status}/>
-                        <Error message={Errors}/>
-                        <Success message={Successes}/>
-                        <CompanyInputs Fields={Fields} handleChange={handleChange}/>
-                        <TouchableOpacity onPress={() => handleSubmitCompanyWithText(Fields,order,setSuccesses,setErrors)} style={[GlobalStyles.Btn_Primary,GlobalStyles.Shadow_lg,{marginTop:'10%',marginBottom:'5%'}]} activeOpacity={.7}>
-                            <Text style={[GlobalStyles.Text_Btn_white]}>
-                                ثبت اطلاعات
-                            </Text>
-                        </TouchableOpacity>
-                    </View>
-                </View>
+                <CompanySection title={'جهت صدور فاکتور رسمی فرم زیر را تکمیل کنید'}>
+                    <CompanyAlertStatus status={Fields.status}/>
+                    <Error message={Errors}/>
+                    <CompanyInputs Fields={Fields} handleChange={handleChange}/>
+                    <TouchableOpacity onPress={() => handleSubmitCompanyWithText(Fields,order,setErrors,handleChange)} style={[GlobalStyles.Btn_Primary,GlobalStyles.Shadow_lg,{marginTop:'10%',marginBottom:'5%'}]} activeOpacity={.7}>
+                        <Text style={[GlobalStyles.Text_Btn_white]}>ثبت اطلاعات</Text>
+                    </TouchableOpacity>
+                </CompanySection>
             </ScrollView>
         </React.Fragment>
     );
 }
+
+
+
+
+
+
+
+
+
+
+
+
+/*<CompanySection style={{marginTop:'5%',marginBottom:'8%'}}
+                title={'درصورتی که تمایل به پر کردن فرم بالا ندارید میتوانید تصویر مشخصات شرکت را ارسال کنید'}>
+    <Error message={ImageErrors}/>
+
+    <Text style={{fontFamily:'iranyekanbold(fanum)',fontSize:12,color:'red',marginTop:'3%',marginBottom:'5%'}}>
+        حجم عکس باید از 10 مگابایت کمتر باشد
+    </Text>
+
+    <TouchableOpacity onPress={() => handleChooseImage} activeOpacity={.7} style={[CompanyStyles.ChooseImage]}>
+        <TextRegular style={{padding:3}}>
+            تصویر خود را انتخاب کنید
+        </TextRegular>
+        <MaterialCommunityIcons style={{textAlign:'right',marginLeft:5}} name={'folder-upload-outline'} color={'#000'} size={30} />
+    </TouchableOpacity>
+
+    <TouchableOpacity onPress={() => handleSubmitCompanyWithImage(Fields,order,setImageErrors)}
+                      style={[GlobalStyles.Btn_Primary,GlobalStyles.Shadow_lg,{marginTop:'10%',marginBottom:'10%'}]}
+                      activeOpacity={.7}>
+        <Text style={[GlobalStyles.Text_Btn_white]}>
+            ارسال تصویر
+        </Text>
+    </TouchableOpacity>
+
+</CompanySection>*/
+
+
+

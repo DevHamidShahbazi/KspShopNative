@@ -1,7 +1,7 @@
 import React, {useContext, useEffect,useCallback} from 'react';
 import { useFocusEffect } from '@react-navigation/native';
-import {View} from 'react-native';
-import {ProfileBody, ProfileHeader} from './components/ProfileFunction';
+import {ScrollView, View} from 'react-native';
+import {ProfileBody, ProfileHeader, ProfileItemBody} from './components/ProfileFunction';
 import  {NavigationSetOptionsProfile} from './components/ProfileStyle';
 import {AuthContext, DisplayTabBarContext, UserContext} from '../../../Global/Context/CustomContext';
 export default function Profile ({navigation,route}) {

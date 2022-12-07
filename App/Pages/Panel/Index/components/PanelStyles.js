@@ -34,15 +34,27 @@ export default PanelStyles;
 
 export function NavigationSetOptionsPanel (navigation,title) {
 
-    const config = {
+    const configOpen = {
         animation: 'spring',
         config: {
             stiffness: 500,
             damping: 500,
-            mass: 3,
+            mass: 1,
             overshootClamping: true,
-            restDisplacementThreshold: 0.01,
-            restSpeedThreshold: 0.01,
+            restDisplacementThreshold: 0.001,
+            restSpeedThreshold: 0.001,
+        },
+    };
+
+    const configClose = {
+        animation: 'timing',
+        config: {
+            stiffness: 1000,
+            damping: 500,
+            mass: 1,
+            overshootClamping: true,
+            restDisplacementThreshold: 0.001,
+            restSpeedThreshold: 0.001,
         },
     };
 
@@ -51,8 +63,8 @@ export function NavigationSetOptionsPanel (navigation,title) {
         gestureDirection:'horizontal',
         cardStyleInterpolator:CardStyleInterpolators.forHorizontalIOS,
         transitionSpec:{
-          open:config,
-          close:config,
+          open:configOpen,
+          close:configClose,
         },
         headerTitle: title,
         headerTitleAlign: 'center',

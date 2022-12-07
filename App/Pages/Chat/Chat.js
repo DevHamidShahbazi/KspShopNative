@@ -1,8 +1,8 @@
 import React, {useEffect,useState,useContext} from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, Text, View,TouchableOpacity} from 'react-native';
+import {createStackNavigator} from '@react-navigation/stack';
+export const ChatStack = createStackNavigator();
 import LinearGradient from "react-native-linear-gradient";
-import { getFocusedRouteNameFromRoute } from '@react-navigation/native';
-import {NavigationContainer} from '@react-navigation/native';
 
 export default function Chat ({navigation,route}) {
     useEffect(()=>{

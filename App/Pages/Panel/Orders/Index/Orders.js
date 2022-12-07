@@ -1,7 +1,8 @@
 import React,{useState,useEffect} from 'react';
 import {NavigationSetOptionsPanel} from '../../Index/components/PanelStyles';
 import {FlatList, ActivityIndicator, View,RefreshControl} from 'react-native';
-import OrdersItem, {GetOrders, ImgEmpty} from './components/OrdersFunction';
+import OrdersItem, {GetOrders} from './components/OrdersFunction';
+import ListIsEmpty from '../../../../Global/Components/IsEmpty';
 
 export default function Orders ({navigation,route}) {
     const [Loading,setLoading] = useState(true);
@@ -13,9 +14,8 @@ export default function Orders ({navigation,route}) {
     },[]);
     return (
         <React.Fragment>
-            <View style={{flex:1,justifyContent:'center',backgroundColor:'#e5e7eb'}}>
-                <ActivityIndicator style={{display:Loading?'flex':'none'}} animating={Loading} size="large" color="#213854" />
-                <ImgEmpty IsEmpty={IsEmpty}/>
+            <ListIsEmpty IsEmpty={IsEmpty} Loading={Loading}/>
+            <View style={{display:Loading || IsEmpty?'none':'flex',flex:1,justifyContent:'center',backgroundColor:'#e5e7eb'}}>
                 <FlatList
                     refreshControl={
                         <RefreshControl
@@ -26,7 +26,7 @@ export default function Orders ({navigation,route}) {
                     data={Orders}
                     renderItem={({item}) => <OrdersItem item={item}/>}
                     keyExtractor={item => item.id}
-                    contentContainerStyle={{padding:10}}
+                    contentContainerStyle={{padding:10,display:Loading?'none':'flex'}}
                     showsVerticalScrollIndicator={false}
                 />
             </View>

@@ -3,7 +3,7 @@ import {NavigationSetOptionsPanel} from '../../Index/components/PanelStyles';
 import {ScrollView} from 'react-native';
 import OrderStyles from './components/OrderStyles';
 import {OrderTopItems} from './components/OrderFuctions';
-import {PurchasedProductItems} from '../../PurchasedProducts/Index/components/PurchasedProducts';
+import {PurchasedProductItems} from '../../PurchasedProducts/Index/components/PurchasedProductsFunctions';
 
 export default function Order ({navigation,route}) {
     const {order}=route.params;
