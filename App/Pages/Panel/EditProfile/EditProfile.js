@@ -1,10 +1,11 @@
-import React, {useContext, useEffect, useState} from 'react';
-import {Text, View, Modal, ScrollView, TouchableOpacity} from 'react-native';
+import {
+    React,useContext, useEffect, useState,GlobalStyles,
+    Text, View, ScrollView, TouchableOpacity,UserContext
+} from '../../../Global/Import/Imports';
+
 import {NavigationSetOptionsPanel} from '../Index/components/PanelStyles';
-import GlobalStyles from '../../../Global/Styles/GlobalStyles';
 import {CustomTextInput} from '../../../Global/Components/Components';
 import {UseSetFields} from '../../../Global/Hooks/CustomHooks';
-import { UserContext} from '../../../Global/Context/CustomContext';
 import {Error, Success} from '../../../Global/Alerts/GlobalAlert';
 import {EditProfileHeader, handleEditProfile, TextWarningPhoneMustNotNull} from './components/EditProfileFunction';
 

@@ -1,20 +1,11 @@
 import 'react-native-gesture-handler';
-import {useFocusEffect} from '@react-navigation/native';
 import {
     MiddlewareAuth,MiddlewareVerify,MiddlewareNotAuth,MiddlewareVerifyShow,
-    Profile,EditProfile,Register,Login,ForgetPassword,Comments,React,useContext,
+    Profile,EditProfile,Register,Login,ForgetPassword,Comments,Order,
     ResetPassword,VerifyForgetPassword,VerifyScreen,Orders,PurchasedProducts,
-    About,useCallback,PanelStack,DisplayTabBarContext
-} from './components/PanelFunctions';
-import Order from '../Orders/Order/Order';
-import Company from '../Compnay/Company';
+    About,createStackNavigator,Company,React} from '../../../Global/Import/Imports';
 export default function Panel ({navigation ,route}) {
-    // const {DisplayTabBar,setDisplayTabBar} = useContext(DisplayTabBarContext);
-    // useFocusEffect(
-    //     useCallback(() => {
-    //         setDisplayTabBar(true)
-    //     }, [])
-    // );
+    const PanelStack = createStackNavigator();
     return (
         <React.Fragment>
 

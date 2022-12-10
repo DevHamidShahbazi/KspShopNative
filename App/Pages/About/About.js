@@ -1,6 +1,7 @@
 import React,{useEffect} from 'react';
 import {NavigationSetOptionsAbout} from './components/AboutFunction';
 import {Text, View} from 'react-native';
+import {TextBold} from '../../Global/Components/Components';
 export default function About ({navigation,route}) {
     useEffect(()=>{
         NavigationSetOptionsAbout(navigation)
@@ -8,9 +9,9 @@ export default function About ({navigation,route}) {
     return (
         <React.Fragment>
             <View style={{flex:1,justifyContent:'center',alignItems:'center',backgroundColor:'#fff'}}>
-                <Text style={{fontFamily:'Vazir',textAlign:'center'}}>
+                <TextBold style={{fontFamily:'Vazir',textAlign:'center'}}>
                     درباره ما
-                </Text>
+                </TextBold>
             </View>
         </React.Fragment>
     );

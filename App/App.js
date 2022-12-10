@@ -1,22 +1,11 @@
-import  React,{useState,useEffect} from 'react';
-import {StatusBar,View,Text} from 'react-native';
+import {React,useState,useEffect,StatusBar,axios,
+    AuthContext,UserContext,DisplayTabBarContext,createBottomTabNavigator,
+    Home,Category,Basket,Chat,Panel,CheckToken,TabScreenOptions,
+    NavigationContainer,
+} from './Global/Import/Imports';
 import 'react-native-gesture-handler';
-import { NavigationContainer } from '@react-navigation/native';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import axios from 'axios';
-import Home from './Pages/Home/Home';
-import Category from './Pages/Category/Category';
-import Basket from './Pages/Basket/Basket';
-import Chat from './Pages/Chat/Chat';
-import {CheckToken} from './Auth/components/FunctionAuth';
-import {AuthContext,UserContext,DisplayTabBarContext} from './Global/Context/CustomContext';
-import AsyncStorage from '@react-native-async-storage/async-storage';
-import Panel from './Pages/Panel/Index/Panel';
-import {TabScreenOptions} from './Global/Components/Components';
 // .axios.defaults.baseURL = 'https://ksp-shop.com/';
 axios.defaults.baseURL = 'http://192.168.100.15:8000/api/';
-
-
 export default App = () => {
     const [Auth,setAuth] = useState(null);
     const [User,setUser] = useState(null);
@@ -25,16 +14,6 @@ export default App = () => {
     useEffect(()=>{
         CheckToken(setAuth,setUser)
     },[]);
-    // AsyncStorage.clear();
-    // AsyncStorage.getAllKeys((error, result) => console.log(result))
-    // AsyncStorage.multiGet(['Auth', 'api_token', 'user',],(errors, result) => {
-    // // console.log(JSON.parse(result[3][1] ))
-    //     console.log(result)
-    // })
-    // console.log({
-    //     'Auth':Auth,
-    //     'User':User,
-    // })
     const Tab = createBottomTabNavigator();
     return (
         <AuthContext.Provider value={{Auth,setAuth}}>

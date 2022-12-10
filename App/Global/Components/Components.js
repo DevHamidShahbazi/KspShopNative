@@ -1,8 +1,5 @@
-import React from 'react';
-import {Text, TextInput, View} from 'react-native';
-import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-import GlobalStyles from '../Styles/GlobalStyles';
-
+import {React,Text, TextInput, View,
+    MaterialCommunityIcons,GlobalStyles} from '../Import/Imports';
 
 export function TextRegular ({children,style}) {
     return (
@@ -34,11 +31,12 @@ const LabelTextInput = ({Label,require}) => {
      );
 };
 
-export const CustomTextInput = ({name,value,type,placeholder,handleChange,styleInput,styleContainer,Eye,Label,disable,require}) => {
+export const CustomTextInput = ({name,value,type,placeholder,autoFocus,handleChange,styleInput,styleContainer,Eye,Label,disable,require}) => {
     return (
         <View style={styleContainer}>
             {Label?<LabelTextInput Label={Label} force={require}/>:null}
             <TextInput
+                autoFocus={autoFocus?autoFocus:null}
                 value={value}
                 editable={disable?false:true}
                 secureTextEntry={Eye?true:false}

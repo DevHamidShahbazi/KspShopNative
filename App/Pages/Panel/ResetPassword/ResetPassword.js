@@ -28,7 +28,7 @@ export default function ResetPassword ({navigation,route}) {
                 <View style={{padding:15,flex:1,width:"100%"}}>
                     <Error message={Errors}/>
                     <Success message={Successes}/>
-                    <CustomTextInput value={Fields.name} name={'password'} styleInput={{marginBottom:'5%'}} Eye={Eye} handleChange={handleChange} placeholder={'رمز عبور جدید خود را وارد کنید'} type={'default'} require={true} />
+                    <CustomTextInput autoFocus={true} value={Fields.name} name={'password'} styleInput={{marginBottom:'5%'}} Eye={Eye} handleChange={handleChange} placeholder={'رمز عبور جدید خود را وارد کنید'} type={'default'} require={true} />
 
                     <View style={StylesAuth.Input_Group}>
                         <TextInput secureTextEntry={Eye}
@@ -42,8 +42,7 @@ export default function ResetPassword ({navigation,route}) {
                     </View>
                 </View>
 
-
-                <TouchableOpacity onPress={() => handleResetPassword(navigation ,Fields,setErrors,setSuccesses)}
+                <TouchableOpacity onPress={() => handleResetPassword(Fields,setErrors,setSuccesses)}
                                   activeOpacity={.7}
                                   style={[GlobalStyles.Btn_Royal,GlobalStyles.Shadow,{width:'95%',bottom:15}]}>
                     <Text style={GlobalStyles.Text_Btn_Royal}>تغییر رمز</Text>

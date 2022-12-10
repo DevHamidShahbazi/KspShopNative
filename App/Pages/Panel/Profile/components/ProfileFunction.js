@@ -1,15 +1,4 @@
-import React from 'react';
-import {TouchableOpacity, Text, View,ScrollView, Alert} from 'react-native';
-import ProfileStyles from './ProfileStyle';
-import Icon from 'react-native-vector-icons/dist/FontAwesome5';
-import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-import GlobalStyles from '../../../../Global/Styles/GlobalStyles';
-import {CustomBadge} from '../../../../Global/Components/Components';
-import PanelStyles from '../../Index/components/PanelStyles';
-import {LogOut} from '../../../../Auth/components/FunctionAuth';
-
-
-
+import {React,TouchableOpacity, Text, View,ScrollView, Alert, Icon,MaterialCommunityIcons,ProfileStyles,GlobalStyles, CustomBadge,LogOut,PanelStyles} from '../../../../Global/Import/Imports';
 export function ProfileHeader ({User}) {
     return (
         <React.Fragment>
