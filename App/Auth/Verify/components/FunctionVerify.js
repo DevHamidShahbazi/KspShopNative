@@ -1,6 +1,4 @@
-import React from 'react';
-import axios from 'axios';
-import AsyncStorage from '@react-native-async-storage/async-storage';
+import {React,axios,AsyncStorage} from '../../../Global/Import/Imports';
 export function handleVerify (navigation,Fields,setErrors,setSuccesses,setUser,setAuth) {
 
     AsyncStorage.getItem('api_token',(error, result) => {

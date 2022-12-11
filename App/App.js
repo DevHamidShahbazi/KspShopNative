@@ -1,9 +1,9 @@
+import 'react-native-gesture-handler';
 import {React,useState,useEffect,StatusBar,axios,
     AuthContext,UserContext,DisplayTabBarContext,createBottomTabNavigator,
-    Home,Category,Basket,Chat,Panel,CheckToken,TabScreenOptions,
+    Home,IndexCategory,Basket,Chat,Panel,CheckToken,TabScreenOptions,
     NavigationContainer,
 } from './Global/Import/Imports';
-import 'react-native-gesture-handler';
 // .axios.defaults.baseURL = 'https://ksp-shop.com/';
 axios.defaults.baseURL = 'http://192.168.100.15:8000/api/';
 export default App = () => {
@@ -25,7 +25,7 @@ export default App = () => {
                             <Tab.Screen name="Panel" component={Panel} options={TabScreenOptions('پنل کاربری','account')}/>
                             <Tab.Screen name="Chat" component={Chat} options={TabScreenOptions('پیام رسان','chat')}/>
                             <Tab.Screen name="Basket" component={Basket} options={TabScreenOptions('سبد خرید','cart')}/>
-                            <Tab.Screen name="Category" component={Category} options={TabScreenOptions('دسته بندی ها','view-dashboard')}/>
+                            <Tab.Screen name="Category" component={IndexCategory} options={TabScreenOptions('دسته بندی ها','view-dashboard')}/>
                             <Tab.Screen name="Home" component={Home} options={TabScreenOptions('خانه','home')}/>
                         </Tab.Navigator>
                     </NavigationContainer>

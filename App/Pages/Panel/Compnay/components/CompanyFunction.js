@@ -1,12 +1,7 @@
-import React from 'react';
-import {Alert, Text, TouchableOpacity, View} from 'react-native';
-import {CustomTextInput} from '../../../../Global/Components/Components';
-import AsyncStorage from '@react-native-async-storage/async-storage';
-import axios from 'axios';
-import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-import GlobalStyles from '../../../../Global/Styles/GlobalStyles';
-import {CompanyStyles} from './CompanyStyles';
-
+import {
+    React,Alert, Text, View, CustomTextInput,
+    AsyncStorage, axios, MaterialCommunityIcons, GlobalStyles, CompanyStyles,
+} from '../../../../Global/Import/Imports';
 export function handleSubmitCompanyWithText (Fields,order,setErrors,handleChange) {
     AsyncStorage.getItem('api_token',(error, result) => {
         if (result){

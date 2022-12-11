@@ -1,7 +1,4 @@
-import React from 'react';
-import {StyleSheet, Text, View} from 'react-native';
-import Icon from 'react-native-vector-icons/dist/FontAwesome5';
-
+import {React,StyleSheet, Text, View} from '../Import/Imports';
 export function Error (props) {
     const StylesError = StyleSheet.create({
         MainError:{

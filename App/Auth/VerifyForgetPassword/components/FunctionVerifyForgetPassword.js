@@ -1,12 +1,4 @@
-import React from 'react';
-import axios from 'axios';
-import AsyncStorage from '@react-native-async-storage/async-storage';
-import {Button, Text, TouchableOpacity} from 'react-native';
-import handleForgetPassword from '../../ForgetPassword/components/ForgetPasswordFunction';
-import GlobalStyles from '../../../Global/Styles/GlobalStyles';
-import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-import {lightGreen50} from 'react-native-paper/lib/typescript/styles/colors';
-
+import {React,axios,AsyncStorage,TouchableOpacity,MaterialCommunityIcons} from '../../../Global/Import/Imports';
 export function handleVerifyForgetPassword (navigation,Fields,setErrors,setSuccesses,UserName,setAuth,setUser) {
     axios.post('v_1_0/verify/forget-password', {
         code: Fields.code,

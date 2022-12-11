@@ -1,14 +1,8 @@
 import {
-    React,useContext, useEffect, useState,GlobalStyles,
-    Text, View, ScrollView, TouchableOpacity,UserContext
+    React,useContext, useEffect, useState,GlobalStyles,NavigationSetOptionsPanel,
+    Text, View, ScrollView, TouchableOpacity,UserContext,CustomTextInput,UseSetFields,
+    Error, Success,handleEditProfile, TextWarningPhoneMustNotNull
 } from '../../../Global/Import/Imports';
-
-import {NavigationSetOptionsPanel} from '../Index/components/PanelStyles';
-import {CustomTextInput} from '../../../Global/Components/Components';
-import {UseSetFields} from '../../../Global/Hooks/CustomHooks';
-import {Error, Success} from '../../../Global/Alerts/GlobalAlert';
-import {EditProfileHeader, handleEditProfile, TextWarningPhoneMustNotNull} from './components/EditProfileFunction';
-
 export default function EditProfile ({navigation,route}) {
     const {User,setUser} = useContext(UserContext)
     const [Errors,setErrors] = useState('');

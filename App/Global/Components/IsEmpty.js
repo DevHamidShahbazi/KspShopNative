@@ -1,6 +1,4 @@
-import React from 'react';
-import {ActivityIndicator, Image, View} from 'react-native';
-
+import {React,ActivityIndicator, Image, View} from '../Import/Imports';
 export default function ListIsEmpty ({Loading,IsEmpty}) {
     return (
         <React.Fragment>

@@ -1,7 +1,4 @@
-import React,{useContext} from 'react';
-import LoadingScreen from '../../Pages/Loading/LoadingScreen';
-import {AuthContext, UserContext} from '../Context/CustomContext';
-
+import {React,useContext,LoadingScreen,AuthContext, UserContext} from '../Import/Imports';
 export default function MiddlewareAuth ({children}) {
     const {Auth,setAuth} = useContext(AuthContext);
     const {User,setUser} = useContext(UserContext);

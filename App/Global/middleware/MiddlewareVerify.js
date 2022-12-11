@@ -1,6 +1,4 @@
-import React,{useContext} from 'react';
-import LoadingScreen from '../../Pages/Loading/LoadingScreen';
-import {UserContext} from '../Context/CustomContext';
+import {React,useContext,LoadingScreen, UserContext} from '../Import/Imports';
 export default function MiddlewareVerify ({children}) {
     const {User,setUser} = useContext(UserContext);
     if (User != null){

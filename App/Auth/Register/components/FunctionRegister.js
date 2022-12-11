@@ -1,8 +1,6 @@
-import React from 'react';
-import axios from 'axios';
-import {Text, TextInput, TouchableOpacity, View} from 'react-native';
-import StylesAuth from '../../components/StylesAuth';
-import Icon from 'react-native-vector-icons/dist/FontAwesome5';
+import {
+    React,axios,Text, TextInput, TouchableOpacity, View,Icon,StylesAuth
+} from '../../../Global/Import/Imports';
 import RegisterStyles from './RegisterStyles';
 
 import {ResponseData_Register_and_Login} from '../../components/FunctionAuth';

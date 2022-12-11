@@ -1,12 +1,7 @@
-import React from 'react';
-import {View, Text, Image} from 'react-native';
-import GlobalStyles from '../../../../Global/Styles/GlobalStyles';
-import {TextBold,TextRegular} from '../../../../Global/Components/Components';
-import CommentsStyles from './CommentsStyles';
-import AsyncStorage from '@react-native-async-storage/async-storage';
-import axios from 'axios';
-import collect from "collect.js";
-
+import {
+    React,View, Image,GlobalStyles,AsyncStorage,
+    TextBold,TextRegular,CommentsStyles,axios
+} from '../../../../Global/Import/Imports';
 
 export const CommentPanelGetComment = (setComments,setLoading,setIsEmpty) => {
     AsyncStorage.getItem('api_token',(error, result) => {

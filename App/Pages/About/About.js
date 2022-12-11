@@ -1,7 +1,4 @@
-import React,{useEffect} from 'react';
-import {NavigationSetOptionsAbout} from './components/AboutFunction';
-import {Text, View} from 'react-native';
-import {TextBold} from '../../Global/Components/Components';
+import {React,useEffect,NavigationSetOptionsAbout,TextBold,View} from '../../Global/Import/Imports';
 export default function About ({navigation,route}) {
     useEffect(()=>{
         NavigationSetOptionsAbout(navigation)

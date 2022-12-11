@@ -1,9 +1,7 @@
-import React,{useEffect,useState} from 'react';
-import {ActivityIndicator, FlatList, RefreshControl, Text, View} from 'react-native';
-import {NavigationSetOptionsPanel} from '../Index/components/PanelStyles';
-import {CommentItems,CommentPanelGetComment} from './components/CommentFunction';
-import ListIsEmpty from '../../../Global/Components/IsEmpty';
-
+import {
+    React,useEffect,useState,FlatList, RefreshControl, View,ListIsEmpty,
+    NavigationSetOptionsPanel,CommentItems,CommentPanelGetComment,
+} from '../../../Global/Import/Imports';
 export default function Comments ({navigation,route}) {
     const [Loading,setLoading] = useState(true);
     const [IsEmpty,setIsEmpty] = useState(false);

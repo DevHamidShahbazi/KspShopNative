@@ -1,10 +1,8 @@
-import React,{useState,useEffect,useContext} from 'react';
-import {UseSetFields} from '../../Global/Hooks/CustomHooks';
-import {GoToLoginFromRegister, handleRegister, InputGroupPassConfirmAuth, NavigationSetOptionsRegister,} from './components/FunctionRegister';
-import {BoxAuth, GradientAuth, InputGroupAuth, InputGroupPassAuth} from '../components/FunctionAuth';
-import GlobalStyles from '../../Global/Styles/GlobalStyles';
-import {Text, TouchableOpacity} from 'react-native';
-import {AuthContext, UserContext} from '../../Global/Context/CustomContext';
+import {
+    React,useState,useEffect,useContext,UseSetFields,GlobalStyles,AuthContext, UserContext,
+    GoToLoginFromRegister, handleRegister, InputGroupPassConfirmAuth, NavigationSetOptionsRegister,
+    BoxAuth, GradientAuth, InputGroupAuth, InputGroupPassAuth,Text, TouchableOpacity,
+} from '../../Global/Import/Imports';
 export default function Register ({navigation ,route}) {
     const {User,setUser} = useContext(UserContext)
     const {Auth,setAuth} = useContext(AuthContext)

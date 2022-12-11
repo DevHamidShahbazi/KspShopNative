@@ -1,6 +1,4 @@
-import React, {useEffect,useState} from 'react';
-import {CheckAuth, CheckUser, CheckVerify} from '../../Auth/components/FunctionAuth';
-
+import React, {useState} from 'react';
 export function UseSetFields (init) {
     const [Fields,setFields] = useState(init);
     const handleChange = (value,name) => {

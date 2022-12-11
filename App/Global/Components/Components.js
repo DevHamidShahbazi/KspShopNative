@@ -1,5 +1,9 @@
-import {React,Text, TextInput, View,
-    MaterialCommunityIcons,GlobalStyles} from '../Import/Imports';
+import {
+    React, Text, TextInput, View,
+    MaterialCommunityIcons, GlobalStyles, Icon,
+} from '../Import/Imports';
+import {Dimensions} from 'react-native';
+import {CardStyleInterpolators} from '@react-navigation/stack';
 
 export function TextRegular ({children,style}) {
     return (

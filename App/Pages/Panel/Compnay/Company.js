@@ -1,13 +1,11 @@
-import React, {useContext, useEffect, useState} from 'react';
-import {NavigationSetOptionsPanel} from '../Index/components/PanelStyles';
-import {Text,ScrollView,View,TouchableOpacity} from 'react-native';
-import {CompanyStyles} from './components/CompanyStyles';
-import GlobalStyles from '../../../Global/Styles/GlobalStyles';
-import {CompanyAlertStatus, CompanySection, CompanyInputs, handleSubmitCompanyWithText, CompanyObjectStates,} from './components/CompanyFunction';
-import {DisplayTabBarContext} from '../../../Global/Context/CustomContext';
-import { useFocusEffect } from '@react-navigation/native';
-import {UseSetFields} from '../../../Global/Hooks/CustomHooks';
-import {Error} from '../../../Global/Alerts/GlobalAlert';
+import {
+    React,useContext, useEffect, useState,
+    NavigationSetOptionsPanel,Text,ScrollView,
+    CompanyStyles,GlobalStyles,TouchableOpacity,
+    DisplayTabBarContext,useFocusEffect,UseSetFields,Error,
+    CompanySection,CompanyObjectStates, CompanyAlertStatus,
+    CompanyInputs, handleSubmitCompanyWithText,
+} from '../../../Global/Import/Imports';
 export default function Company ({navigation,route}) {
     const {company}=route.params.order;
     const {order}=route.params;

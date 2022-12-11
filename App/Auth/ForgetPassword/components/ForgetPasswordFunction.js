@@ -1,5 +1,4 @@
-import React from 'react';
-import axios from 'axios';
+import {React,axios} from '../../../Global/Import/Imports';
 export default function handleForgetPassword (navigation ,Fields,setErrors) {
     axios.post('v_1_0/forget-password', {
         username: Fields.username,

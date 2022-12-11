@@ -1,10 +1,4 @@
-import React from 'react';
-import axios from 'axios';
-import AsyncStorage from '@react-native-async-storage/async-storage';
-import {Text, View} from 'react-native';
-import PanelStyles from '../../Index/components/PanelStyles';
-import GlobalStyles from '../../../../Global/Styles/GlobalStyles';
-
+import {React,axios,AsyncStorage,Text,View,PanelStyles} from '../../../../Global/Import/Imports';
 export const handleEditProfile = (navigation ,Fields,setErrors,setUser,setSuccesses) => {
     AsyncStorage.getItem('api_token',(error, result) => {
         if (result){

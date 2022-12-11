@@ -1,12 +1,9 @@
-import React, {useEffect, useState} from 'react';
-import {BoxAuth, GradientAuth, InputGroupAuth} from '../components/FunctionAuth';
-import {UseSetFields} from '../../Global/Hooks/CustomHooks';
-import GlobalStyles from '../../Global/Styles/GlobalStyles';
-import {Text, TouchableOpacity} from 'react-native';
-import handleForgetPassword from './components/ForgetPasswordFunction';
-import {NavigationSetOptionsLogin} from '../Login/components/FunctionLogin';
-import {NavigationSetOptionsForgetPassword} from '../VerifyForgetPassword/components/FunctionVerifyForgetPassword';
-
+import {
+    React,useEffect, useState,UseSetFields,
+    BoxAuth, GradientAuth, InputGroupAuth,GlobalStyles,
+    Text, TouchableOpacity,
+    handleForgetPassword, NavigationSetOptionsForgetPassword,
+} from '../../Global/Import/Imports';
 export default function ForgetPassword ({navigation,route}) {
     const [Errors,setErrors] = useState('');
     const {Fields,handleChange} = UseSetFields({

@@ -11,10 +11,8 @@ export default function LoadingScreen (props) {
         }
     },[]);
     return (
-        <GradientAuth>
-            <View style={{flex:1,justifyContent:'center',alignItems:'center'}}>
-                <ActivityIndicator size="large" color="#fff"/>
-            </View>
-        </GradientAuth>
+        <View style={{display:props.Loading?'flex':'none',flex:1,backgroundColor:'#fff',justifyContent:'center',alignItems:'center'}}>
+            <ActivityIndicator size="large" color="#155e75"/>
+        </View>
     );
 }

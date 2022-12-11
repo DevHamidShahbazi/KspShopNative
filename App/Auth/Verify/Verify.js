@@ -1,17 +1,4 @@
-import React, {useState, useEffect, useContext} from 'react';
-import { Text, TouchableOpacity,View} from 'react-native';
-import {BoxAuth, GradientAuth, InputGroupAuth, TimerView} from '../components/FunctionAuth';
-import {UseSetFields} from '../../Global/Hooks/CustomHooks';
-import {
-    handleAgainVerify,
-    handleVerify,
-    NavigationSetOptionsVerify,
-    SendCodeWithViewVerify,
-} from './components/FunctionVerify';
-import GlobalStyles from '../../Global/Styles/GlobalStyles';
-import {AuthContext, UserContext} from '../../Global/Context/CustomContext';
-import LoginStyles from '../Login/components/LoginStyle';
-
+import {React,useState, useEffect, useContext,UseSetFields,GlobalStyles,AuthContext, UserContext, Text, TouchableOpacity,BoxAuth, GradientAuth, InputGroupAuth, TimerView, handleAgainVerify, handleVerify, NavigationSetOptionsVerify, SendCodeWithViewVerify,} from '../../Global/Import/Imports';
 export default function VerifyScreen ({navigation}) {
     const {User,setUser} = useContext(UserContext)
     const {Auth,setAuth} = useContext(AuthContext)

@@ -1,7 +1,4 @@
-import React from 'react';
-import {View,Text} from 'react-native';
-import {TextBold, TextRegular} from '../Components';
-
+import {React,View,Text,TextBold, TextRegular} from '../../Import/Imports';
 export const ContainerDetailProduct = ({product}) => {
     return (
         <React.Fragment>

@@ -1,14 +1,11 @@
-import React, {useState,useEffect,useContext} from 'react';
-import {BoxAuth, GradientAuth, InputGroupAuth, TimerView} from '../components/FunctionAuth';
-import {UseSetFields} from '../../Global/Hooks/CustomHooks';
-import {Text, TouchableOpacity} from 'react-native';
-import GlobalStyles from '../../Global/Styles/GlobalStyles';
-import {handleVerifyForgetPassword,handleAgainVerifyForgetPassword} from './components/FunctionVerifyForgetPassword';
-import {NavigationSetOptionsVerify} from '../Verify/components/FunctionVerify';
-import {AuthContext, UserContext} from '../../Global/Context/CustomContext';
-import {GoToRegisterFromLogin} from '../Login/components/FunctionLogin';
+import {
+    React,useState,useEffect,useContext,UseSetFields,
+    BoxAuth, GradientAuth, InputGroupAuth, TimerView,
+    Text, TouchableOpacity,GlobalStyles,NavigationSetOptionsVerify,
+    handleVerifyForgetPassword,handleAgainVerifyForgetPassword,
+    AuthContext, UserContext,
+} from '../../Global/Import/Imports';
 import LoginStyles from '../Login/components/LoginStyle';
-
 export default function VerifyForgetPassword ({navigation ,route}) {
     const {User,setUser} = useContext(UserContext)
     const {Auth,setAuth} = useContext(AuthContext)

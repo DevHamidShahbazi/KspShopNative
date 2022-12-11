@@ -1,6 +1,5 @@
 import React from 'react';
 import {StyleSheet, View} from 'react-native';
-import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 export default StylesGlobal = StyleSheet.create({
     Btn_Royal:{
         display : 'flex',

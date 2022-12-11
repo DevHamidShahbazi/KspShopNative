@@ -1,8 +1,8 @@
-import React from 'react';
-import {Text, TouchableOpacity} from 'react-native';
-import axios from 'axios';
+import {
+    React,Text, TouchableOpacity,axios,
+    ResponseData_Register_and_Login,
+} from '../../../Global/Import/Imports';
 import LoginStyles from './LoginStyle';
-import {ResponseData_Register_and_Login} from '../../components/FunctionAuth';
 
 
 export function handleLogin (navigation ,Fields,setErrors,setAuth,setUser) {
