@@ -2,15 +2,16 @@ import {Dimensions, StyleSheet} from 'react-native';
 const ScreenWidth = Dimensions.get('window').width;
 export const CategoriesStyles = StyleSheet.create({
     container:{
-        flex:1,width:ScreenWidth-30,padding:10,
+
+        flex:1,
+        width:ScreenWidth-30,
+        padding:10,
     },
     box:{
         flex:1,
         backgroundColor:'#fff',
-        // borderRadius: 8,
+        borderRadius: 3,
         flexDirection:'row',
-        borderWidth:2.5,
-        borderColor:'#ffc107'
     },
     input:{
         flex:15,
@@ -18,9 +19,14 @@ export const CategoriesStyles = StyleSheet.create({
         alignItems:'flex-end',
         padding:5
     },
+    text:{
+        fontFamily:'Vazir',
+        color:'rgba(33,56,84,0.65)',
+        fontSize:15,
+    },
     btnSearch:{
         flex:2,padding:5,justifyContent:'center',
-        alignItems:'center',backgroundColor: '#ffc107',
+        alignItems:'center',
         // borderTopRightRadius:7,
         // borderBottomRightRadius:7,
     },

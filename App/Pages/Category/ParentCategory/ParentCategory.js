@@ -1,13 +1,19 @@
-import {React,useEffect,View,TextBold} from '../../../Global/Import/Imports';
+import {
+    React, useEffect, ScrollView, View,
+    TextBold, SearchBarTouchNavigationSetOptions,
+} from '../../../Global/Import/Imports';
 
-export default function ParentCategory (props) {
+export default function ParentCategory ({navigation,route}) {
+    useEffect(()=>{
+        SearchBarTouchNavigationSetOptions(navigation,route);
+    },[]);
     return (
         <React.Fragment>
-            <View style={{flex:1,justifyContent:'center'}}>
-                <TextBold style={{textAlign:'center'}}>
-                    ParentCategory
-                </TextBold>
-            </View>
+            <ScrollView contentContainerStyle={{justifyContent:'center'}}>
+                <TextBold style={{textAlign:'center'}}>ParentCategory</TextBold>
+                <TextBold style={{textAlign:'center'}}>ParentCategory</TextBold>
+                <TextBold style={{textAlign:'center'}}>ParentCategory</TextBold>
+            </ScrollView>
         </React.Fragment>
     );
 }

@@ -9,8 +9,7 @@ export {View,Text,ScrollView,FlatList,Alert,StatusBar,StyleSheet,Image,RefreshCo
 
 export {default as collect} from "collect.js";
 export {default as AsyncStorage} from '@react-native-async-storage/async-storage';
-export { NavigationContainer } from '@react-navigation/native';
-export { useFocusEffect } from '@react-navigation/native';
+export { NavigationContainer ,useFocusEffect,useNavigation  } from '@react-navigation/native';
 export {DisplayTabBarContext,AuthContext,UserContext} from '../Context/CustomContext';
 export {createStackNavigator} from '@react-navigation/stack';
 export {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
@@ -69,4 +68,4 @@ export {default as ListIsEmpty} from '../Components/IsEmpty';
 export {CommentItems,CommentPanelGetComment} from '../../Pages/Panel/Comments/components/CommentFunction';
 export {CompanyStyles} from '../../Pages/Panel/Compnay/components/CompanyStyles';
 export {CompanyAlertStatus, CompanySection, CompanyInputs, handleSubmitCompanyWithText, CompanyObjectStates} from '../../Pages/Panel/Compnay/components/CompanyFunction';
-export {SearchBarTouchNavigationSetOptions} from '../../Pages/Category/Index/components/CategoriesFunctions';
+export {CategoriesBanner,SearchBarTouchNavigationSetOptions} from '../../Pages/Category/Index/components/CategoriesFunctions';

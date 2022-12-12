@@ -1,7 +1,9 @@
-import {React,useEffect,View,TextBold} from '../../../Global/Import/Imports';
+import {React, useEffect, View, TextBold, SearchBarTouchNavigationSetOptions} from '../../../Global/Import/Imports';
 
-export default function ChildCategory (props) {
-
+export default function ChildCategory ({navigation,route}) {
+    useEffect(()=>{
+        SearchBarTouchNavigationSetOptions(navigation,route);
+    },[]);
     return (
         <React.Fragment>
             <View style={{flex:1,justifyContent:'center'}}>
