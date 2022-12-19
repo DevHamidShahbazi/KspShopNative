@@ -6,7 +6,7 @@ export {default as React,useEffect,useCallback,useState,useContext} from 'react'
 export {View,Text,ScrollView,FlatList,Alert,StatusBar,StyleSheet,Image,RefreshControl,
     TouchableOpacity,TouchableNativeFeedback,TextInput,Modal,ActivityIndicator,Dimensions,
 } from 'react-native';
-
+export {FlatListSlider} from 'react-native-flatlist-slider';
 export {default as collect} from "collect.js";
 export {default as AsyncStorage} from '@react-native-async-storage/async-storage';
 export { NavigationContainer ,useFocusEffect,useNavigation  } from '@react-navigation/native';

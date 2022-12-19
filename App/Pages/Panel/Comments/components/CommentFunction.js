@@ -1,6 +1,6 @@
 import {
     React,View, Image,GlobalStyles,AsyncStorage,
-    TextBold,TextRegular,CommentsStyles,axios
+    TextBold,TextRegular,CommentsStyles,axios,collect
 } from '../../../../Global/Import/Imports';
 
 export const CommentPanelGetComment = (setComments,setLoading,setIsEmpty) => {

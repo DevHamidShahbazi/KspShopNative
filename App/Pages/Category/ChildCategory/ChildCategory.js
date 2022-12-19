@@ -2,10 +2,11 @@ import {React, useEffect, View, TextBold, SearchBarTouchNavigationSetOptions} fr
 
 export default function ChildCategory ({navigation,route}) {
     useEffect(()=>{
-        SearchBarTouchNavigationSetOptions(navigation,route);
+        navigation.setOptions({headerShown:false})
     },[]);
     return (
         <React.Fragment>
+            <SearchBarTouchNavigationSetOptions navigation={navigation} route={route}/>
             <View style={{flex:1,justifyContent:'center'}}>
                 <TextBold style={{textAlign:'center'}}>
                     ChildCategory

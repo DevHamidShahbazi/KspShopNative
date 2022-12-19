@@ -2,9 +2,10 @@ import {Dimensions, StyleSheet} from 'react-native';
 const ScreenWidth = Dimensions.get('window').width;
 export const CategoriesStyles = StyleSheet.create({
     container:{
-
-        flex:1,
-        width:ScreenWidth-30,
+        height:60,
+        backgroundColor: '#213854',
+        elevation:0,
+        top:0,
         padding:10,
     },
     box:{

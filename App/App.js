@@ -21,7 +21,7 @@ export default App = () => {
                 <DisplayTabBarContext.Provider value={{DisplayTabBar,setDisplayTabBar}}>
                     <StatusBar backgroundColor="#213854"   barStyle="light-content"/>
                     <NavigationContainer>
-                        <Tab.Navigator initialRouteName="Home" screenOptions={{tabBarHideOnKeyboard: true,tabBarStyle: {display:DisplayTabBar?'flex':'none'}}}>
+                        <Tab.Navigator  initialRouteName="Home" screenOptions={{tabBarHideOnKeyboard: true,tabBarStyle: {display:DisplayTabBar?'flex':'none'}}}>
                             <Tab.Screen name="Panel" component={Panel} options={TabScreenOptions('پنل کاربری','account')}/>
                             <Tab.Screen name="Chat" component={Chat} options={TabScreenOptions('پیام رسان','chat')}/>
                             <Tab.Screen name="Basket" component={Basket} options={TabScreenOptions('سبد خرید','cart')}/>

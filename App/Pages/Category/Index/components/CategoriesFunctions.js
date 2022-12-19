@@ -83,60 +83,19 @@ function Item ({category}) {
     );
 }
 
-export  const SearchBarTouchNavigationSetOptions = (navigation,route) => {
-    navigation.setOptions({
-        // gestureEnabled:true,
-        // gestureDirection:'horizontal',
-        // cardStyleInterpolator:CardStyleInterpolators.forHorizontalIOS,
-        // transitionSpec:{
-        //     open:{
-        //         animation: 'spring',
-        //         config: {
-        //             stiffness: 500,
-        //             damping: 500,
-        //             mass: 1,
-        //             overshootClamping: true,
-        //             restDisplacementThreshold: 0.001,
-        //             restSpeedThreshold: 0.001,
-        //         },
-        //     },
-        //     close:{
-        //         animation: 'timing',
-        //         config: {
-        //             stiffness: 1000,
-        //             damping: 500,
-        //             mass: 1,
-        //             overshootClamping: true,
-        //             restDisplacementThreshold: 0.001,
-        //             restSpeedThreshold: 0.001,
-        //         },
-        //     },
-        // },
-        headerTitle: () => {
-            return (
-                <React.Fragment>
-                    <View style={[CategoriesStyles.container]}>
-                        <View style={CategoriesStyles.box}>
-                            <TouchableOpacity onPress={() => console.log('Go Screen Search')} acticveOpacity={.8} style={CategoriesStyles.input}>
-                                <Text style={CategoriesStyles.text}>جستجو ...</Text>
-                            </TouchableOpacity>
-                            <TouchableOpacity onPress={() => navigation.canGoBack()?navigation.goBack():console.log('Go Screen Search')} acticveOpacity={.8}  style={CategoriesStyles.btnSearch}>
-                                <Icon name={navigation.canGoBack()?'arrow-right':'search'} color={'rgba(33,56,84,0.65)'} size={17} />
-                            </TouchableOpacity>
-                        </View>
-                    </View>
-                </React.Fragment>
-
-            )
-
-        },
-        headerLeft:false,
-        headerRight: false,
-        headerTitleAlign: 'center',
-        headerStyle: {
-            height:60,
-            backgroundColor: '#213854',
-            elevation:0,
-        },
-    })
-};
+export function SearchBarTouchNavigationSetOptions ({navigation,route}) {
+    return (
+        <React.Fragment>
+            <View style={[CategoriesStyles.container]}>
+                <View style={CategoriesStyles.box}>
+                    <TouchableOpacity onPress={() => console.log('Go to ScreenSearch')} acticveOpacity={.8} style={CategoriesStyles.input}>
+                        <Text style={CategoriesStyles.text}>جستجو ...</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity onPress={() => route.name=='Categories' || route.name=='Home' ? console.log('Go Screen Search'):navigation.goBack()} acticveOpacity={.8}  style={CategoriesStyles.btnSearch}>
+                        <Icon name={route.name=='Categories' || route.name=='Home' ? 'search':'arrow-right'} color={'rgba(33,56,84,0.65)'} size={17} />
+                    </TouchableOpacity>
+                </View>
+            </View>
+        </React.Fragment>
+    );
+}

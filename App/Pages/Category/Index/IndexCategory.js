@@ -8,8 +8,8 @@ export default function IndexCategory ({navigation ,Route}) {
         <React.Fragment>
             <CategoryStack.Navigator>
                 <CategoryStack.Screen name="Categories" component={Categories}/>
-                <CategoryStack.Screen name="ChildCategory" component={ChildCategory}/>
                 <CategoryStack.Screen name="ParentCategory" component={ParentCategory}/>
+                <CategoryStack.Screen name="ChildCategory" component={ChildCategory}/>
             </CategoryStack.Navigator>
         </React.Fragment>
     );

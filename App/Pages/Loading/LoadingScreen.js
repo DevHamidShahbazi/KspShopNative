@@ -11,7 +11,7 @@ export default function LoadingScreen (props) {
         }
     },[]);
     return (
-        <View style={{display:props.Loading?'flex':'none',flex:1,backgroundColor:'#e5e7eb',justifyContent:'center',alignItems:'center'}}>
+        <View style={{display:props.Loading?'flex':'none',flex:1,backgroundColor:'#eee',justifyContent:'center',alignItems:'center'}}>
             <ActivityIndicator size="large" color="#155e75"/>
         </View>
     );

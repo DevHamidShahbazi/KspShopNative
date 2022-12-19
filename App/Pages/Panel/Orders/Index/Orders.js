@@ -1,13 +1,16 @@
-import React,{useState,useEffect} from 'react';
-import {NavigationSetOptionsPanel} from '../../Index/components/PanelStyles';
-import {FlatList, ActivityIndicator, View,RefreshControl} from 'react-native';
+import {React,useContext,DisplayTabBarContext,FlatList, View,RefreshControl,useEffect,useState,useFocusEffect,useCallback,ListIsEmpty,NavigationSetOptionsPanel} from '../../../../Global/Import/Imports';
 import OrdersItem, {GetOrders} from './components/OrdersFunction';
-import ListIsEmpty from '../../../../Global/Components/IsEmpty';
 
 export default function Orders ({navigation,route}) {
     const [Loading,setLoading] = useState(true);
     const [Orders,setOrders] = useState(null);
     const [IsEmpty,setIsEmpty] = useState(false);
+    const {setDisplayTabBar} = useContext(DisplayTabBarContext);
+    useFocusEffect(
+        useCallback(() => {
+            setDisplayTabBar(true)
+        }, [])
+    );
     useEffect(()=>{
         GetOrders(setOrders,setLoading,setIsEmpty)
         NavigationSetOptionsPanel(navigation,'لیست کل سفارشات')
