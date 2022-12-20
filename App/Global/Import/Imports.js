@@ -53,7 +53,7 @@ export {default as LoadingScreen} from '../../Pages/Loading/LoadingScreen';
 export {handleAgainVerify, handleVerify, NavigationSetOptionsVerify, SendCodeWithViewVerify,} from '../../Auth/Verify/components/FunctionVerify';
 export {LogOut,CheckToken,BoxAuth, GradientAuth, InputGroupAuth, InputGroupPassAuth, ResponseData_Register_and_Login,TimerView} from '../../Auth/components/FunctionAuth';
 export {Error,Success} from '../Alerts/GlobalAlert';
-export {CustomBadge,TabScreenOptions,CustomTextInput} from '../Components/Components';
+export {CustomBadge,TabScreenOptions,CustomTextInput,getSliders,ShowSliders} from '../Components/Components';
 export {ProfileBody, ProfileHeader} from '../../Pages/Panel/Profile/components/ProfileFunction';
 export {default as ProfileStyles,NavigationSetOptionsProfile} from '../../Pages/Panel/Profile/components/ProfileStyle';
 export {default as PanelStyles,NavigationSetOptionsPanel} from '../../Pages/Panel/Index/components/PanelStyles';

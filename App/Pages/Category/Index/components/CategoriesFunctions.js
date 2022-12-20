@@ -22,7 +22,7 @@ export const GetCategories = (setCategories,setLoading) => {
 
 
 export function CategoriesBanner({item}) {
-    const TypeCategory = item.child ? 'ParentCategory':'ChildCategory';
+    const TypeCategory = item.type=='parent' ? 'ParentCategory':'ChildCategory';
     const navigation = useNavigation();
     const ScreenWidth = Dimensions.get('window').width;
     return (

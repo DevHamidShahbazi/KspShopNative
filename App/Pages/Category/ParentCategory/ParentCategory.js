@@ -1,45 +1,19 @@
 import {
-    React, useEffect, ScrollView, View,FlatListSlider,
-    TextBold, SearchBarTouchNavigationSetOptions
+    React, useEffect, ScrollView, View,FlatListSlider,useState,Dimensions,
+    TextBold, SearchBarTouchNavigationSetOptions,getSliders,ShowSliders,
 } from '../../../Global/Import/Imports';
-import { Dimensions} from 'react-native';
-const ScreenWidth = Dimensions.get('window').width;
-export default function ParentCategory ({navigation,route}) {
-    const images = [
-        {
-            image : 'https://ksp-shop.com/Upload/image/gallery/OudXW-KspShop.jpg'
-        },
-        {
-            image : 'https://ksp-shop.com/Upload/image/gallery/2EOpc-KspShop.jpg'
-        },
-        {
-            image : 'https://ksp-shop.com/Upload/image/gallery/yCuYQ-KspShop.jpg'
-        }
-    ]
 
+export default function ParentCategory ({navigation,route}) {
+    const [Sliders,setSliders] = useState(null);
     useEffect(()=>{
         navigation.setOptions({headerShown:false})
+        getSliders(route.params,setSliders)
     },[]);
     return (
         <React.Fragment>
             <SearchBarTouchNavigationSetOptions navigation={navigation} route={route}/>
-
             <ScrollView contentContainerStyle={{justifyContent:'center'}}>
-                <FlatListSlider
-                    height={ScreenWidth/1.333333}
-                    autoscroll={false}
-                    data={images}
-                    loop={false}
-                    onPress={() => console.log('Press')}
-                    indicatorContainerStyle={{position:'absolute', bottom: 20}}
-                    indicatorActiveColor={'#213854'}
-                    indicatorInActiveColor={'#ffffff'}
-                    indicatorActiveWidth={30}
-                    animation
-                />
-                <TextBold style={{textAlign:'center'}}>ParentCategory</TextBold>
-                <TextBold style={{textAlign:'center'}}>ParentCategory</TextBold>
-                <TextBold style={{textAlign:'center'}}>ParentCategory</TextBold>
+                <ShowSliders sliders={Sliders}/>
             </ScrollView>
         </React.Fragment>
     );

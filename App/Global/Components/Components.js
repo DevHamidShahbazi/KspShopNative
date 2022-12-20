@@ -1,9 +1,8 @@
 import {
-    React, Text, TextInput, View,
-    MaterialCommunityIcons, GlobalStyles, Icon,
+    React, Text, TextInput, View,FlatListSlider,
+    MaterialCommunityIcons, GlobalStyles, Icon, axios,
 } from '../Import/Imports';
 import {Dimensions} from 'react-native';
-import {CardStyleInterpolators} from '@react-navigation/stack';
 
 export function TextRegular ({children,style}) {
     return (
@@ -67,6 +66,42 @@ export function TabScreenOptions (label,Icon) {
     }
 }
 export const CustomBadge = (style) => <View style={{backgroundColor:'red',borderRadius:25,width:12,height:12,marginRight:5,marginLeft:5,style}}/>
+
+
+export function getSliders (categoryId,setSliders,random = null) {
+    axios.post('v_1_0/sliders',{
+        'category_id':categoryId
+    })
+        .then(function (response) {
+            const {data} = response;
+            if (data.status == 'success'){
+                setSliders(random?data.RandomSliders:data.sliders)
+            }
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
+}
+
+export function ShowSliders ({sliders}) {
+    const ScreenWidth = Dimensions.get('window').width;
+    return (
+        <React.Fragment>
+            {sliders?<FlatListSlider
+                height={ScreenWidth/1.333333}
+                // autoscroll={false}
+                data={sliders}
+                loop={false}
+                onPress={() => console.log('Press')}
+                indicatorContainerStyle={{position:'absolute', bottom: 20}}
+                indicatorActiveColor={'#213854'}
+                indicatorInActiveColor={'#ffffff'}
+                indicatorActiveWidth={30}
+                animation
+            />:null}
+        </React.Fragment>
+    );
+}
 
 
 export const TextTypeStatus = (Status) => {

@@ -4,7 +4,7 @@ import {React,useState,useEffect,StatusBar,axios,
     Home,IndexCategory,Basket,Chat,Panel,CheckToken,TabScreenOptions,
     NavigationContainer,
 } from './Global/Import/Imports';
-// .axios.defaults.baseURL = 'https://ksp-shop.com/';
+// axios.defaults.baseURL = 'https://ksp-shop.com/api/';
 axios.defaults.baseURL = 'http://192.168.100.15:8000/api/';
 export default App = () => {
     const [Auth,setAuth] = useState(null);
