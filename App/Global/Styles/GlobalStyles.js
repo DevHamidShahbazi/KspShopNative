@@ -1,6 +1,25 @@
 import React from 'react';
 import {StyleSheet, View} from 'react-native';
 export default StylesGlobal = StyleSheet.create({
+    ListItem:{
+        justifyContent:'center',
+        alignItems:'center',
+        backgroundColor: '#fff',
+        marginTop:10,
+        marginBottom:10,
+        marginRight:2,
+        marginLeft:2,
+        padding:5,
+        borderRadius:5,
+        elevation: 5
+    },
+    ListGrid:{
+        flex:1,
+        flexDirection:'row',
+        flexWrap:'wrap',
+        alignItems:'center',
+        justifyContent:'space-around'
+    },
     Btn_Royal:{
         display : 'flex',
         justifyContent:'center',

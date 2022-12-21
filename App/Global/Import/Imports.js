@@ -1,13 +1,11 @@
 
 
-
-
 export {default as React,useEffect,useCallback,useState,useContext} from 'react';
 export {View,Text,ScrollView,FlatList,Alert,StatusBar,StyleSheet,Image,RefreshControl,
     TouchableOpacity,TouchableNativeFeedback,TextInput,Modal,ActivityIndicator,Dimensions,
 } from 'react-native';
-export {FlatListSlider} from 'react-native-flatlist-slider';
 export {default as collect} from "collect.js";
+export {default as Slick} from 'react-native-slick';
 export {default as AsyncStorage} from '@react-native-async-storage/async-storage';
 export { NavigationContainer ,useFocusEffect,useNavigation  } from '@react-navigation/native';
 export {DisplayTabBarContext,AuthContext,UserContext} from '../Context/CustomContext';
@@ -33,6 +31,8 @@ export {default as Login} from '../../Auth/Login/Login';
 export {default as Basket} from '../../Pages/Basket/Basket';
 export {default as IndexCategory} from '../../Pages/Category/Index/IndexCategory';
 export {default as Home} from '../../Pages/Home/Home';
+export {default as Product} from '../../Pages/Product/Product';
+export {default as IndexHome} from '../../Pages/Home/IndexHome';
 export {default as Chat} from '../../Pages/Chat/Chat';
 export {default as Panel} from '../../Pages/Panel/Index/Panel';
 export {default as ForgetPassword} from '../../Auth/ForgetPassword/ForgetPassword';
@@ -53,7 +53,7 @@ export {default as LoadingScreen} from '../../Pages/Loading/LoadingScreen';
 export {handleAgainVerify, handleVerify, NavigationSetOptionsVerify, SendCodeWithViewVerify,} from '../../Auth/Verify/components/FunctionVerify';
 export {LogOut,CheckToken,BoxAuth, GradientAuth, InputGroupAuth, InputGroupPassAuth, ResponseData_Register_and_Login,TimerView} from '../../Auth/components/FunctionAuth';
 export {Error,Success} from '../Alerts/GlobalAlert';
-export {CustomBadge,TabScreenOptions,CustomTextInput,getSliders,ShowSliders} from '../Components/Components';
+export {CustomBadge,TabScreenOptions,CustomTextInput} from '../Components/Components';
 export {ProfileBody, ProfileHeader} from '../../Pages/Panel/Profile/components/ProfileFunction';
 export {default as ProfileStyles,NavigationSetOptionsProfile} from '../../Pages/Panel/Profile/components/ProfileStyle';
 export {default as PanelStyles,NavigationSetOptionsPanel} from '../../Pages/Panel/Index/components/PanelStyles';
@@ -69,3 +69,5 @@ export {CommentItems,CommentPanelGetComment} from '../../Pages/Panel/Comments/co
 export {CompanyStyles} from '../../Pages/Panel/Compnay/components/CompanyStyles';
 export {CompanyAlertStatus, CompanySection, CompanyInputs, handleSubmitCompanyWithText, CompanyObjectStates} from '../../Pages/Panel/Compnay/components/CompanyFunction';
 export {CategoriesBanner,SearchBarTouchNavigationSetOptions} from '../../Pages/Category/Index/components/CategoriesFunctions';
+export {getSliders, ShowSliders, SliderSlick} from '../Components/Sliders';
+export {CategoryItem,ProductItem} from '../Components/Items';

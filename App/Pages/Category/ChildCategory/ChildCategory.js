@@ -7,9 +7,10 @@ import {
 
 export default function ChildCategory ({navigation,route}) {
     const [Sliders,setSliders] = useState(null);
+    const category_id = route.params.params;
     useEffect(()=>{
         navigation.setOptions({headerShown:false});
-        getSliders(route.params,setSliders,1)
+        getSliders(category_id,setSliders,1)
     },[]);
     return (
         <React.Fragment>

@@ -1,10 +1,8 @@
 import {
-    React, View, TextBold, CardStyleInterpolators, Icon, TextRegular,
+    React, View, TextBold, Icon,
     Image, FlatList, Text, axios, Dimensions, TouchableOpacity, useNavigation,
-    MaterialCommunityIcons,
 } from '../../../../Global/Import/Imports';
 import {CategoriesStyles} from './CategoriesStyles';
-
 
 export const GetCategories = (setCategories,setLoading) => {
     axios.post('v_1_0/categories',)
@@ -41,13 +39,14 @@ export function FlatListCategoryItem ({category}) {
     if (category.child){
         return (
             <React.Fragment>
-
-                <View style={{marginBottom:'2%',paddingTop:5,paddingBottom:5}}>
-                    <View style={{flex:1,justifyContent:'space-between',flexDirection:'row',paddingRight:5,paddingLeft:5}}>
-                        <TouchableOpacity onPress={() => navigation.navigate('ParentCategory',{params:category.id})} activeOpacity={1} style={{alignItems:'flex-end',flexDirection:'row',paddingRight:10,paddingLeft:10}}>
-                            <Text style={{color:'#155e75',fontFamily:'Vazir-Bold',fontSize:14}}>مشاهده بیشتر</Text>
+                <View style={CategoriesStyles.containerCategoryItem}>
+                    <View style={CategoriesStyles.rowCategoryItem}>
+                        <TouchableOpacity onPress={() => navigation.navigate('ParentCategory',{params:category.id})}
+                                          activeOpacity={1}
+                                          style={CategoriesStyles.ShowMoreCategoryItem}>
+                            <Text style={CategoriesStyles.TextCategoryItem}>مشاهده بیشتر</Text>
                         </TouchableOpacity>
-                        <Text style={{color:'#155e75',fontFamily:'Vazir-Bold',fontSize:14}}>{category.name}</Text>
+                        <Text style={CategoriesStyles.TextCategoryItem}>{category.name}</Text>
                     </View>
                     <View style={{flexDirection:'row'}}>
                         <FlatList
@@ -60,9 +59,7 @@ export function FlatListCategoryItem ({category}) {
                             showsHorizontalScrollIndicator={false}
                         />
                     </View>
-
                 </View>
-
             </React.Fragment>
         );
     }
@@ -72,8 +69,9 @@ function Item ({category}) {
     const navigation = useNavigation();
     return (
         <React.Fragment>
-            <TouchableOpacity onPress={() => navigation.navigate('ChildCategory',{params:category.id})} activeOpacity={1}
-                style={{backgroundColor: '#fff',marginTop:10,marginBottom:10,marginRight:5,marginLeft:5,padding:5,borderRadius:5,elevation: 5}}>
+            <TouchableOpacity onPress={() => navigation.navigate('ChildCategory',{params:category.id})}
+                              activeOpacity={1}
+                              style={CategoriesStyles.ItemCategoryItem}>
                 <Image  style={{width:135, height: 135}} source={{uri:category.image}}/>
                 <TextBold style={{textAlign:'center'}}>
                     {category.name}
@@ -88,10 +86,14 @@ export function SearchBarTouchNavigationSetOptions ({navigation,route}) {
         <React.Fragment>
             <View style={[CategoriesStyles.container]}>
                 <View style={CategoriesStyles.box}>
-                    <TouchableOpacity onPress={() => console.log('Go to ScreenSearch')} acticveOpacity={.8} style={CategoriesStyles.input}>
+                    <TouchableOpacity onPress={() => console.log('Go to ScreenSearch')}
+                                      acticveOpacity={.8}
+                                      style={CategoriesStyles.input}>
                         <Text style={CategoriesStyles.text}>جستجو ...</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity onPress={() => route.name=='Categories' || route.name=='Home' ? console.log('Go Screen Search'):navigation.goBack()} acticveOpacity={.8}  style={CategoriesStyles.btnSearch}>
+                    <TouchableOpacity onPress={() => route.name=='Categories' || route.name=='Home' ? console.log('Go Screen Search'):navigation.goBack()}
+                                      acticveOpacity={.8}
+                                      style={CategoriesStyles.btnSearch}>
                         <Icon name={route.name=='Categories' || route.name=='Home' ? 'search':'arrow-right'} color={'rgba(33,56,84,0.65)'} size={17} />
                     </TouchableOpacity>
                 </View>

@@ -1,19 +1,32 @@
 import {
-    React, useEffect, ScrollView, View,FlatListSlider,useState,Dimensions,
-    TextBold, SearchBarTouchNavigationSetOptions,getSliders,ShowSliders,
+    React, useEffect, ScrollView, View, useState, Image, TouchableOpacity, CategoryItem,useCallback,
+    TextBold, SearchBarTouchNavigationSetOptions, getSliders, ShowSliders, CategoriesBanner, GlobalStyles,
 } from '../../../Global/Import/Imports';
+import {getDetailParentCategory} from './components/ParentCategoryFunction';
+import {ProductItem} from '../../../Global/Components/Items';
 
 export default function ParentCategory ({navigation,route}) {
     const [Sliders,setSliders] = useState(null);
+    const [Data,setData] = useState({});
+    const category_id = route.params.params;
     useEffect(()=>{
         navigation.setOptions({headerShown:false})
-        getSliders(route.params,setSliders)
-    },[]);
+        getSliders(category_id,setSliders)
+        getDetailParentCategory(category_id,setData);
+    },[category_id]);
     return (
         <React.Fragment>
             <SearchBarTouchNavigationSetOptions navigation={navigation} route={route}/>
             <ScrollView contentContainerStyle={{justifyContent:'center'}}>
                 <ShowSliders sliders={Sliders}/>
+                <View style={{flex:1,padding:10}}>
+                    <TextBold style={{fontSize:23,textAlign:'center'}}>{Data.h1}</TextBold>
+                </View>
+                <View style={GlobalStyles.ListGrid}>
+                    {Data.ChildCategory?Data.ChildCategory.map((category,index) => (<CategoryItem key={index} category={category}/>)):null}
+                    {Data.Products?Data.Products.map((product,index) => (<ProductItem key={index} product={product}/>)):null}
+                </View>
+                {Data.CustomBanner?Data.CustomBanner.map((item,index) => (<CategoriesBanner key={index} item={item}/>)):null}
             </ScrollView>
         </React.Fragment>
     );
