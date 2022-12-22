@@ -1,14 +1,13 @@
 import {
-    React, useEffect, ScrollView, View, useState, Image, TouchableOpacity, CategoryItem,useCallback,
-    TextBold, SearchBarTouchNavigationSetOptions, getSliders, ShowSliders, CategoriesBanner, GlobalStyles,
+    React, useEffect, ScrollView, View, useState, Image, TouchableOpacity, CategoryItem, useCallback,
+    TextBold, SearchBarTouchNavigationSetOptions, getSliders, ShowSliders, CategoriesBanner, GlobalStyles, Slick,
 } from '../../../Global/Import/Imports';
 import {getDetailParentCategory} from './components/ParentCategoryFunction';
 import {ProductItem} from '../../../Global/Components/Items';
-
 export default function ParentCategory ({navigation,route}) {
     const [Sliders,setSliders] = useState(null);
     const [Data,setData] = useState({});
-    const category_id = route.params.params;
+    const category_id = route.params;
     useEffect(()=>{
         navigation.setOptions({headerShown:false})
         getSliders(category_id,setSliders)

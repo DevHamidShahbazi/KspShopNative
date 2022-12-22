@@ -1,5 +1,4 @@
-import React from 'react';
-import {axios} from '../../../../Global/Import/Imports';
+import {axios, React} from '../../../../Global/Import/Imports';
 
 export function getDetailParentCategory (category_id,setData) {
     axios.post('v_1_0/parent-category',{

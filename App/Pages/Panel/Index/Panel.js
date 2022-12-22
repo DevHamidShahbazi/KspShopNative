@@ -27,8 +27,8 @@ export default function Panel ({navigation ,route}) {
 
             <MiddlewareNotAuth>
                 <PanelStack.Navigator>
-                    <PanelStack.Screen name="Register" component={Register} />
                     <PanelStack.Screen name="Login" component={Login}/>
+                    <PanelStack.Screen name="Register" component={Register} />
                     <PanelStack.Screen name="ForgetPassword" component={ForgetPassword} />
                     <PanelStack.Screen name="VerifyForgetPassword" component={VerifyForgetPassword}/>
                 </PanelStack.Navigator>

@@ -1,5 +1,6 @@
-import {axios, Icon, React, Slick,useNavigation,Image, TouchableOpacity} from '../Import/Imports';
+import {axios, React, Slick,useNavigation,Image, TouchableOpacity} from '../Import/Imports';
 import {Dimensions} from 'react-native';
+import Icon from 'react-native-vector-icons/dist/FontAwesome';
 const ScreenWidth = Dimensions.get('window').width;
 
 
@@ -24,7 +25,7 @@ export function ShowSliders ({sliders}) {
         <React.Fragment>
             {
                 sliders?
-                    <SliderSlick  autoplay={true} showsPagination={false} showsButtons={false}>
+                    <SliderSlick  autoplay={false} showsPagination={false} showsButtons={false}>
                         {sliders.map((slide,index) => (
                             <TouchableOpacity activeOpacity={1} onPress={() => navigation.navigate('Product',slide.product_id)} key={index}>
                                 <Image style={{height:ScreenWidth/1.333333}}  source={{uri:slide.image}} />
@@ -42,8 +43,8 @@ export function SliderSlick ({children,autoplay,showsPagination,showsButtons}) {
         <React.Fragment>
             <Slick style={{height:ScreenWidth/1.333333}}
                    loop={false}
-                   prevButton={<Icon name={'chevron-left'} color={'#213854'} size={20}/>}
-                   nextButton={<Icon name={'chevron-right'} color={'#213854'} size={20}/>}
+                   prevButton={<Icon name={'chevron-left'} color={'rgba(255,255,255,0.7)'} size={25}/>}
+                   nextButton={<Icon name={'chevron-right'} color={'rgba(255,255,255,0.7)'} size={25}/>}
                    showsButtons={showsButtons} activeDotColor={'#213854'}
                    autoplay={autoplay} showsPagination={showsPagination}>
                 {children}

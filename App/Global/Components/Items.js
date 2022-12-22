@@ -1,4 +1,4 @@
-import {React, TextBold, useNavigation, Image, TouchableOpacity, GlobalStyles} from '../Import/Imports';
+import {React,View, TextBold, useNavigation, Image, TouchableOpacity, GlobalStyles} from '../Import/Imports';
 import {Dimensions} from 'react-native';
 const ScreenWidth = Dimensions.get('window').width;
 
@@ -7,7 +7,7 @@ export function CategoryItem ({category}) {
     const TypeCategory = category.type=='parent' ? 'ParentCategory':'ChildCategory';
     return (
         <React.Fragment>
-            <TouchableOpacity onPress={() => navigation.navigate(TypeCategory,{params:1})} activeOpacity={1}
+            <TouchableOpacity onPress={() => navigation.navigate(TypeCategory,category.id)} activeOpacity={1}
                               style={[GlobalStyles.ListItem,{width:ScreenWidth/2.1}]}>
                 <Image  style={{width:ScreenWidth/2.2, height: ScreenWidth/2.2}} source={{uri:category.image}}/>
                 <TextBold style={{textAlign:'center'}}>{category.name}</TextBold>
@@ -24,8 +24,28 @@ export function ProductItem ({product}) {
                 style={[GlobalStyles.ListItem,{width:ScreenWidth/2.1}]} activeOpacity={1}>
                 <Image  style={{width:ScreenWidth/2.2, height: ScreenWidth/2.2}} source={{uri:product.image}}/>
                 <TextBold style={{textAlign:'center',flexWrap:'wrap'}}>{product.name}</TextBold>
-                <TextBold style={{textAlign:'center'}}>{null}</TextBold>
+
+                <View style={{justifyContent:'center'}}>
+                    <PriceUnderProduct product={product}/>
+                </View>
+
             </TouchableOpacity>
+        </React.Fragment>
+    );
+}
+
+
+export function PriceUnderProduct ({product}) {
+    const none = () => {
+         return (
+            <React.Fragment>
+
+            </React.Fragment>
+         );
+    };
+    return (
+        <React.Fragment>
+            <TextBold style={{textAlign:'center'}}>{null}</TextBold>
         </React.Fragment>
     );
 }

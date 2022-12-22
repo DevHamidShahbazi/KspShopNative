@@ -41,7 +41,7 @@ export function FlatListCategoryItem ({category}) {
             <React.Fragment>
                 <View style={CategoriesStyles.containerCategoryItem}>
                     <View style={CategoriesStyles.rowCategoryItem}>
-                        <TouchableOpacity onPress={() => navigation.navigate('ParentCategory',{params:category.id})}
+                        <TouchableOpacity onPress={() => navigation.navigate('ParentCategory',category.id)}
                                           activeOpacity={1}
                                           style={CategoriesStyles.ShowMoreCategoryItem}>
                             <Text style={CategoriesStyles.TextCategoryItem}>مشاهده بیشتر</Text>
@@ -69,7 +69,7 @@ function Item ({category}) {
     const navigation = useNavigation();
     return (
         <React.Fragment>
-            <TouchableOpacity onPress={() => navigation.navigate('ChildCategory',{params:category.id})}
+            <TouchableOpacity onPress={() => navigation.navigate('ChildCategory',category.id)}
                               activeOpacity={1}
                               style={CategoriesStyles.ItemCategoryItem}>
                 <Image  style={{width:135, height: 135}} source={{uri:category.image}}/>
