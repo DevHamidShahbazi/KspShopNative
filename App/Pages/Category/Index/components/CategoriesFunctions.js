@@ -25,7 +25,7 @@ export function CategoriesBanner({item}) {
     const ScreenWidth = Dimensions.get('window').width;
     return (
         <React.Fragment>
-            <TouchableOpacity onPress={() => navigation.navigate(TypeCategory,{params:item.id})} activeOpacity={.8} style={{flex:1,justifyContent:'center'}}>
+            <TouchableOpacity onPress={() => navigation.navigate(TypeCategory,item.id)} activeOpacity={.8} style={{flex:1,justifyContent:'center'}}>
                 <View style={{flex:1,padding:5}}>
                     <Image style={{width:ScreenWidth-10,height:ScreenWidth/2.5,borderRadius:8}} source={{uri:item.banner}} />
                 </View>

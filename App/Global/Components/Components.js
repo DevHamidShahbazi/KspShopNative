@@ -5,7 +5,7 @@ import {
 export function TextRegular ({children,style}) {
     return (
         <React.Fragment>
-            <Text style={[style,{color:'#000',fontFamily:'Vazir'}]}>
+            <Text adjustsFontSizeToFit={true} style={[style,{color:'#000',fontFamily:'Vazir'}]}>
                 {children}
             </Text>
         </React.Fragment>
