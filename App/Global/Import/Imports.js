@@ -2,7 +2,7 @@
 
 export {default as React,useEffect,useCallback,useState,useContext} from 'react';
 export {View,Text,ScrollView,FlatList,Alert,StatusBar,StyleSheet,Image,RefreshControl,
-    TouchableOpacity,TouchableNativeFeedback,TextInput,Modal,ActivityIndicator,Dimensions,
+    TouchableOpacity,TouchableNativeFeedback,TextInput,Modal,ActivityIndicator,Dimensions,ImageBackground
 } from 'react-native';
 export {default as collect} from "collect.js";
 export {default as Slick} from 'react-native-slick';

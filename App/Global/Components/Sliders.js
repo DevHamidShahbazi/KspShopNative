@@ -25,7 +25,7 @@ export function ShowSliders ({sliders}) {
         <React.Fragment>
             {
                 sliders?
-                    <SliderSlick  autoplay={false} showsPagination={false} showsButtons={false}>
+                    <SliderSlick  autoplay={true} showsPagination={false} showsButtons={false}>
                         {sliders.map((slide,index) => (
                             <TouchableOpacity activeOpacity={1} onPress={() => navigation.navigate('Product',slide.product_id)} key={index}>
                                 <Image style={{height:ScreenWidth/1.333333}}  source={{uri:slide.image}} />
@@ -42,7 +42,8 @@ export function SliderSlick ({children,autoplay,showsPagination,showsButtons}) {
     return (
         <React.Fragment>
             <Slick style={{height:ScreenWidth/1.333333}}
-                   loop={false}
+                   autoplayTimeout={6}
+                   loop={true}
                    prevButton={<Icon name={'chevron-left'} color={'rgba(255,255,255,0.7)'} size={25}/>}
                    nextButton={<Icon name={'chevron-right'} color={'rgba(255,255,255,0.7)'} size={25}/>}
                    showsButtons={showsButtons} activeDotColor={'#213854'}
