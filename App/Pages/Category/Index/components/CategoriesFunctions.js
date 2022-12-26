@@ -86,12 +86,12 @@ export function SearchBarTouchNavigationSetOptions ({navigation,route}) {
         <React.Fragment>
             <View style={[CategoriesStyles.container]}>
                 <View style={CategoriesStyles.box}>
-                    <TouchableOpacity onPress={() => console.log('Go to ScreenSearch')}
+                    <TouchableOpacity onPress={() => navigation.navigate('Search')}
                                       acticveOpacity={.8}
                                       style={CategoriesStyles.input}>
                         <Text style={CategoriesStyles.text}>جستجو ...</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity onPress={() => route.name=='Categories' || route.name=='Home' ? console.log('Go Screen Search'):navigation.goBack()}
+                    <TouchableOpacity onPress={() => route.name=='Categories' || route.name=='Home' ? navigation.navigate('Search'):navigation.goBack()}
                                       acticveOpacity={.8}
                                       style={CategoriesStyles.btnSearch}>
                         <Icon name={route.name=='Categories' || route.name=='Home' ? 'search':'arrow-right'} color={'rgba(33,56,84,0.65)'} size={17} />

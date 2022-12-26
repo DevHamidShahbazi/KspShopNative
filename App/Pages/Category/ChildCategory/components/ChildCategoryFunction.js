@@ -8,7 +8,9 @@ export function getDetailChildCategory (category_id,setData) {
             if (data.status == 'success'){
                 setData({
                     Products:data.Products,
+                    ProductsHighlight:data.ProductsHighlight,
                     h1:data.h1,
+                    name:data.name,
                 })
             }
         })

@@ -48,8 +48,10 @@ export {default as ParentCategory} from '../../Pages/Category/ParentCategory/Par
 export {default as ChildCategory} from '../../Pages/Category/ChildCategory/ChildCategory';
 export {default as Categories} from '../../Pages/Category/Index/Categories';
 export {default as Company} from '../../Pages/Panel/Compnay/Company';
+export {default as Search} from '../../Pages/Search/Search';
 export {default as StylesAuth} from '../../Auth/components/StylesAuth';
 export {default as LoadingScreen} from '../../Pages/Loading/LoadingScreen';
+export {default as CarouselProducts} from '../Components/CarouselProducts';
 export {handleAgainVerify, handleVerify, NavigationSetOptionsVerify, SendCodeWithViewVerify,} from '../../Auth/Verify/components/FunctionVerify';
 export {LogOut,CheckToken,BoxAuth, GradientAuth, InputGroupAuth, InputGroupPassAuth, ResponseData_Register_and_Login,TimerView} from '../../Auth/components/FunctionAuth';
 export {Error,Success} from '../Alerts/GlobalAlert';

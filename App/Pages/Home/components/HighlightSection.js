@@ -1,35 +1,8 @@
-import {
-    React,
-    TouchableOpacity,
-    axios,
-    GlobalStyles,
-    TextBold,
-    Image,
-    ImageBackground,
-    Text,
-    View,
-    useNavigation,
-} from '../../../Global/Import/Imports';
+import {React, TouchableOpacity, GlobalStyles, TextBold, Image, ImageBackground, Text, View, useNavigation,} from '../../../Global/Import/Imports';
 import {Dimensions} from 'react-native';
 const ScreenWidth = Dimensions.get('window').width;
 
-export function getHighlight (setData) {
-    axios.post('v_1_0/home')
-        .then(function (response) {
-            const {data} = response;
-            if (data.status == 'success'){
-                setData({
-                    'Highlight':data.highlights,
-                    'Categories':data.categories,
-                })
-            }
-        })
-        .catch(function (error) {
-            console.log(error);
-        });
-}
-
-export function HighlightSection ({Highlight}) {
+export default function HighlightSection ({Highlight}) {
     return (
         <React.Fragment>
             <ImageBackground style={{padding:5,flex:1,}} resizeMode="cover" source={require('../../../Global/Images/highlight.jpg')}>

@@ -14,7 +14,7 @@ const ScreenWidth = Dimensions.get('window').width;
 
 export function CategoryItem ({category}) {
     const navigation = useNavigation();
-    const TypeCategory = category.type=='parent' ? 'ParentCategory':'ChildCategory';
+    const TypeCategory = category.parent_id =='0' ? 'ParentCategory':'ChildCategory';
     return (
         <React.Fragment>
             <TouchableOpacity onPress={() => navigation.navigate(TypeCategory,category.id)} activeOpacity={1}
@@ -26,19 +26,19 @@ export function CategoryItem ({category}) {
         </React.Fragment>
     );
 }
-export function ProductItem ({product}) {
+export function ProductItem ({product,vertical=false}) {
     const navigation = useNavigation();
+    const widthContainer = vertical?3.1:2.1;
+    const width_height_Image = vertical?3.2:2.2;
     return (
         <React.Fragment>
             <TouchableOpacity onPress={() =>  navigation.navigate('Product',product.id)}
-                style={[GlobalStyles.ListItem,{width:ScreenWidth/2.1}]} activeOpacity={1}>
-                <Image  style={{width:ScreenWidth/2.2, height: ScreenWidth/2.2}} source={{uri:product.image}}/>
+                style={[GlobalStyles.ListItem,{width:ScreenWidth/widthContainer}]} activeOpacity={1}>
+                <Image  style={{width:ScreenWidth/width_height_Image, height: ScreenWidth/width_height_Image}} source={{uri:product.image}}/>
                 <TextBold style={{textAlign:'center',flexWrap:'wrap'}}>{product.name}</TextBold>
-
                 <View style={{justifyContent:'center'}}>
                     <PriceUnderProduct product={product}/>
                 </View>
-
             </TouchableOpacity>
         </React.Fragment>
     );

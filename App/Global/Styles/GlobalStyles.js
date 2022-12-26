@@ -98,4 +98,15 @@ export default StylesGlobal = StyleSheet.create({
         borderRadius: 8,
         padding : 5,
     },
+    Font_Bold:{
+      fontFamily:'Vazir-Bold'
+    },
+    Text_Dark:{
+        color:'#000',
+        fontFamily:'Vazir',
+    },
+    Text_White:{
+        color:'#fff',
+        fontFamily:'Vazir',
+    }
 });

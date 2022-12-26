@@ -1,6 +1,6 @@
 import {
-    React,createStackNavigator,Product,
-    Categories, ChildCategory, ParentCategory,
+    React, createStackNavigator, Product,
+    Categories, ChildCategory, ParentCategory, Search,
 } from '../../../Global/Import/Imports';
 export default function IndexCategory ({navigation ,Route}) {
     const CategoryStack = createStackNavigator();
@@ -8,6 +8,7 @@ export default function IndexCategory ({navigation ,Route}) {
         <React.Fragment>
             <CategoryStack.Navigator>
                 <CategoryStack.Screen name="Categories" component={Categories}/>
+                <CategoryStack.Screen name="Search" component={Search}/>
                 <CategoryStack.Screen name="ParentCategory" component={ParentCategory}/>
                 <CategoryStack.Screen name="ChildCategory" component={ChildCategory}/>
                 <CategoryStack.Screen name="Product" component={Product}/>
