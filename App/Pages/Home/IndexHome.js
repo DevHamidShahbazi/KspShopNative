@@ -1,11 +1,5 @@
 import {
-    React,
-    createStackNavigator,
-    Home,
-    Product,
-    ParentCategory,
-    ChildCategory,
-    Search,
+    React, createStackNavigator, Home, Product, ParentCategory, ChildCategory, Search,
 } from '../../Global/Import/Imports';
 export default function IndexHome () {
     const HomeStack = createStackNavigator();

@@ -6,7 +6,7 @@ import {
 export const CommentPanelGetComment = (setComments,setLoading,setIsEmpty) => {
     AsyncStorage.getItem('api_token',(error, result) => {
         if (result){
-            axios.post('v_1_0/panel/comments', {},{
+            axios.post('v_1_0/comments', {},{
                 headers:{
                     'api_token':result
                 }

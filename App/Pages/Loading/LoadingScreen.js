@@ -1,7 +1,5 @@
 import React,{useEffect} from 'react';
 import {ActivityIndicator,View} from 'react-native';
-import {GradientAuth} from '../../Auth/components/FunctionAuth';
-
 export default function LoadingScreen (props) {
     useEffect(()=>{
         if (props.navigation != undefined){

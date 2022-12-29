@@ -1,11 +1,17 @@
 import {
-    React, useEffect, useState, View,
-    SearchBarTouchNavigationSetOptions, LoadingScreen, FlatList, Icon,
+    React, useEffect, useState, View,useContext,useFocusEffect,
+    SearchBarTouchNavigationSetOptions, LoadingScreen, FlatList, Icon, DisplayTabBarContext,
 } from '../../../Global/Import/Imports';
 import {CategoriesBanner, FlatListCategoryItem, GetCategories} from './components/CategoriesFunctions';
 export default function Categories ({navigation,route}) {
+    const {setDisplayTabBar} = useContext(DisplayTabBarContext);
     const [Loading,setLoading] = useState(true);
     const [Categories,setCategories] = useState([]);
+    useFocusEffect(
+        React.useCallback(() => {
+            setDisplayTabBar(true)
+        }, [])
+    );
     useEffect(()=>{
         navigation.setOptions({headerShown:false})
         GetCategories(setCategories,setLoading)

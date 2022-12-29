@@ -1,11 +1,32 @@
-import {React, getSliders, useState, useEffect,CarouselProducts, SearchBarTouchNavigationSetOptions, ShowSliders, ScrollView, LoadingScreen} from '../../Global/Import/Imports';
+import {
+    React,
+    getSliders,
+    useState,
+    useEffect,
+    CarouselProducts,
+    SearchBarTouchNavigationSetOptions,
+    ShowSliders,
+    ScrollView,
+    LoadingScreen,
+    DisplayTabBarContext,
+    useContext,
+    useFocusEffect,
+} from '../../Global/Import/Imports';
 import getData from './components/GetData';
 import HighlightSection from './components/HighlightSection';
 import CategoriesSection from './components/CategoriesSection';
 export default function Home ({navigation ,route}) {
+    const {setDisplayTabBar} = useContext(DisplayTabBarContext);
     const [Loading,setLoading] = useState(true);
     const [Sliders,setSliders] = useState(null);
     const [Data,setData] = useState({});
+
+    useFocusEffect(
+        React.useCallback(() => {
+            setDisplayTabBar(true)
+        }, [])
+    );
+
     useEffect(()=>{
         navigation.setOptions({headerShown:false});
         getSliders(0,setSliders)
