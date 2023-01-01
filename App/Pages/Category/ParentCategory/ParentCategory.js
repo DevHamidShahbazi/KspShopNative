@@ -21,17 +21,17 @@ export default function ParentCategory ({navigation,route}) {
             <LoadingScreen Loading={Loading}/>
             {
                 Loading?null:
-                    <ScrollView contentContainerStyle={{justifyContent:'center'}}>
-                        <ShowSliders sliders={Sliders}/>
-                        <View style={{flex:1,padding:10}}>
-                            <TextBold style={{fontSize:23,textAlign:'center'}}>{Data.h1}</TextBold>
-                        </View>
-                        <View style={GlobalStyles.ListGrid}>
-                            {Data.ChildCategory?Data.ChildCategory.map((category,index) => (<CategoryItem key={index} category={category}/>)):null}
-                            {Data.Products?Data.Products.map((product,index) => (<ProductItem key={index} product={product}/>)):null}
-                        </View>
-                        {Data.CustomBanner?Data.CustomBanner.map((item,index) => (<CategoriesBanner key={index} item={item}/>)):null}
-                    </ScrollView>
+                <ScrollView contentContainerStyle={{justifyContent:'center'}}>
+                    <ShowSliders sliders={Sliders}/>
+                    <View style={{flex:1,padding:10}}>
+                        <TextBold style={{fontSize:23,textAlign:'center'}}>{Data.h1}</TextBold>
+                    </View>
+                    <View style={GlobalStyles.ListGrid}>
+                        {Data.ChildCategory?Data.ChildCategory.map((category,index) => (<CategoryItem key={index} category={category}/>)):null}
+                        {Data.Products?Data.Products.map((product,index) => (<ProductItem key={index} product={product}/>)):null}
+                    </View>
+                    {Data.CustomBanner?Data.CustomBanner.map((item,index) => (<CategoriesBanner key={index} item={item}/>)):null}
+                </ScrollView>
             }
         </React.Fragment>
     );

@@ -63,7 +63,7 @@ export function PriceUnderProduct ({product}) {
                 <View style={{flexDirection:'row',alignItems:'center'}}>
 
                     <View style={{paddingHorizontal:3,paddingVertical:2,backgroundColor:'#0891b2',borderBottomLeftRadius:15,borderTopRightRadius:15}}>
-                        <Text style={{textAlign:'center',color:'#fff',fontSize:13,fontFamily:'Vazir-Bold'}}>
+                        <Text style={{textAlign:'center',color:'#fff',fontSize:13,fontFamily:'iranyekanbold(fanum)'}}>
                             {'%'+percent}
                         </Text>
                     </View>

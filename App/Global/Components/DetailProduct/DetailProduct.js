@@ -61,7 +61,7 @@ export const AttributeDetailProduct = ({value,name}) => {
         <TextRegular>
             {name} :
             <TextBold>
-                {value}
+                {' '+value}
             </TextBold>
         </TextRegular>
     )

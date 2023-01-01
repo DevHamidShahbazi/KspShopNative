@@ -1,7 +1,8 @@
 
 
+
 export {default as React,useEffect,useCallback,useState,useContext} from 'react';
-export {View,Text,ScrollView,FlatList,Alert,StatusBar,StyleSheet,Image,RefreshControl,
+export {View,Text,ScrollView,FlatList,Alert,StatusBar,StyleSheet,Image,RefreshControl,Button,Linking,PermissionsAndroid,
     TouchableOpacity,TouchableNativeFeedback,TextInput,Modal,ActivityIndicator,Dimensions,ImageBackground
 } from 'react-native';
 export {default as collect} from "collect.js";
@@ -73,3 +74,7 @@ export {CompanyAlertStatus, CompanySection, CompanyInputs, handleSubmitCompanyWi
 export {CategoriesBanner,SearchBarTouchNavigationSetOptions} from '../../Pages/Category/Index/components/CategoriesFunctions';
 export {getSliders, ShowSliders, SliderSlick} from '../Components/Sliders';
 export {CategoryItem,ProductItem} from '../Components/Items';
+export {DetailProduct,ContainerDetailProduct,AttributeDetailProduct} from '../Components/DetailProduct/DetailProduct';
+export {default as ProductNotCount} from '../Components/DetailProduct/ProductNotCount';
+export {default as PriceProduct} from '../Components/DetailProduct/PriceProduct';
+export {default as OfferProduct} from '../Components/DetailProduct/OfferProduct';
