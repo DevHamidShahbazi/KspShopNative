@@ -14,7 +14,7 @@ export default function PriceProduct ({product,offer}) {
                             </Text>
                         </View>
                         <Text style={{textDecorationLine: 'line-through', textDecorationStyle: 'solid'}}>
-                            <Text style={{color:'#868686',fontFamily:'iranyekanbold(fanum)',fontSize:19}}>{' '+price}</Text>
+                            <Text style={{color:'#868686',fontFamily:'iranyekanbold(fanum)',fontSize:14}}>{' '+price}</Text>
                         </Text>
                     </View>
                     <View style={{flex:2}}>

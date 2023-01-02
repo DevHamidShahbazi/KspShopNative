@@ -112,27 +112,19 @@ export function PriceUnderProduct ({product}) {
                 </React.Fragment>
             )
         }else if (product.type == 'attribute'){
-            if (product.discountAttribute != null || product.priceAttribute != null){
-                if (product.discountAttribute != null){
-                    return (
-                        <React.Fragment>
-                            {discount(product.price,product.discountAttribute,product.percentAttribute)}
-                        </React.Fragment>
-                    )
-                }else {
-                    return (
-                        <React.Fragment>
-                            {price(product.priceAttribute)}
-                        </React.Fragment>
-                    )
-                }
+            if (product.discountAttribute != null && product.discountAttribute != 0){
+                return (
+                    <React.Fragment>
+                        {discount(product.price,product.discountAttribute,product.percentAttribute)}
+                    </React.Fragment>
+                )
             }else {
                 return (
                     <React.Fragment>
                         {price(product.priceRandomAttribute)}
                     </React.Fragment>
                 )
-            }1
+            }
         }
         if (product.type == 'size'){
             return (

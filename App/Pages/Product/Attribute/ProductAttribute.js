@@ -1,51 +1,22 @@
-import {
-    CarouselProducts,
-    React,
-    TextBold,
-    ScrollView,
-    View,
-    TextRegular, GlobalStyles,
-} from '../../../Global/Import/Imports';
-import Gallery from '../components/Gallery';
-import Header from '../components/Header';
-import TextBody from '../components/TextBody';
-import {Dimensions} from 'react-native';
-const ScreenWidth = Dimensions.get('window').width;
+import {React, useEffect, useState, ProductNotCount, OfferProduct,} from '../../../Global/Import/Imports';
+import BtnAddToCart from '../components/BtnAddToCart';
+import ProductDetailGlobal from '../components/ProductDetailGlobal';
+import AttributeItems from './components/AttributeItems';
 export default function ProductAttribute ({Data}) {
+    const [ActiveAttribute,setActiveAttribute] = useState(Data.attributes[0]);
+    useEffect(()=>{
+        setActiveAttribute(Data.attributes[0])
+    },[Data.attributes[0].id]);
     return (
         <React.Fragment>
-
-            <ScrollView
-                showsVerticalScrollIndicator={false}
-                showsHorizontalScrollIndicator={false}
-                style={{flex:1,backgroundColor:'#fff'}}>
-                <Gallery gallery={Data.gallery} ParentImage={Data.image}/>
-                <View style={{flex:1,padding:5}}>
-                    <Header Data={Data} />
-                    <TextBold>
-                        {Data.NameAttribute} :
-                    </TextBold>
-                    <View style={[GlobalStyles.ListGrid]}>
-                        {Data.attributes.map((attribute,index) => (
-                            <View style={[{borderColor:'#000',borderWidth:3,paddingHorizontal:'10%'},GlobalStyles.ListItem]} key={index} >
-                                <TextBold style={{fontSize:15}}>{attribute.value}</TextBold>
-                            </View>
-                        ))}
-                    </View>
-
-                    <TextBody body={Data.body} check={Data.check}/>
-                </View>
-                <CarouselProducts
-                    data={Data.join}
-                    title={'محصولات مرتبط'}
-                    image={require('../../../Global/Images/bg-category.png')}
-                />
-            </ScrollView>
-            {/*<View style={{bottom:0,width:ScreenWidth,backgroundColor:'red'}}>*/}
-            {/*    <TextBold>*/}
-            {/*        test*/}
-            {/*    </TextBold>*/}
-            {/*</View>*/}
+            <ProductDetailGlobal Data={Data}>
+                <AttributeItems Data={Data}
+                                ActiveAttribute={ActiveAttribute}
+                                setActiveAttribute={setActiveAttribute}/>
+                {ActiveAttribute.status != "2"?<ProductNotCount/>:null}
+                <OfferProduct offer={ActiveAttribute.offer}/>
+            </ProductDetailGlobal>
+            {ActiveAttribute.status == "2"? <BtnAddToCart product={ActiveAttribute}/> :null}
         </React.Fragment>
     );
 }

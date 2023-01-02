@@ -1,7 +1,7 @@
 import {React, FlatList, Image, ProductItem, View, Text, GlobalStyles, LinearGradient,} from '../Import/Imports';
 import {Dimensions} from 'react-native';
 const ScreenWidth = Dimensions.get('window').width;
-export default function CarouselProducts ({data,title,image,colors}) {
+export default function CarouselProducts ({data,title,image,type = null}) {
     let Gradients = [
         // {0:'#70c8b7', 1:'#3f2b96'},
         {0:'#005C97', 1:'#363795'},
@@ -21,7 +21,7 @@ export default function CarouselProducts ({data,title,image,colors}) {
         <React.Fragment>
             {
                 data?
-                    <LinearGradient style={{padding:5,flex:1}} useAngle={true} angle={45} colors={[item[0]+70,item[0],item[1]]} >
+                    <LinearGradient style={{padding:5,flex:1}} useAngle={true} angle={45} colors={type=='static'?['#1CB5E0','#000046']:[item[0]+70,item[0],item[1]]} >
                         <View style={{flex:1}}>
                             <Text style={[{textAlign:'center',fontSize:19},GlobalStyles.Text_White,GlobalStyles.Font_Bold]}>
                                 {title}

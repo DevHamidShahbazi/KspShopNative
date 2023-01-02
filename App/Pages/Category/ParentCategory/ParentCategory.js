@@ -5,6 +5,8 @@ import {
 } from '../../../Global/Import/Imports';
 import {getDetailParentCategory} from './components/ParentCategoryFunction';
 import {ProductItem} from '../../../Global/Components/Items';
+
+
 export default function ParentCategory ({navigation,route}) {
     const [Loading,setLoading] = useState(true);
     const [Sliders,setSliders] = useState(null);
@@ -21,7 +23,7 @@ export default function ParentCategory ({navigation,route}) {
             <LoadingScreen Loading={Loading}/>
             {
                 Loading?null:
-                <ScrollView contentContainerStyle={{justifyContent:'center'}}>
+                <ScrollView  contentContainerStyle={{justifyContent:'center'}}>
                     <ShowSliders sliders={Sliders}/>
                     <View style={{flex:1,padding:10}}>
                         <TextBold style={{fontSize:23,textAlign:'center'}}>{Data.h1}</TextBold>
