@@ -15,9 +15,6 @@ import Breadcrumb from './Breadcrumb';
 const url = "https://ksp-shop.com/Upload/image/product/file/eLjIN-KspShop.jpg";
 
 export default function Header ({Data}) {
-
-
-
     return (
         <React.Fragment>
             <Breadcrumb ProductName={Data.name} category={Data.category} ParentCategory={Data.ParentCategory} />

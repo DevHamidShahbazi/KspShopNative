@@ -9,7 +9,6 @@ export default function Product ({navigation,route}) {
     const [Loading,setLoading] = useState(true);
     const [Data,setData] = useState({});
     const product_id = route.params;
-    console.log(Data)
     useFocusEffect(
         React.useCallback(() => {
             setDisplayTabBar(false);
