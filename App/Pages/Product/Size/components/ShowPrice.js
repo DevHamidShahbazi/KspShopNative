@@ -1,17 +1,16 @@
 import {React,collect} from '../../../../Global/Import/Imports';
-function ShowPriceTableTwo  ({sizes,ItemLength,ItemDiameter}) {
 
-
-
-    const price = () => collect(sizes).where('length',ItemLength.length).where('diameter',ItemDiameter.diameter).first();
-    console.log({
-        sizes:sizes,
-        ItemLength:ItemLength,
-        ItemDiameter:ItemDiameter,
-        price:price,
-    })
-    // return price?price.price:'___';
+export function ShowPriceTableFour({sizes,Item,ItemLength}) {
+    const price = () => collect(sizes).where('diameter',Item.diameter).where('width',Item.width).where('length',ItemLength.length).where('height',Item.height).first();
+    return price()?price().price:'___';
 }
-export {
-    ShowPriceTableTwo
+
+export function ShowPriceTableThree({sizes,Item,ItemLength}) {
+    const price = () => collect(sizes).where('diameter',Item.diameter).where('width',Item.width).where('length',ItemLength.length).where('height',null).first();
+    return price()?price().price:'___';
+}
+
+export function ShowPriceTableTwo({sizes,ItemLength,ItemDiameter}) {
+    const price = () => collect(sizes).where('length',ItemLength.length).where('diameter',ItemDiameter.diameter).first();
+    return price()?price().price:'___';
 }

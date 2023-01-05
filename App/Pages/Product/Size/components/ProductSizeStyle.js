@@ -5,7 +5,7 @@ export const ProductSizeStyles = StyleSheet.create({
     container:{
         flex: 1,
         flexDirection: 'row',
-        backgroundColor: '#eee'
+        backgroundColor: '#fff',
     },
     LeftColumn:{
         width: leftColumnWidth,
@@ -42,6 +42,8 @@ export const ProductSizeStyles = StyleSheet.create({
         backgroundColor: '#213854',
         borderBottomWidth: 1,
         borderBottomColor: '#eee',
+        borderLeftWidth: .5,
+        borderLeftColor: '#a9a9a9',
         justifyContent:'center',
     },
     ItemPrice:{

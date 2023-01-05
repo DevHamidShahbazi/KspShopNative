@@ -12,10 +12,10 @@ export default function LeftColumn ({type,name,data,fontSize}) {
                 return item.diameter+' mm';
                 break
             case 'three':
-                return 'mm';
+                return item.diameter+' × '+item.width;
                 break
             case 'four':
-                return 'mm';
+                return item.diameter+'×'+item.width+'×'+item.height;
                 break
         }
     }
