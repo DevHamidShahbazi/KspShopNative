@@ -1,10 +1,15 @@
 
 
 
-export {default as React,useEffect,useCallback,useState,useContext,useRef} from 'react';
-export {View,Text,ScrollView,FlatList,Alert,StatusBar,StyleSheet,Image,RefreshControl,Button,Linking,PermissionsAndroid,
-    TouchableOpacity,TouchableNativeFeedback,TextInput,Modal,ActivityIndicator,Dimensions,ImageBackground
+export {default as React,useEffect,useCallback,useState,useContext,useRef,ReactNode,useImperativeHandle } from 'react';
+export {
+    View,Text,ScrollView,FlatList,Alert,StatusBar,StyleSheet,
+    Image,RefreshControl,Button,Linking,PermissionsAndroid,
+    TouchableOpacity,TouchableNativeFeedback,TextInput,
+    ActivityIndicator,Dimensions,ImageBackground,Animated,
+    LogBox,
 } from 'react-native';
+export {default as Modal} from "react-native-modal";
 export {default as collect} from "collect.js";
 export {default as Slick} from 'react-native-slick';
 export {default as AsyncStorage} from '@react-native-async-storage/async-storage';

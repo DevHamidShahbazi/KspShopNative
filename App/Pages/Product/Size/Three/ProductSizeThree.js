@@ -1,11 +1,14 @@
-import {React,ScrollView,View,collect} from '../../../../Global/Import/Imports';
+import {React, ScrollView, View,useState, collect, TextBold, TextRegular} from '../../../../Global/Import/Imports';
 import {ProductSizeStyles} from '../components/ProductSizeStyle';
 import LeftColumn from '../components/LeftColumn';
 import LengthList from '../components/LengthList';
 import CellPrice from '../components/CellPrice';
-import {ShowPriceTableThree} from '../components/ShowPrice';
+import ProductDetailGlobal from '../../components/ProductDetailGlobal';
+import {BtnAddToCartSize} from '../../components/BtnAddToCart';
+import TopTable from '../components/TopTable';
 
 export default function ProductSizeThree ({Data}) {
+    const [ActiveSize,setActiveSize] = useState(null);
     const {UniqueSortLength,sizes} = Data;
     let ids=[];
     const Items = sizes.filter((val)=>{
@@ -23,8 +26,10 @@ export default function ProductSizeThree ({Data}) {
     });
     return (
         <React.Fragment>
-            <View style={ProductSizeStyles.container}>
-                <LeftColumn type={Data.TypeSize} fontSize={18.4} data={Items} name={'D1 × D2 / L'}/>
+            <ProductDetailGlobal Data={Data}>
+                <TopTable size={sizes[0]} TypeSize={Data.TypeSize} />
+                <View style={ProductSizeStyles.container}>
+                <LeftColumn type={Data.TypeSize} data={Items} name={'D1 × D2 / L'}/>
                 <View style={{flex: 1}}>
                     <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
                         <View>
@@ -33,9 +38,15 @@ export default function ProductSizeThree ({Data}) {
                                 {Items.map((Item,index) => (
                                     <View  style={{flexDirection: 'row'}} key={index} >
                                         {UniqueSortLength.map((ItemLength,indexLength) =>(
-                                            <CellPrice key={indexLength}>
-                                                <ShowPriceTableThree sizes={sizes} Item={Item} ItemLength={ItemLength}/>
-                                            </CellPrice>
+                                            <View key={indexLength}>
+                                                <CellPrice
+                                                    type={Data.TypeSize}
+                                                    setActiveSize={setActiveSize}
+                                                    ActiveSize={ActiveSize}
+                                                    sizes={sizes}
+                                                    Item={Item}
+                                                    ItemLength={ItemLength}/>
+                                            </View>
                                         ))}
                                     </View>
                                 ))}
@@ -44,6 +55,8 @@ export default function ProductSizeThree ({Data}) {
                     </ScrollView>
                 </View>
             </View>
+            </ProductDetailGlobal>
+            {ActiveSize != null && ActiveSize.status != "0"?<BtnAddToCartSize product={ActiveSize}/>:null}
         </React.Fragment>
     );
 }

@@ -33,8 +33,9 @@ export const ProductSizeStyles = StyleSheet.create({
         justifyContent:'center'
     },
     CellItemLeftColumn:{
+        fontSize:15,
         textAlign: 'center',
-        fontFamily:'Vazir',
+        fontFamily:'iranyekanregular(fanum)',
         color:'#fff'
     },
     RightColumnTitle:{
@@ -56,8 +57,13 @@ export const ProductSizeStyles = StyleSheet.create({
         justifyContent:'center'
     },
     CellPrice:{
+        color:'#000',
         textAlign: 'center',
-        fontFamily:'iranyekanbold(fanum)',
-        color:'#000'
+        fontSize:15,
+        fontFamily:'iranyekanregular(fanum)',
     },
+
+    ActiveItem:{
+        backgroundColor:'#075985'
+    }
 });

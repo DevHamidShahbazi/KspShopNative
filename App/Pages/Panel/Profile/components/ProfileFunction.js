@@ -55,7 +55,7 @@ export function ProfileItemBody ({name,icon,style,badge,navigation,to,setAuth,se
                     text: "بله",
                     onPress: () => LogOut(setAuth,setUser)
                 }
-            ]
+            ],
         );
     }
     return (

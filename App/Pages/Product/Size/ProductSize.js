@@ -1,28 +1,28 @@
-import {React, TextBold, TextRegular} from '../../../Global/Import/Imports';
-import ProductDetailGlobal from '../components/ProductDetailGlobal';
-import TypeProductSize from './components/TypeProductSize';
-import {FlatList, View,ScrollView} from 'react-native';
-
-const FakeData = [
-    {id:1,name:'test1'},
-    {id:2,name:'test2'},
-    {id:3,name:'test3'},
-    {id:4,name:'test4'},
-]
+import {React} from '../../../Global/Import/Imports';
+import ProductSizeOne from './One/ProductSizeOne';
+import ProductSizeTwo from './Two/ProductSizeTwo';
+import ProductSizeThree from './Three/ProductSizeThree';
+import ProductSizeFour from './Four/ProductSizeFour';
 export default function ProductSize ({Data}) {
+    const {TypeSize} = Data;
+    let ProductType;
+    switch (TypeSize) {
+        case 'one':
+            ProductType = <ProductSizeOne Data={Data}/>;
+            break
+        case 'two':
+            ProductType = <ProductSizeTwo Data={Data}/>;
+            break
+        case 'three':
+            ProductType = <ProductSizeThree Data={Data}/>;
+            break
+        case 'four':
+            ProductType = <ProductSizeFour Data={Data}/>;
+            break
+    }
     return (
         <React.Fragment>
-            <ProductDetailGlobal Data={Data}>
-                <View style={{flex: 1}}>
-                    <TextBold style={{fontSize:16}}>
-                        <TextRegular>
-                            {' قیمت : '}
-                        </TextRegular>
-                        تومان
-                    </TextBold>
-                </View>
-                <TypeProductSize TypeSize={Data.TypeSize} Data={Data} />
-            </ProductDetailGlobal>
+            {ProductType}
         </React.Fragment>
     );
 }

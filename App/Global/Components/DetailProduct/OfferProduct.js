@@ -1,4 +1,4 @@
-import {React, View, TextBold, Text, LinearGradient} from '../../Import/Imports';
+import {React, View, Text, LinearGradient} from '../../Import/Imports';
 
 export default function OfferProduct ({offer}) {
     return (
@@ -7,8 +7,8 @@ export default function OfferProduct ({offer}) {
                 offer != null?
                     <View style={{marginVertical:'2%'}}>
                         <LinearGradient style={{
-                            paddingVertical:8,justifyContent:'center',
-                            flex:1,borderRadius:8,marginVertical:'1%',
+                            padding:8,justifyContent:'center',
+                            flex:1,borderRadius:8,
                             alignItems:'center'
                         }} useAngle={true} angle={45} colors={['#3498db','#2c3e50']}>
                             <Text style={{textAlign:'center',color:'#fff',fontSize:17,fontFamily:'Vazir'}}>

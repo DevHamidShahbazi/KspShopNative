@@ -2,7 +2,7 @@ import {React,ScrollView, Text, View} from '../../../../Global/Import/Imports';
 import {ProductSizeStyles} from './ProductSizeStyle';
 
 
-export default function LeftColumn ({type,name,data,fontSize}) {
+export default function LeftColumn ({type,name,data}) {
     const ShowItem = ({item}) => {
         switch (type) {
             case 'one':
@@ -35,7 +35,7 @@ export default function LeftColumn ({type,name,data,fontSize}) {
                         data.map((item,key) => {
                             return (
                                 <View key={key} style={ProductSizeStyles.ListLeftColumn}>
-                                    <Text style={[ProductSizeStyles.CellItemLeftColumn,{fontSize:fontSize}]}>
+                                    <Text style={[ProductSizeStyles.CellItemLeftColumn]}>
                                         <ShowItem item={item}/>
                                     </Text>
                                 </View>

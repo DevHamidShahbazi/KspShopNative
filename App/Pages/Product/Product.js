@@ -5,6 +5,7 @@ import {
 import getData from './components/getData';
 import ProductType from './components/ProductType';
 export default function Product ({navigation,route}) {
+    const [Render,setRender] = useState(1);
     const {setDisplayTabBar} = useContext(DisplayTabBarContext);
     const [Loading,setLoading] = useState(true);
     const [Data,setData] = useState({});
@@ -16,9 +17,10 @@ export default function Product ({navigation,route}) {
         }, [])
     );
     useEffect(()=>{
+        setLoading(true);
         navigation.setOptions({headerShown:false})
-        getData (product_id,setData,setLoading)
-    },[product_id]);
+        getData(product_id,setData,setLoading,setRender,Render)
+    },[product_id,Render]);
     return (
         <React.Fragment>
             <SearchBarTouchNavigationSetOptions navigation={navigation} route={route}/>

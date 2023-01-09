@@ -21,13 +21,11 @@ export default function Header ({Data}) {
             <View style={{paddingBottom:10}}>
                 <TextBold style={{fontSize:24,textAlign:'center'}}>{Data.h1 ?? Data.name}</TextBold>
                 <TextBold style={{fontSize:13,paddingVertical:'1%',borderTopWidth:1,borderColor:'#000',textAlign:'right',marginVertical:'2%'}}>{' مقایسه، مشاهده قیمت و خرید آنلاین '+(Data.h1 ?? Data.name)}</TextBold>
-                {
-                    Data.filter_attribute.map((item,index) => (
-                        <View key={index} style={{textAlign:'right',alignItems:'flex-end'}}>
-                            <AttributeDetailProduct  name={item.name} value={item.value}/>
-                        </View>
-                    ))
-                }
+                {Data.filter_attribute.map((item,index) => (
+                    <View key={index} style={{textAlign:'right',alignItems:'flex-end'}}>
+                        <AttributeDetailProduct  name={item.name} value={item.value}/>
+                    </View>
+                ))}
             </View>
         </React.Fragment>
     );

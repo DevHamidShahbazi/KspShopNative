@@ -2,7 +2,7 @@ import {React,TouchableOpacity,MaterialCommunityIcons} from '../../../Global/Imp
 export function NavigationSetOptionsAbout (navigation) {
     return (
         navigation.setOptions({
-            headerTitle: 'فروشگاه کا اس پی',
+            headerTitle: 'به نام خدا',
             headerTitleAlign: 'center',
             headerTitleStyle: {
                 fontFamily:'Vazir-Bold',
@@ -10,7 +10,7 @@ export function NavigationSetOptionsAbout (navigation) {
             },
             headerStyle: {
                 backgroundColor: '#fff',
-                elevation:0,
+                elevation:2,
             },
             headerLeft: false,
             headerRight: () => {
