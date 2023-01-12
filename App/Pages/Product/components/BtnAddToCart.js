@@ -10,6 +10,7 @@ import {
 import {Dimensions} from 'react-native';
 import {DetailProduct} from '../../../Global/Components/DetailProduct/DetailProduct';
 import OfferProduct from '../../../Global/Components/DetailProduct/OfferProduct';
+import {AddToCart} from './AddToCart';
 const ScreenWidth = Dimensions.get('window').width;
 
 export function BtnAddToCartSize ({product}) {
@@ -33,7 +34,7 @@ export function BtnAddToCartSize ({product}) {
                         <TouchableOpacity
                             style={{backgroundColor:'#213854',borderRadius:8.5,padding:8.5}}
                             activeOpacity={.7}
-                            onPress={() => console.log('Add to Cart')}>
+                            onPress={() => AddToCart(product)}>
                             <Text style={{textAlign:'center',fontFamily:'Vazir-Bold',color:'#fff'}}>
                                 افزودن به سبد خرید
                             </Text>
@@ -64,7 +65,7 @@ export default function BtnAddToCart ({product}) {
                     <TouchableOpacity
                         style={{backgroundColor:'#213854',elevation:4,borderRadius:8.5,padding:8.5}}
                         activeOpacity={.7}
-                        onPress={() => console.log('Add to Cart')}>
+                        onPress={() => AddToCart(product)}>
                         <Text style={{textAlign:'center',fontFamily:'Vazir-Bold',color:'#fff'}}>
                             افزودن به سبد خرید
                         </Text>

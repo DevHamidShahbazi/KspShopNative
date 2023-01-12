@@ -62,13 +62,18 @@ function AddComment ({ModalStatus,setModalStatus,product_id}) {
     return (
         <React.Fragment>
                 <Modal
-                    backdropTransitionInTiming={100}
-                    backdropTransitionOutTiming={100}
-                    animationOutTiming={100}
-                    style={{justifyContent: 'flex-end',margin: 0}}
                     isVisible={ModalStatus}
                     onBackdropPress={() => handleClose()}
-                    onRequestClose={() => handleClose() }>
+                    onRequestClose={() => handleClose() }
+                    onSwipeComplete={() => handleClose()}
+                    swipingDirection="down"
+                    animationIn="slideInUp"
+                    animationOut="slideOutDown"
+                    backdropTransitionInTiming={1000}
+                    backdropTransitionOutTiming={500}
+                    animationOutTiming={900}
+                    animationInTiming={500}
+                    style={{justifyContent: 'flex-end',margin: 0}}>
                     <View style={{borderTopRightRadius:10,borderTopLeftRadius:10,backgroundColor:'#fff',padding:10}}>
                         <View style={{marginVertical:'1%'}}>
                             <Error message={Errors}/>

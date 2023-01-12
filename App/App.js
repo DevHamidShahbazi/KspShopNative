@@ -1,7 +1,7 @@
 import 'react-native-gesture-handler';
 import {React,useState,useEffect,StatusBar,axios,
     AuthContext,UserContext,DisplayTabBarContext,createBottomTabNavigator,
-    IndexHome,IndexCategory,Basket,Chat,Panel,CheckToken,TabScreenOptions,
+    IndexHome,IndexCategory,BasketIndex,Chat,Panel,CheckToken,TabScreenOptions,
     NavigationContainer,LogBox,
 } from './Global/Import/Imports';
 // LogBox.ignoreLogs(['Remote debugger','Please report']);
@@ -26,7 +26,7 @@ export default App = () => {
                         <Tab.Navigator  initialRouteName="IndexHome" screenOptions={{tabBarHideOnKeyboard: true,tabBarStyle: {display:DisplayTabBar?'flex':'none'}}}>
                             <Tab.Screen name="Panel" component={Panel} options={TabScreenOptions('پنل کاربری','account')}/>
                             <Tab.Screen name="Chat" component={Chat} options={TabScreenOptions('پیام رسان','chat')}/>
-                            <Tab.Screen name="Basket" component={Basket} options={TabScreenOptions('سبد خرید','cart')}/>
+                            <Tab.Screen name="BasketIndex" component={BasketIndex} options={TabScreenOptions('سبد خرید','cart')}/>
                             <Tab.Screen name="Category" component={IndexCategory} options={TabScreenOptions('دسته بندی ها','view-dashboard')}/>
                             <Tab.Screen name="IndexHome" component={IndexHome} options={TabScreenOptions('خانه','home')}/>
                         </Tab.Navigator>

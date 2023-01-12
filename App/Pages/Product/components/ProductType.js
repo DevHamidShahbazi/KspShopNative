@@ -18,3 +18,5 @@ const ProductType = ({Data}) => {
     return ProductType;
 }
 export default ProductType
+
+
