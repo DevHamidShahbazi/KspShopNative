@@ -1,6 +1,7 @@
 
 
 
+
 export {default as React,useEffect,useCallback,useState,useContext,useRef,ReactNode,useImperativeHandle } from 'react';
 export {
     View,Text,ScrollView,FlatList,Alert,StatusBar,StyleSheet,
@@ -14,7 +15,7 @@ export {default as collect} from "collect.js";
 export {default as Slick} from 'react-native-slick';
 export {default as AsyncStorage} from '@react-native-async-storage/async-storage';
 export { NavigationContainer ,useFocusEffect,useNavigation  } from '@react-navigation/native';
-export {DisplayTabBarContext,AuthContext,UserContext} from '../Context/CustomContext';
+export {DisplayTabBarContext,AuthContext,UserContext,BasketContext} from '../Context/CustomContext';
 export {createStackNavigator} from '@react-navigation/stack';
 export {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 export {default as axios} from 'axios';
@@ -62,7 +63,7 @@ export {default as CarouselProducts} from '../Components/CarouselProducts';
 export {handleAgainVerify, handleVerify, NavigationSetOptionsVerify, SendCodeWithViewVerify,} from '../../Auth/Verify/components/FunctionVerify';
 export {LogOut,CheckToken,BoxAuth, GradientAuth, InputGroupAuth, InputGroupPassAuth, ResponseData_Register_and_Login,TimerView} from '../../Auth/components/FunctionAuth';
 export {Error,Success} from '../Alerts/GlobalAlert';
-export {CustomBadge,TabScreenOptions,CustomTextInput} from '../Components/Components';
+export {CustomBadge,TabScreenOptions,CustomTextInput,number_format,CheckBasket} from '../Components/Components';
 export {ProfileBody, ProfileHeader} from '../../Pages/Panel/Profile/components/ProfileFunction';
 export {default as ProfileStyles,NavigationSetOptionsProfile} from '../../Pages/Panel/Profile/components/ProfileStyle';
 export {default as PanelStyles,NavigationSetOptionsPanel} from '../../Pages/Panel/Index/components/PanelStyles';
@@ -80,7 +81,7 @@ export {CompanyAlertStatus, CompanySection, CompanyInputs, handleSubmitCompanyWi
 export {CategoriesBanner,SearchBarTouchNavigationSetOptions} from '../../Pages/Category/Index/components/CategoriesFunctions';
 export {getSliders, ShowSliders, SliderSlick} from '../Components/Sliders';
 export {CategoryItem,ProductItem} from '../Components/Items';
-export {DetailProduct,ContainerDetailProduct,AttributeDetailProduct} from '../Components/DetailProduct/DetailProduct';
+export {DetailProduct,ContainerDetailProduct,AttributeDetailProduct,CheckTypeDetailProduct, FinalPriceDetailProduct, NameValueDetailProduct} from '../Components/DetailProduct/DetailProduct';
 export {default as ProductNotCount} from '../Components/DetailProduct/ProductNotCount';
 export {default as PriceProduct} from '../Components/DetailProduct/PriceProduct';
 export {default as OfferProduct} from '../Components/DetailProduct/OfferProduct';

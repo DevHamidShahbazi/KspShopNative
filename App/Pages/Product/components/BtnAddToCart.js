@@ -1,19 +1,17 @@
 import {
-    PriceProduct,
-    ProductNotCount,
-    React,
-    Text,
-    TextRegular,
-    TouchableOpacity,
-    View,
+    BasketContext,
+    PriceProduct, ProductNotCount, React, Text,
+    TextRegular, TouchableOpacity, View,
 } from '../../../Global/Import/Imports';
 import {Dimensions} from 'react-native';
 import {DetailProduct} from '../../../Global/Components/DetailProduct/DetailProduct';
 import OfferProduct from '../../../Global/Components/DetailProduct/OfferProduct';
 import {AddToCart} from './AddToCart';
+import {useContext} from 'react';
 const ScreenWidth = Dimensions.get('window').width;
 
 export function BtnAddToCartSize ({product}) {
+    const {setBasketCount} = useContext(BasketContext)
     return (
         <React.Fragment>
             {product.offer != null?
@@ -34,7 +32,7 @@ export function BtnAddToCartSize ({product}) {
                         <TouchableOpacity
                             style={{backgroundColor:'#213854',borderRadius:8.5,padding:8.5}}
                             activeOpacity={.7}
-                            onPress={() => AddToCart(product)}>
+                            onPress={() => AddToCart(product,setBasketCount)}>
                             <Text style={{textAlign:'center',fontFamily:'Vazir-Bold',color:'#fff'}}>
                                 افزودن به سبد خرید
                             </Text>
@@ -53,6 +51,7 @@ export function BtnAddToCartSize ({product}) {
 }
 
 export default function BtnAddToCart ({product}) {
+    const {setBasketCount} = useContext(BasketContext)
     return (
         <React.Fragment>
             <View style={{height:65,flexDirection:'row',borderTopWidth:1,borderTopColor:'rgb(160,160,160)',bottom:0,width:ScreenWidth,backgroundColor:'#efefef'}}>
@@ -65,7 +64,7 @@ export default function BtnAddToCart ({product}) {
                     <TouchableOpacity
                         style={{backgroundColor:'#213854',elevation:4,borderRadius:8.5,padding:8.5}}
                         activeOpacity={.7}
-                        onPress={() => AddToCart(product)}>
+                        onPress={() => AddToCart(product,setBasketCount)}>
                         <Text style={{textAlign:'center',fontFamily:'Vazir-Bold',color:'#fff'}}>
                             افزودن به سبد خرید
                         </Text>

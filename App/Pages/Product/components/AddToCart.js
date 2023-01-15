@@ -1,8 +1,5 @@
-import React from 'react';
-import {axios} from '../../../Global/Import/Imports';
-import {Alert} from 'react-native';
-
-export function AddToCart (product) {
+import {React, axios, Alert, useContext, BasketContext, CheckBasket} from '../../../Global/Import/Imports';
+export function AddToCart (product,setBasketCount) {
     const url = TypeUrl(product.type);
     axios.post(`v_1_0${url}`, {
         product_id: product.id,
@@ -13,6 +10,7 @@ export function AddToCart (product) {
         .then(function (response) {
             const {data} = response;
             if (data.status == 'success'){
+                CheckBasket(setBasketCount)
                 Alert.alert(data.message)
             }else {
                 Alert.alert(data.message)

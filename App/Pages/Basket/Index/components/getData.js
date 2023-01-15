@@ -1,16 +1,21 @@
 import {React,axios} from '../../../../Global/Import/Imports';
 
-const getData = (setLoading,setBasket,setIsEmpty) => {
+const getData = (setLoading,setBasket,setIsEmpty,setFactor,setRender,Render) => {
     axios.post('v_1_0/basket')
         .then(function (response) {
             const {data} = response;
-            if (data.count > 0){
-                setIsEmpty(false)
+            if (typeof data == 'string'){
+                setRender(Render+1)
             }else {
-                setIsEmpty(true)
+                if (data.count > 0){
+                    setIsEmpty(false)
+                }else {
+                    setIsEmpty(true)
+                }
+                setLoading(false)
+                setBasket(data)
+                setFactor(data.factor=='1'?true:false)
             }
-            setLoading(false)
-            setBasket(data)
         })
         .catch(function (error) {
             console.log(error);

@@ -1,5 +1,5 @@
 import {React,StyleSheet, Text, View} from '../Import/Imports';
-export function Error (props) {
+export function Error ({message,type = null}) {
     const StylesError = StyleSheet.create({
         MainError:{
             width:'100%',
@@ -26,23 +26,40 @@ export function Error (props) {
             color: 'red'
         },
     });
-    if (props.message != undefined){
-        const list =
-            Object.keys(props.message).map((error, index) => (
-                <Text  key={index} style={StylesError.TextError}>
-                    {" "+props.message[error][0]}
-                </Text>
-            ));
-        return (
-            <View style={[StylesError.MainError,{ display : Object.keys(props.message).length == 0 ? 'none' : 'flex'  }]}>
-                <View style={StylesError.ContainerError}>
-                    {list}
+    if (type=='single'){
+        if (message.length != 0){
+            return (
+                <View style={[StylesError.MainError]}>
+                    <View style={StylesError.ContainerError}>
+                        <Text style={StylesError.TextError}>
+                            {message}
+                        </Text>
+                    </View>
                 </View>
-            </View>
-        )
+            )
+        }else {
+            return null;
+        }
     }else {
-        return null
+        if (message != undefined){
+            const list =
+                Object.keys(message).map((error, index) => (
+                    <Text  key={index} style={StylesError.TextError}>
+                        {" "+message[error][0]}
+                    </Text>
+                ));
+            return (
+                <View style={[StylesError.MainError,{ display : Object.keys(message).length == 0 ? 'none' : 'flex'  }]}>
+                    <View style={StylesError.ContainerError}>
+                        {list}
+                    </View>
+                </View>
+            )
+        }else {
+            return null
+        }
     }
+
 }
 
 export function Success (props) {

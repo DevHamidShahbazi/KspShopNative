@@ -6,7 +6,10 @@ import Comment from './Comment';
 export default function ProductDetailGlobal ({Data,children}) {
     return (
         <React.Fragment>
-            <ScrollView style={{backgroundColor:'#fff'}}>
+            <ScrollView
+                showsVerticalScrollIndicator={false}
+                keyboardShouldPersistTaps='handled'
+                style={{backgroundColor:'#fff'}}>
                 <Gallery gallery={Data.gallery} ParentImage={Data.image}/>
                 <View style={{flex:1,padding:5}}>
                     <Header Data={Data} />

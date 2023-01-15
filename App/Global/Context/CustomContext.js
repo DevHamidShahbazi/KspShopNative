@@ -1,4 +1,4 @@
-import React,{createContext} from 'react';
+import React, {createContext} from 'react';
 const AuthContext = createContext({
     Auth:null,
     setAuth:() => {}
@@ -11,4 +11,8 @@ const DisplayTabBarContext = createContext({
     DisplayTabBar:true,
     setDisplayTabBar:() => {}
 });
-export {AuthContext,UserContext,DisplayTabBarContext}
+const BasketContext = createContext({
+    BasketCount:0,
+    setBasketCount:() => {}
+});
+export {AuthContext,UserContext,DisplayTabBarContext,BasketContext}

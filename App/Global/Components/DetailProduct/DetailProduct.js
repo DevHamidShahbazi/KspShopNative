@@ -90,7 +90,7 @@ const Value = (text) => {
 export const FinalPriceDetailProduct = ({discount,price,percent}) => {
     return (
         <React.Fragment>
-            <View style={{flexDirection:'row-reverse'}}>
+            <View style={{flex:2,flexDirection:'row-reverse'}}>
                 <TextRegular style={{color:discount?'red':'black'}}>
                     {discount ? 'تخفیف : ' : 'قیمت نهایی : '}
                 </TextRegular>
