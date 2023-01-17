@@ -50,7 +50,7 @@ const ProfileStyles = StyleSheet.create({
 export default ProfileStyles;
 
 
-export function NavigationSetOptionsProfile (navigation) {
+export function NavigationSetOptionsProfile (navigation,BasketCount) {
     return (
         navigation.setOptions({
             headerTitleStyle: {
@@ -64,7 +64,7 @@ export function NavigationSetOptionsProfile (navigation) {
                 return (
                     <TouchableOpacity activeOpacity={.7} onPress={() =>  navigation.navigate('Basket')} style={{marginLeft:8,justifyContent:'center',alignItems:'center',flexDirection:'row'}}>
                         <MaterialCommunityIcons name={'cart'} color={'#eee'} size={30} />
-                        <CustomBadge/>
+                        {BasketCount==0?null:<CustomBadge/>}
                     </TouchableOpacity>
                 )
             },
