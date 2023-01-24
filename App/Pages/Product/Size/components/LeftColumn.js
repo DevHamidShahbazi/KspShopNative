@@ -32,15 +32,13 @@ export default function LeftColumn ({type,name,data}) {
                     scrollEnabled={false}
                     showsVerticalScrollIndicator={false}>
                     {
-                        data.map((item,key) => {
-                            return (
-                                <View key={key} style={ProductSizeStyles.ListLeftColumn}>
-                                    <Text style={[ProductSizeStyles.CellItemLeftColumn]}>
-                                        <ShowItem item={item}/>
-                                    </Text>
-                                </View>
-                            )
-                        })
+                        data.map((item,key) => (
+                            <View key={key} style={ProductSizeStyles.ListLeftColumn}>
+                                <Text style={[ProductSizeStyles.CellItemLeftColumn]}>
+                                    <ShowItem item={item}/>
+                                </Text>
+                            </View>
+                        ))
                     }
                 </ScrollView>
             </View>

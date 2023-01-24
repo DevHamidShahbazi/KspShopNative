@@ -6,10 +6,10 @@ import {ProductSizeStyles} from '../components/ProductSizeStyle';
 import ProductDetailGlobal from '../../components/ProductDetailGlobal';
 import {BtnAddToCartSize} from '../../components/BtnAddToCart';
 export default function ProductSizeOne ({Data}) {
-    const [ActiveSize,setActiveSize] = useState({});
+    const [ActiveSize,setActiveSize] = useState(null);
     return (
         <React.Fragment>
-            <ProductDetailGlobal Data={Data.data}>
+            <ProductDetailGlobal Data={Data}>
                 <View style={{flex: 1}}>
                     <TextBold style={{fontSize:16}}>
                         <TextRegular>
@@ -19,22 +19,18 @@ export default function ProductSizeOne ({Data}) {
                     </TextBold>
                 </View>
                 <View style={ProductSizeStyles.container}>
-                    <LeftColumn type={Data.data.TypeSize}  data={Data.sizes} name={'سایز'}/>
+                    <LeftColumn type={Data.TypeSize}  data={Data.sizes} name={'سایز'}/>
                     <View style={{flex: 1, backgroundColor: 'white'}}>
-                        <FlatList
-                            data={Data.sizes} keyExtractor={item => item.id}
-                            showsVerticalScrollIndicator={false}
-                            showsHorizontalScrollIndicator={false}
-                            ListHeaderComponent={() => <TitleRightColumn/>}
-                            renderItem={({item}) => (
-                                <TouchableOpacity style={[Styles.ItemPrice,ActiveSize.id == item.id?ProductSizeStyles.ActiveItem:{}]}
-                                                  onPress={() => ActiveSize != null && ActiveSize.id == item.id ? setActiveSize({}) : setActiveSize(item)}
-                                                  activeOpacity={.85}>
-                                    <Text style={[ProductSizeStyles.CellPrice,{fontSize:15},ActiveSize.id == item.id?{color:'#fff'}:{color:'#000'}]}>
-                                        {item.price??'__'}
-                                    </Text>
-                                </TouchableOpacity>
-                            )}/>
+                        <TitleRightColumn/>
+                        {Data.sizes.map((item,index) => (
+                            <TouchableOpacity key={index} style={[Styles.ItemPrice,ActiveSize != null && ActiveSize.id == item.id?ProductSizeStyles.ActiveItem:{}]}
+                                              onPress={() => ActiveSize != null && ActiveSize.id == item.id ? setActiveSize({}) : setActiveSize(item)}
+                                              activeOpacity={.85}>
+                                <Text style={[ProductSizeStyles.CellPrice,{fontSize:15},ActiveSize != null && ActiveSize.id == item.id?{color:'#fff'}:{color:'#000'}]}>
+                                    {item.price??'__'}
+                                </Text>
+                            </TouchableOpacity>
+                        ))}
                     </View>
                 </View>
             </ProductDetailGlobal>
@@ -42,3 +38,5 @@ export default function ProductSizeOne ({Data}) {
         </React.Fragment>
     );
 }
+
+

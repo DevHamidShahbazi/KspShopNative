@@ -23,9 +23,9 @@ export function TextBold ({children,style}) {
 }
 const LabelTextInput = ({Label,require}) => {
      return (
-         <View style={[!require?{marginTop:"5%"}:null,{marginBottom:'2%',justifyContent:'flex-end',flexWrap:'wrap-reverse'}]}>
-             {require?<Text style={{color:'red',marginRight:5}}>*</Text>:null}
-             <Text style={{fontFamily:'Vazir',color:'#000'}}>
+         <View style={[!require?{marginTop:"5%"}:null,{marginVertical:'2%',flexDirection:'row',justifyContent:'flex-end'}]}>
+             {require?<Text style={{color:'red'}}>*</Text>:null}
+             <Text style={{fontFamily:'Vazir',color:'#000',marginLeft:5}}>
                  {Label}
              </Text>
          </View>
@@ -35,7 +35,7 @@ const LabelTextInput = ({Label,require}) => {
 export const CustomTextInput = ({handleSubmit=null,name,value,type,placeholder,autoFocus,handleChange,styleInput,styleContainer,Eye,Label,disable,require}) => {
     return (
         <View style={styleContainer}>
-            {Label?<LabelTextInput Label={Label} force={require}/>:null}
+            {Label?<LabelTextInput Label={Label} require={require}/>:null}
             <TextInput
                 autoFocus={autoFocus?autoFocus:null}
                 value={value}

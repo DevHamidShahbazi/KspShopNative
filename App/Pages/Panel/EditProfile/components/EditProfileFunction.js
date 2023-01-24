@@ -35,7 +35,7 @@ export const handleEditProfile = (navigation ,Fields,setErrors,setUser,setSucces
     })
 };
 
-export function TextWarningPhoneMustNotNull (phone) {
+export function TextWarningPhoneMustNotNull ({phone}) {
     return phone==null? <Text style={{fontFamily:'Vazir',color:'red',textAlign:'center'}}>برای خرید از فروشگاه لازم است شماره موبایل خود را وارد و تایید کنید</Text>:null;
 }
 

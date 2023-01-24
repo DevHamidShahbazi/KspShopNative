@@ -28,7 +28,7 @@ export default App = () => {
                         <NavigationContainer>
                             <Tab.Navigator  initialRouteName="IndexHome" screenOptions={{tabBarHideOnKeyboard: true,tabBarStyle: {display:DisplayTabBar?'flex':'none'}}}>
                                 <Tab.Screen name="Panel" component={Panel} options={TabScreenOptions('پنل کاربری','account')}/>
-                                <Tab.Screen name="Chat" component={Chat} options={TabScreenOptions('پیام رسان','chat')}/>
+                                {/*<Tab.Screen name="Chat" component={Chat} options={TabScreenOptions('پیام رسان','chat')}/>*/}
                                 <Tab.Screen name="BasketIndex" component={BasketIndex} options={TabScreenOptions('سبد خرید','cart',BasketCount==0?null:BasketCount)}/>
                                 <Tab.Screen name="Category" component={IndexCategory} options={TabScreenOptions('دسته بندی ها','view-dashboard')}/>
                                 <Tab.Screen name="IndexHome" component={IndexHome} options={TabScreenOptions('خانه','home')}/>

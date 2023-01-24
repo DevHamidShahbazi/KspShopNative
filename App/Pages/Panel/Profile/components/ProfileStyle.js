@@ -62,7 +62,7 @@ export function NavigationSetOptionsProfile (navigation,BasketCount) {
             },
             headerLeft: () => {
                 return (
-                    <TouchableOpacity activeOpacity={.7} onPress={() =>  navigation.navigate('Basket')} style={{marginLeft:8,justifyContent:'center',alignItems:'center',flexDirection:'row'}}>
+                    <TouchableOpacity activeOpacity={.7} onPress={() =>  navigation.navigate('BasketIndex')} style={{marginLeft:8,justifyContent:'center',alignItems:'center',flexDirection:'row'}}>
                         <MaterialCommunityIcons name={'cart'} color={'#eee'} size={30} />
                         {BasketCount==0?null:<CustomBadge/>}
                     </TouchableOpacity>
