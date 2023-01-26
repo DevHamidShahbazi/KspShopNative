@@ -32,11 +32,12 @@ const LabelTextInput = ({Label,require}) => {
      );
 };
 
-export const CustomTextInput = ({handleSubmit=null,name,value,type,placeholder,autoFocus,handleChange,styleInput,styleContainer,Eye,Label,disable,require}) => {
+export const CustomTextInput = ({multiline=false,handleSubmit=null,name,value,type,placeholder,autoFocus,handleChange,styleInput,styleContainer,Eye,Label,disable,require}) => {
     return (
         <View style={styleContainer}>
             {Label?<LabelTextInput Label={Label} require={require}/>:null}
             <TextInput
+                multiline={multiline}
                 autoFocus={autoFocus?autoFocus:null}
                 value={value}
                 editable={disable?false:true}
