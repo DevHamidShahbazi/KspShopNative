@@ -24,7 +24,7 @@ export default App = () => {
             <UserContext.Provider value={{User,setUser}}>
                 <BasketContext.Provider value={{BasketCount,setBasketCount}}>
                     <DisplayTabBarContext.Provider value={{DisplayTabBar,setDisplayTabBar}}>
-                        <StatusBar backgroundColor="#213854"   barStyle="light-content"/>
+                        <StatusBar backgroundColor="#213854" barStyle="light-content"/>
                         <NavigationContainer>
                             <Tab.Navigator  initialRouteName="IndexHome" screenOptions={{tabBarHideOnKeyboard: true,tabBarStyle: {display:DisplayTabBar?'flex':'none'}}}>
                                 <Tab.Screen name="Panel" component={Panel} options={TabScreenOptions('پنل کاربری','account')}/>

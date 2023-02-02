@@ -1,7 +1,7 @@
-import React from 'react';
-import {AsyncStorage, axios} from '../../../../Global/Import/Imports';
+import {React,AsyncStorage, axios,Linking} from '../../../../Global/Import/Imports';
 
-export default function handleSubmit({setErrors,Fields}) {
+export default function handleSubmit(setErrors,Fields) {
+    let url = axios.defaults.baseURL+'v_1_0/store/payment';
     AsyncStorage.getItem('api_token',(error, result) => {
         if (result){
             axios.post('v_1_0/set-location',{
@@ -21,7 +21,11 @@ export default function handleSubmit({setErrors,Fields}) {
             })
                 .then(function (response) {
                     const {data} = response;
-                    console.log(data)
+                    url +=`?api_token=${result}`;
+                    url +=`&order_code=${data.order_code}`;
+                    if (Linking.canOpenURL(url)){
+                        Linking.openURL(url);
+                    }
                 })
                 .catch(function (error) {
                     console.log(error);
@@ -29,6 +33,5 @@ export default function handleSubmit({setErrors,Fields}) {
         }else {
             console.log('توکن نامعتبر')
         }
-
     })
 }

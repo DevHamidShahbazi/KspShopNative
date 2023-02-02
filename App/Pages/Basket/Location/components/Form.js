@@ -1,6 +1,6 @@
 import {
-    React,TouchableOpacity,Icon,
-    View, Text, TextBold,useState,
+    React,TouchableOpacity,Icon,Platform,
+    View, Text, TextBold,useState,Linking,
     UseSetFields,CustomTextInput} from '../../../../Global/Import/Imports';
 import Styles from './Styles';
 import handleSubmit from './handleSubmit';
@@ -66,12 +66,14 @@ export default function Form({Location}) {
                         value={Fields.plaque} name={'plaque'}/>
                     <CustomTextInput
                         handleChange={handleChange}
+                        type={'numeric'}
                         placeholder={'شماره واحد خود را وارد کنید'}
                         styleContainer={{marginVertical:'2%'}}
                         Label={'واحد'} require={true}
                         value={Fields.unit} name={'unit'}/>
                     <CustomTextInput
                         handleChange={handleChange}
+                        type={'numeric'}
                         placeholder={'کدپستی خود را وارد کنید'}
                         styleContainer={{marginVertical:'2%'}}
                         Label={'کدپستی'} value={Fields.code_post}

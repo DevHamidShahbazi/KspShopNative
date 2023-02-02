@@ -18,6 +18,7 @@ export const GetOrders =(setOrders,setLoading,setIsEmpty) => {
             })
                 .then(function (response) {
                     const {data} = response;
+                    console.log(data)
                     if (data.status == 'success'){
                         if (collect(data.orders).first()){
                             setIsEmpty(false)
@@ -87,8 +88,8 @@ const Footer = ({item}) => {
          <View style={OrdersStyles.Footer}>
              {
                  item.tax != '0' && item.status != 'unpaid'?
-                     <Btn to={'Company'} item={item} text={'فاکتور رسمی'} type={'ShowFactor'}/>:null
-             }
+                     <Btn to={'Company'} item={item} text={'فاکتور رسمی'} type={'ShowFactor'}/>
+                     :null}
              <Btn to={'Order'} item={item} text={'مشاهده سفارش'} type={'ShowOrder'}/>
          </View>
      );

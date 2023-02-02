@@ -8,7 +8,7 @@ export {
     Image,RefreshControl,Button,Linking,PermissionsAndroid,
     TouchableOpacity,TouchableNativeFeedback,TextInput,
     ActivityIndicator,Dimensions,ImageBackground,Animated,
-    LogBox,
+    LogBox,Platform,
 } from 'react-native';
 export {default as Modal} from "react-native-modal";
 export {default as collect} from "collect.js";

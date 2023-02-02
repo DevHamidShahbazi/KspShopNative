@@ -9,6 +9,7 @@ export default function Orders ({navigation,route}) {
     useFocusEffect(
         useCallback(() => {
             setDisplayTabBar(true)
+            GetOrders(setOrders,setLoading,setIsEmpty)
         }, [])
     );
     useEffect(()=>{

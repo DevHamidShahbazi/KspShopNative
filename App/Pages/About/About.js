@@ -1,5 +1,5 @@
 import {
-    React,ScrollView,
+    React,ScrollView,Linking,TouchableOpacity,
     useEffect, useState, NavigationSetOptionsAbout,
     TextRegular, TextBold, View, LoadingScreen,} from '../../Global/Import/Imports';
 import getData from './components/getData';
@@ -29,9 +29,15 @@ export default function About ({navigation,route}) {
                         <TextBold style={{textAlign:'center'}}>
                             شماره های تماس
                         </TextBold>
-                        <Text>09124949028</Text>
-                        <Text>021-46119400</Text>
-                        <Text>021-46119500</Text>
+                        <TouchableOpacity onPress={() => Linking.openURL('tel:09124949028')}>
+                            <Text>09124949028</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity onPress={() => Linking.openURL('tel:02146119400')}>
+                            <Text>021-46119400</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity onPress={() => Linking.openURL('tel:02146119500')}>
+                            <Text>021-46119500</Text>
+                        </TouchableOpacity>
                     </View>
 
                     <View style={{alignItems:'center'}}>

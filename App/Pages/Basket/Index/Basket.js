@@ -1,5 +1,6 @@
 import {
-    React, useEffect, View, TextBold, useState, ListIsEmpty, ScrollView,useFocusEffect
+    React, useEffect, View, TextBold, useState, ListIsEmpty,
+    ScrollView,useFocusEffect,
 } from '../../../Global/Import/Imports';
 import getData from './components/getData';
 import BoxTop from './components/BoxTop';
@@ -29,8 +30,7 @@ export default function Basket ({navigation ,Route}) {
             <View style={{display:Loading || IsEmpty?'none':'flex',flex:1,justifyContent:'center',backgroundColor:'#e5e7eb'}}>
                 {Basket != null?
                     <ScrollView
-                        keyboardShouldPersistTaps='handled'
-                        showsVerticalScrollIndicator={false}>
+                        keyboardShouldPersistTaps='handled' showsVerticalScrollIndicator={false}>
                         <BoxTop Render={Render} setRender={setRender} Basket={Basket} Factor={Factor} setFactor={setFactor}/>
                         <Products Basket={Basket} setRender={setRender} Render={Render}/>
                     </ScrollView>

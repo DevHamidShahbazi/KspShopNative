@@ -18,13 +18,12 @@ export default function PurchasedProducts ({navigation,route}) {
             <View style={{display:Loading || IsEmpty?'none':'flex',flex:1,justifyContent:'center',backgroundColor:'#e5e7eb'}}>
                 <FlatList
                     refreshControl={
-                        <RefreshControl
-                            refreshing={false}
+                        <RefreshControl refreshing={false}
                             onRefresh={() => PurchasedProductGetProducts(setProducts,setLoading,setIsEmpty)}/>
                     }
                     data={Products}
                     renderItem={({item}) => <PurchasedProductItems  product={item}/>}
-                    keyExtractor={item => item.id}
+                    keyExtractor={(item,index) => index}
                     contentContainerStyle={{padding:10,display:Loading?'none':'flex'}}
                     showsVerticalScrollIndicator={false}
                 />

@@ -16,7 +16,6 @@ export const PurchasedProductGetProducts = (setProducts,setLoading,setIsEmpty) =
             })
                 .then(function (response) {
                     const {data} = response;
-
                     if (data.status == 'success'){
                         if (collect(data.products).first()){
                             setIsEmpty(false)
