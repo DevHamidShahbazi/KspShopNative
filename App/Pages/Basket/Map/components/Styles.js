@@ -1,5 +1,5 @@
 import {StyleSheet} from 'react-native';
-
+import {RFValue} from 'react-native-responsive-fontsize';
 const Styles = StyleSheet.create({
     container:{
         flex:1,
@@ -21,7 +21,7 @@ const Styles = StyleSheet.create({
        borderRadius: 3
    },
     textBtn:{
-        fontSize:18,textAlign:'center',fontFamily:'Vazir-Bold',color:'#fff'
+        fontSize:RFValue(19),textAlign:'center',fontFamily:'Vazir-Bold',color:'#fff'
     }
 });
 

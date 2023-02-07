@@ -1,11 +1,11 @@
-import {React,View,TextBold,TextRegular} from '../../../../Global/Import/Imports';
+import {React,View,TextBold,TextRegular,RFValue} from '../../../../Global/Import/Imports';
 export default function TopTable ({size,TypeSize}) {
 
     const Check = (item,name) => {
         if (item){
             return (
                 <React.Fragment>
-                    <TextRegular style={{fontSize:16}}>
+                    <TextRegular style={{fontSize:RFValue(17)}}>
                         {item}
                         <TextBold>
                             : { name }
@@ -23,7 +23,7 @@ export default function TopTable ({size,TypeSize}) {
                 { TypeSize === 'four' || TypeSize === 'three' ? Check(size.widthName,'D2') :'' }
                 { TypeSize === 'four' ? Check(size.heightName,'D3') : '' }
                 { Check(size.lengthName,'L') }
-                <TextBold style={{fontSize:16}}>
+                <TextBold style={{fontSize:RFValue(17)}}>
                     <TextRegular>
                         {' قیمت : '}
                     </TextRegular>

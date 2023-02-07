@@ -1,5 +1,5 @@
 import {
-    React,TouchableOpacity,Icon,Platform,
+    React,TouchableOpacity,Icon,Platform,RFValue,
     View, Text, TextBold,useState,Linking,
     UseSetFields,CustomTextInput} from '../../../../Global/Import/Imports';
 import Styles from './Styles';
@@ -55,7 +55,7 @@ export default function Form({Location}) {
                         styleContainer={{marginVertical:'2%'}}
                         Label={'آدرس'} require={true}
                         value={Fields.address} name={'address'}/>
-                    <Text style={{color:'red',marginBottom:'2%',fontSize:12,fontFamily:'Vazir'}}>
+                    <Text style={{color:'red',marginBottom:'2%',fontSize:RFValue(13),fontFamily:'Vazir'}}>
                         آدرس طبق موقعیت مکانی که انتخاب کردید ثبت شده است در صورت عدم تطابق با آدرس شما ، آدرس دقیق خود را وارد کنید
                     </Text>
                     <CustomTextInput

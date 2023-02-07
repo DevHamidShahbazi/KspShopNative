@@ -3,7 +3,7 @@ import {
     View, ScrollView, useState, TextBold,
     SearchBarTouchNavigationSetOptions,
     ShowSliders, getSliders, GlobalStyles, ProductItem,
-    CarouselProducts, LoadingScreen,
+    CarouselProducts, LoadingScreen,RFValue,
 } from '../../../Global/Import/Imports';
 import {getDetailChildCategory} from './components/ChildCategoryFunction';
 
@@ -27,7 +27,7 @@ export default function ChildCategory ({navigation,route}) {
                     <ScrollView contentContainerStyle={{justifyContent:'center'}}>
                         <ShowSliders sliders={Sliders}/>
                         <View style={{flex:1,padding:10}}>
-                            <TextBold style={{fontSize:23,textAlign:'center'}}>{Data.h1}</TextBold>
+                            <TextBold style={{fontSize:RFValue(24),textAlign:'center'}}>{Data.h1}</TextBold>
                         </View>
                         <View style={GlobalStyles.ListGrid}>
                             {Data.Products?Data.Products.map((product,index) => (<ProductItem key={index} product={product}/>)):null}

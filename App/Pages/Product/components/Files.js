@@ -1,4 +1,4 @@
-import {React,Linking,TouchableOpacity,Text,View,Icon} from '../../../Global/Import/Imports';
+import {React,Linking,RFValue,TouchableOpacity,Text,View,Icon} from '../../../Global/Import/Imports';
 import {StyleSheet} from 'react-native'
 export default function Files({files}) {
     return (
@@ -34,7 +34,7 @@ const Styles = StyleSheet.create({
     text:{
         marginHorizontal:7.5,
         fontFamily:'Vazir',
-        fontSize:16,
+        fontSize:RFValue(17),
         color:'#fff'
     }
 })

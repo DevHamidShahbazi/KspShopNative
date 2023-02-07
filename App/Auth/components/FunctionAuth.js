@@ -1,6 +1,6 @@
 import {
     React,StylesAuth,Error, Success,Icon,
-    GlobalStyles, AsyncStorage, axios,
+    GlobalStyles, AsyncStorage, axios,RFValue,
     LinearGradient,Text, TextInput, TouchableOpacity, View
 } from '../../Global/Import/Imports';
 
@@ -137,7 +137,7 @@ export function InputGroupPassAuth (props) {
 export function TimerView ({Timer}) {
     return (
         <React.Fragment>
-            <Text style={{display:Timer <= 0?'none':'flex',textAlign:'center',marginTop:'2%',fontFamily:'Vazir',fontSize:15,color:'#21252985'}}>
+            <Text style={{display:Timer <= 0?'none':'flex',textAlign:'center',marginTop:'2%',fontFamily:'Vazir',fontSize:RFValue(16),color:'#21252985'}}>
                 ارسال دوباره پیامک تا {Timer} ثانیه دیگر مجاز است
             </Text>
         </React.Fragment>

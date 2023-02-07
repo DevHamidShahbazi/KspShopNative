@@ -1,5 +1,5 @@
 import {
-    BasketContext,
+    BasketContext,RFValue,
     PriceProduct, ProductNotCount, React, Text,
     TextRegular, TouchableOpacity, View,
 } from '../../../Global/Import/Imports';
@@ -21,9 +21,9 @@ export function BtnAddToCartSize ({product}) {
             <View style={{height:95,flexDirection:'row',borderTopWidth:1,borderTopColor:'rgb(160,160,160)',bottom:0,width:ScreenWidth,backgroundColor:'#efefef'}}>
                 <View style={{flex:2,justifyContent:'center',padding:3}}>
                     {product.status == '2'?<View style={{flex:1,justifyContent:'center'}}>
-                        <Text style={{fontSize:16,textAlign:'center',fontFamily:'iranyekanbold(fanum)',color:'#000'}}>
+                        <Text style={{fontSize:RFValue(16+1),textAlign:'center',fontFamily:'iranyekanbold(fanum)',color:'#000'}}>
                             {product.price}
-                            <TextRegular style={{fontSize:14}}>
+                            <TextRegular style={{fontSize:RFValue(14+1)}}>
                                 {' تومان '}
                             </TextRegular>
                         </Text>

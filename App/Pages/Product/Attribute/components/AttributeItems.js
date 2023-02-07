@@ -1,9 +1,9 @@
-import {React,GlobalStyles,TextBold,Text, TouchableOpacity, View} from '../../../../Global/Import/Imports';
+import {React,GlobalStyles,RFValue,TextBold,Text, TouchableOpacity, View} from '../../../../Global/Import/Imports';
 import ProductAttributeStyle from './ProductAttributeStyle';
 export default function AttributeItems ({Data,setActiveAttribute,ActiveAttribute}) {
     return (
         <React.Fragment>
-            <TextBold style={{fontSize:18}}>{Data.NameAttribute} :</TextBold>
+            <TextBold style={{fontSize:RFValue(19)}}>{Data.NameAttribute} :</TextBold>
             <View style={[GlobalStyles.ListGrid]}>
                 {Data.attributes.map((attribute,index) => (
                     <TouchableOpacity

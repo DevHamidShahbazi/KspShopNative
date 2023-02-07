@@ -1,4 +1,4 @@
-import {React,TouchableOpacity, Text, View,ScrollView, Alert, Icon,MaterialCommunityIcons,ProfileStyles,GlobalStyles, CustomBadge,LogOut,PanelStyles} from '../../../../Global/Import/Imports';
+import {React,RFValue,TouchableOpacity, Text, View,ScrollView, Alert, Icon,MaterialCommunityIcons,ProfileStyles,GlobalStyles, CustomBadge,LogOut,PanelStyles} from '../../../../Global/Import/Imports';
 export function ProfileHeader ({User}) {
     return (
         <React.Fragment>
@@ -8,7 +8,7 @@ export function ProfileHeader ({User}) {
                         <Text style={PanelStyles.Text_Box_Header_Panel}>
                             {User.name}
                         </Text>
-                        <Text style={{fontFamily:'iranyekanregular(fanum)',fontSize:14,color:User.phone == null?'red':'#000',marginTop:5}}>
+                        <Text style={{fontFamily:'iranyekanregular(fanum)',fontSize:RFValue(15),color:User.phone == null?'red':'#000',marginTop:5}}>
                             {User.phone == null? 'بدون ثبت شماره موبایل نمی توانید خرید کنید':User.phone }
                         </Text>
                     </View>

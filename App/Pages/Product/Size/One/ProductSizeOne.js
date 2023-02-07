@@ -1,4 +1,4 @@
-import {React,useState, TouchableOpacity, View, Text, FlatList, TextBold, TextRegular} from '../../../../Global/Import/Imports';
+import {React,useState, TouchableOpacity, View, Text, RFValue, TextBold, TextRegular} from '../../../../Global/Import/Imports';
 import LeftColumn from '../components/LeftColumn';
 import TitleRightColumn from './components/TitleRightColumn';
 import {Styles} from './components/Styles';
@@ -11,7 +11,7 @@ export default function ProductSizeOne ({Data}) {
         <React.Fragment>
             <ProductDetailGlobal Data={Data}>
                 <View style={{flex: 1}}>
-                    <TextBold style={{fontSize:16}}>
+                    <TextBold style={{fontSize:RFValue(16+1)}}>
                         <TextRegular>
                             {' قیمت : '}
                         </TextRegular>
@@ -26,7 +26,7 @@ export default function ProductSizeOne ({Data}) {
                             <TouchableOpacity key={index} style={[Styles.ItemPrice,ActiveSize != null && ActiveSize.id == item.id?ProductSizeStyles.ActiveItem:{}]}
                                               onPress={() => ActiveSize != null && ActiveSize.id == item.id ? setActiveSize({}) : setActiveSize(item)}
                                               activeOpacity={.85}>
-                                <Text style={[ProductSizeStyles.CellPrice,{fontSize:15},ActiveSize != null && ActiveSize.id == item.id?{color:'#fff'}:{color:'#000'}]}>
+                                <Text style={[ProductSizeStyles.CellPrice,{fontSize:RFValue(15+1)},ActiveSize != null && ActiveSize.id == item.id?{color:'#fff'}:{color:'#000'}]}>
                                     {item.price??'__'}
                                 </Text>
                             </TouchableOpacity>

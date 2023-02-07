@@ -17,6 +17,7 @@ export {DisplayTabBarContext,AuthContext,UserContext,BasketContext} from '../Con
 export {createStackNavigator} from '@react-navigation/stack';
 export {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 export {default as axios} from 'axios';
+export { RFPercentage, RFValue } from "react-native-responsive-fontsize";
 export {CardStyleInterpolators} from '@react-navigation/stack';
 export {default as LinearGradient} from "react-native-linear-gradient";
 export {default as Icon} from 'react-native-vector-icons/dist/FontAwesome5';

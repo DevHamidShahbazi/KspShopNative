@@ -1,5 +1,5 @@
 import {
-    React, TextBold, TextRegular, View, Modal, TextInput,
+    React, TextBold, TextRegular, View, Modal, RFValue,
     MiddlewareNotAuth, MiddlewareAuth, Text, useState,Alert,
     TouchableOpacity, UseSetFields, CustomTextInput, AsyncStorage, axios, Error, Success,
 } from '../../../Global/Import/Imports';
@@ -8,7 +8,7 @@ export default function Comment ({product_id,comments}) {
     return (
         <React.Fragment>
             <View style={{flex:1,marginVertical:'1%'}}>
-                <TextBold style={{marginBottom:5,textAlign:'center',fontSize:18}}>نظرات</TextBold>
+                <TextBold style={{marginBottom:5,textAlign:'center',fontSize:RFValue(18+1)}}>نظرات</TextBold>
             </View>
             {comments!=null?
                 <View style={{flex:1,marginVertical:'1%'}}>
@@ -18,7 +18,7 @@ export default function Comment ({product_id,comments}) {
                                 <TextRegular>{item.created_at}</TextRegular>
                                 <TextRegular>{item.user}</TextRegular>
                             </View>
-                            <TextRegular style={{textAlign:'right',fontSize:16}}>{item.comment}</TextRegular>
+                            <TextRegular style={{textAlign:'right',fontSize:RFValue(16+1)}}>{item.comment}</TextRegular>
                         </View>
                     ))}
                 </View>

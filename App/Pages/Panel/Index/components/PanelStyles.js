@@ -1,5 +1,5 @@
-import React from 'react';
-import {StyleSheet, TouchableOpacity} from 'react-native';
+import {React,RFValue,TouchableOpacity} from '../../../../Global/Import/Imports';
+import {StyleSheet} from 'react-native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import {CardStyleInterpolators} from '@react-navigation/stack';
 
@@ -25,7 +25,7 @@ const PanelStyles = StyleSheet.create({
     Text_Box_Header_Panel : {
         fontFamily:'Vazir-Bold'
         ,color:'#000'
-        ,fontSize:20
+        ,fontSize:RFValue(21)
         ,marginBottom:5
     },
 });

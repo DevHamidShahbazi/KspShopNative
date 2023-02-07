@@ -1,8 +1,6 @@
-import React from 'react';
+import {React,RFValue,Text,View,GlobalStyles} from '../../../../../Global/Import/Imports';
 import OrderStyles from './OrderStyles';
-import {Text, View} from 'react-native';
 import {ColorTypeStatus, TextTypeStatus} from '../../../../../Global/Components/Components';
-import GlobalStyles from '../../../../../Global/Styles/GlobalStyles';
 
 
 export function OrderTopItems ({order}) {
@@ -43,7 +41,7 @@ export function TitleWithValue ({title,value,price}) {
                     {value}
                     {
                         price?
-                            <Text style={[OrderStyles.value,{fontSize:10}]}>
+                            <Text style={[OrderStyles.value,{fontSize:RFValue(11)}]}>
                                 {' تومان'}
                             </Text>
                             :null

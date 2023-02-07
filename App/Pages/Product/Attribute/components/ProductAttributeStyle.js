@@ -1,4 +1,4 @@
-import {React} from '../../../../Global/Import/Imports';
+import {React,RFValue} from '../../../../Global/Import/Imports';
 import {StyleSheet} from 'react-native'
 const ProductAttributeStyle = StyleSheet.create({
     ListItem:{
@@ -27,12 +27,12 @@ const ProductAttributeStyle = StyleSheet.create({
     TextAttribute:{
         color:'rgba(91,91,91,0.74)',
         fontFamily:'Vazir',
-        fontSize:15
+        fontSize:RFValue(16)
     },
     TextAttributeActive:{
         color:'#0e7490',
         fontFamily:'Vazir-Bold',
-        fontSize:17
+        fontSize:RFValue(18)
     }
 });
 export default ProductAttributeStyle;

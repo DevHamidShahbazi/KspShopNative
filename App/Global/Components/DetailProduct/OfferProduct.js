@@ -1,4 +1,4 @@
-import {React, View, Text, LinearGradient} from '../../Import/Imports';
+import {React, View, Text, LinearGradient,RFValue} from '../../Import/Imports';
 
 export default function OfferProduct ({offer}) {
     return (
@@ -11,7 +11,7 @@ export default function OfferProduct ({offer}) {
                             flex:1,borderRadius:8,
                             alignItems:'center'
                         }} useAngle={true} angle={45} colors={['#3498db','#2c3e50']}>
-                            <Text style={{textAlign:'center',color:'#fff',fontSize:17,fontFamily:'Vazir'}}>
+                            <Text style={{textAlign:'center',color:'#fff',fontSize:RFValue(18),fontFamily:'Vazir'}}>
                                 تخفیف ویژه
                             </Text>
 

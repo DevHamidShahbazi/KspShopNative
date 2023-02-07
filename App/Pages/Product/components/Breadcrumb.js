@@ -1,9 +1,9 @@
-import {React, View, Text, useNavigation} from '../../../Global/Import/Imports';
+import {React, View,RFValue, Text, useNavigation} from '../../../Global/Import/Imports';
 import {StyleSheet} from 'react-native'
 const Styles = StyleSheet.create({
     Bold:{
         color:'#155e75',
-        fontSize:14,
+        fontSize:RFValue(15),
         fontFamily:'Vazir-Bold',
     },
 })

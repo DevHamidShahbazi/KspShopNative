@@ -1,5 +1,5 @@
 import {
-    React, View, Text, useEffect, useRef, MaterialCommunityIcons,
+    React, View, Text, useEffect, useRef, MaterialCommunityIcons,RFValue,
     LinearGradient, Animated,useState,TouchableOpacity,ActivityIndicator,
 } from '../../Global/Import/Imports';
 import NetInfo from "@react-native-community/netinfo";
@@ -38,7 +38,7 @@ export default function SplashScreen () {
                 <View style={{flex:2,justifyContent: 'flex-end',padding: 35}}>
                     {
                         Connection?
-                            <Text style={{textAlign:'center', fontSize:25,
+                            <Text style={{textAlign:'center', fontSize:RFValue(26),
                                 fontFamily:'Vazir-Bold', color:'#fff'}}>
                                 فروشگاه کا اس پی
                             </Text>:
@@ -49,7 +49,7 @@ export default function SplashScreen () {
                                         :
                                         <TouchableOpacity activeOpacity={.6}
                                                           onPress={() => {ChangeNet()} } style={{marginVertical:20,alignItems:'center'}}>
-                                            <Text style={{textAlign:'center', fontSize:18, fontFamily:'Vazir-Bold', color:'#fff'}}>
+                                            <Text style={{textAlign:'center', fontSize:RFValue(19), fontFamily:'Vazir-Bold', color:'#fff'}}>
                                                 ارتباط برقرار نشد
                                             </Text>
                                             <MaterialCommunityIcons size={35} color={'#fff'} name={'rotate-right'}/>

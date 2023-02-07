@@ -7,8 +7,8 @@ import {
 } from './Global/Import/Imports';
 // LogBox.ignoreLogs(['Remote debugger','Please report']);
 LogBox.ignoreAllLogs()
-// axios.defaults.baseURL = 'https://ksp-shop.com/api/';
-axios.defaults.baseURL = 'http://192.168.100.15:8000/api/';
+axios.defaults.baseURL = 'https://ksp-shop.com/api/';
+// axios.defaults.baseURL = 'http://192.168.100.15:8000/api/';
 export default App = () => {
     const [Auth,setAuth] = useState(null);
     const [User,setUser] = useState(null);

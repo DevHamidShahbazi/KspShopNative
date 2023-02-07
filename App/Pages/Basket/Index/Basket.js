@@ -1,5 +1,5 @@
 import {
-    React, useEffect, useState,useFocusEffect,LoadAgain,
+    React, useEffect, useState,useFocusEffect,
     ListIsEmpty,View,ScrollView
 } from '../../../Global/Import/Imports';
 import getData from './components/getData';

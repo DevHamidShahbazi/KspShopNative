@@ -1,5 +1,5 @@
-import React from 'react';
-import {StyleSheet, View} from 'react-native';
+import {React,View,RFValue} from '../Import/Imports';
+import {StyleSheet} from 'react-native';
 export default StylesGlobal = StyleSheet.create({
     ListItem:{
         justifyContent:'center',
@@ -40,7 +40,7 @@ export default StylesGlobal = StyleSheet.create({
         alignItems:'center',
         color : 'black',
         fontFamily:"Vazir",
-        fontSize:17,
+        fontSize:RFValue(18),
         textAlign:'center'
     },
     Text_Btn_white : {
@@ -48,7 +48,7 @@ export default StylesGlobal = StyleSheet.create({
         alignItems:'center',
         color : 'white',
         fontFamily:"Vazir",
-        fontSize:15,
+        fontSize:RFValue(16),
         textAlign:'center'
     },
     Text_Btn_Royal : {
@@ -56,7 +56,7 @@ export default StylesGlobal = StyleSheet.create({
         alignItems:'center',
         color : 'white',
         fontFamily:"Vazir",
-        fontSize:17,
+        fontSize:RFValue(18),
         textAlign:'center'
     },
     Shadow : {
