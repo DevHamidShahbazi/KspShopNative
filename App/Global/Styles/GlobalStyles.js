@@ -21,7 +21,6 @@ export default StylesGlobal = StyleSheet.create({
         justifyContent:'space-around'
     },
     Btn_Royal:{
-        display : 'flex',
         justifyContent:'center',
         alignItems:'center',
         width:"100%",
@@ -30,7 +29,6 @@ export default StylesGlobal = StyleSheet.create({
         backgroundColor : '#213854',
     },
     Btn_Primary:{
-        display : 'flex',
         justifyContent:'center',
         alignItems:'center',
         width:"100%",

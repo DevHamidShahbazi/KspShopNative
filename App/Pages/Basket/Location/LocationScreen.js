@@ -13,7 +13,7 @@ export default function LocationScreen({navigation,route}) {
     const [Basket,setBasket] = useState(null);
     const [IsEmpty,setIsEmpty] = useState(false);
     const [Factor,setFactor] = useState(false);
-    // const {setBasketCount} = useContext(BasketContext);
+    const {setBasketCount} = useContext(BasketContext);
     useFocusEffect(
         React.useCallback(() => {
             Linking.addEventListener('url', handleOpenURL);
@@ -25,6 +25,9 @@ export default function LocationScreen({navigation,route}) {
         Linking.addEventListener('url', handleOpenURL);
         NavigationSetOptionsPanel(navigation,'ثبت اطلاعات و پرداخت');
         getData(setLocation,setLoading,setBasket,setIsEmpty,setFactor,setRender,Render)
+        return () => {
+            Linking.removeAllListeners('url');
+        }
     },[]);
     const handleOpenURL = (event) => {
         Linking.getInitialURL().then(url => {
@@ -34,10 +37,8 @@ export default function LocationScreen({navigation,route}) {
     const navigate = (url) => {
         if (url == 'kspshopandroid://orders/1'){
             RemoveBasket()
-            navigation.navigate('Home')
-        }
-        if (url == 'kspshopandroid://orders/0'){
-            Alert.alert('پرداخت انجام نشد')
+            setBasketCount(0)
+            navigation.navigate('Basket')
         }
     }
 

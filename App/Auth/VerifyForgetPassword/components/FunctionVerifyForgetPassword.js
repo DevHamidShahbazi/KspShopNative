@@ -1,5 +1,6 @@
 import {React,axios,AsyncStorage,TouchableOpacity,MaterialCommunityIcons} from '../../../Global/Import/Imports';
-export function handleVerifyForgetPassword (navigation,Fields,setErrors,setSuccesses,UserName,setAuth,setUser) {
+export function handleVerifyForgetPassword (navigation,Fields,setErrors,setSuccesses,UserName,setAuth,setUser,setLoading) {
+    setLoading(true)
     axios.post('v_1_0/verify/forget-password', {
         code: Fields.code,
         username:UserName
@@ -13,8 +14,10 @@ export function handleVerifyForgetPassword (navigation,Fields,setErrors,setSucce
                 AsyncStorage.setItem('user',JSON.stringify(data.user))
                 setAuth(true)
                 setUser(data.user)
+                setLoading(false)
                 navigation.navigate('Panel')
             }else {
+                setLoading(false)
                 setSuccesses('')
                 setErrors(data.message);
             }
@@ -24,7 +27,8 @@ export function handleVerifyForgetPassword (navigation,Fields,setErrors,setSucce
         });
     return null
 }
-export function handleAgainVerifyForgetPassword (navigation,setErrors,setSuccesses,UserName,setTimer) {
+export function handleAgainVerifyForgetPassword (navigation,setErrors,setSuccesses,UserName,setTimer,setLoading) {
+    setLoading(true)
     axios.post('v_1_0/forget-password', {
         username:UserName
     })
@@ -38,6 +42,7 @@ export function handleAgainVerifyForgetPassword (navigation,setErrors,setSuccess
                 setSuccesses('')
                 setErrors(data.message);
             }
+            setLoading(false)
         })
         .catch(function (error) {
             console.log(error);

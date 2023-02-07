@@ -1,4 +1,4 @@
-import {React, axios, Alert, useContext, BasketContext, CheckBasket} from '../../../Global/Import/Imports';
+import {React, axios, ToastAndroid, useContext, BasketContext, CheckBasket} from '../../../Global/Import/Imports';
 export function AddToCart (product,setBasketCount) {
     const url = TypeUrl(product.type);
     axios.post(`v_1_0${url}`, {
@@ -11,9 +11,15 @@ export function AddToCart (product,setBasketCount) {
             const {data} = response;
             if (data.status == 'success'){
                 CheckBasket(setBasketCount)
-                Alert.alert(data.message)
+                ToastAndroid.show(data.message,
+                    ToastAndroid.SHORT,
+                    ToastAndroid.BOTTON,
+                    )
             }else {
-                Alert.alert(data.message)
+                ToastAndroid.show(data.message,
+                    ToastAndroid.SHORT,
+                    ToastAndroid.BOTTON,
+                )
             }
         })
         .catch(function (error) {

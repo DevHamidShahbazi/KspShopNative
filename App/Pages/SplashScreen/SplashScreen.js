@@ -1,27 +1,64 @@
-import React from 'react';
-import {View, Image, StyleSheet} from 'react-native';
-import LinearGradient from 'react-native-linear-gradient';
+import {
+    React, View, Text, useEffect, useRef, MaterialCommunityIcons,
+    LinearGradient, Animated,useState,TouchableOpacity,ActivityIndicator,
+} from '../../Global/Import/Imports';
+import NetInfo from "@react-native-community/netinfo";
 export default function SplashScreen () {
-
-    const StylesSplashScreen = StyleSheet.create({
-        SplashScreen : {
-            height:'100%',
-            padding : 5,
-            display:'flex',
-            flexDirection: "row",
-            flexWrap: "wrap",
-            justifyContent: "center",
-            alignContent: "stretch",
-            alignItems: "flex-start",
-        },
-    });
-
+    const [Loading,setLoading] = useState(false);
+    const [Connection,setConnection] = useState(null);
+    const startValue = useRef(new Animated.Value(0)).current;
+    useEffect(()=>{
+        Animated.timing(startValue, {
+            toValue: 1,
+            duration: 1500,
+            useNativeDriver: true,
+        }).start();
+        NetInfo.fetch().then(state => {setConnection(state.isConnected)});
+    },[Connection,Loading]);
+    const ChangeNet = () => {
+        setLoading(true)
+        NetInfo.fetch().then(state => {setConnection(state.isConnected)});
+        setLoading(false)
+    };
     return (
         <React.Fragment>
-            <LinearGradient colors={['#eee','#eee', '#70c8b7', '#0e3f5f']} style={StylesSplashScreen.SplashScreen} >
-                <View style={StylesSplashScreen.SplashScreen}>
-                    <Image style={{width: '100%', height: 300}} source={{uri: 'https://ksp-shop.com/Upload/image/logo/.png'}}/>
+            <LinearGradient colors={['#fff','#eee','#213854']} style={{flex:1, justifyContent: "flex-end"}} >
+                <Animated.View style={{
+                    opacity: startValue,
+                    flex:2,
+                    padding : 10,
+                    justifyContent: "center",
+                    alignItems: 'center'
+                }}>
+                    <Animated.Image
+                        source={{uri: 'https://ksp-shop.com/Upload/image/logo/.png'}}
+                        style={[{width: '80%', height: 250}, {opacity: startValue}]}/>
+                </Animated.View>
+
+                <View style={{flex:2,justifyContent: 'flex-end',padding: 35}}>
+                    {
+                        Connection?
+                            <Text style={{textAlign:'center', fontSize:25,
+                                fontFamily:'Vazir-Bold', color:'#fff'}}>
+                                فروشگاه کا اس پی
+                            </Text>:
+                            <React.Fragment>
+                                {
+                                    Loading?
+                                        <ActivityIndicator size="large" color="#fff"/>
+                                        :
+                                        <TouchableOpacity activeOpacity={.6}
+                                                          onPress={() => {ChangeNet()} } style={{marginVertical:20,alignItems:'center'}}>
+                                            <Text style={{textAlign:'center', fontSize:18, fontFamily:'Vazir-Bold', color:'#fff'}}>
+                                                ارتباط برقرار نشد
+                                            </Text>
+                                            <MaterialCommunityIcons size={35} color={'#fff'} name={'rotate-right'}/>
+                                        </TouchableOpacity>
+                                }
+                            </React.Fragment>
+                    }
                 </View>
+
             </LinearGradient>
         </React.Fragment>
     );

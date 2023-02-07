@@ -5,13 +5,14 @@ import {
 import LoginStyles from './LoginStyle';
 
 
-export function handleLogin (navigation ,Fields,setErrors,setAuth,setUser) {
+export function handleLogin (navigation ,Fields,setErrors,setAuth,setUser,setLoading) {
+    setLoading(true)
     axios.post('v_1_0/login', {
         username: Fields.username,
         password: Fields.password,
     })
         .then(function (response) {
-            ResponseData_Register_and_Login(response,setErrors,navigation,setAuth,setUser)
+            ResponseData_Register_and_Login(response,setErrors,navigation,setAuth,setUser,setLoading)
         })
         .catch(function (error) {
             console.log(error);

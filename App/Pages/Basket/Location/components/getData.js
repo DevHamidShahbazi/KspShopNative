@@ -10,6 +10,7 @@ const getData = (setLocation,setLoading,setBasket,setIsEmpty,setFactor,setRender
             })
                 .then(function (response) {
                     const {data} = response;
+                    // console.log(data.count)
                     if (typeof data == 'string'){
                         setRender(Render+1)
                     }else {

@@ -8,7 +8,7 @@ import GlobalStyles from '../../../../../Global/Styles/GlobalStyles';
 import OrdersStyles from './OrdersStyles';
 import { useNavigation } from '@react-navigation/native';
 
-export const GetOrders =(setOrders,setLoading,setIsEmpty) => {
+export const GetOrders =(setOrders,setLoading,setIsEmpty,Render,setRender) => {
     AsyncStorage.getItem('api_token',(error, result) => {
         if (result){
             axios.post('v_1_0/orders', {},{
@@ -18,15 +18,18 @@ export const GetOrders =(setOrders,setLoading,setIsEmpty) => {
             })
                 .then(function (response) {
                     const {data} = response;
-                    console.log(data)
-                    if (data.status == 'success'){
-                        if (collect(data.orders).first()){
-                            setIsEmpty(false)
-                        }else {
-                            setIsEmpty(true)
+                    if (typeof data == 'string'){
+                        setRender(Render+1)
+                    }else {
+                        if (data.status == 'success'){
+                            if (collect(data.orders).first()){
+                                setIsEmpty(false)
+                            }else {
+                                setIsEmpty(true)
+                            }
+                            setLoading(false)
+                            setOrders(data.orders)
                         }
-                        setLoading(false)
-                        setOrders(data.orders)
                     }
                 })
                 .catch(function (error) {

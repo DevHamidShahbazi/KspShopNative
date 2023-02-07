@@ -1,5 +1,6 @@
 import {React,useState, useEffect, useContext,UseSetFields,GlobalStyles,AuthContext, UserContext, Text, TouchableOpacity,BoxAuth, GradientAuth, InputGroupAuth, TimerView, handleAgainVerify, handleVerify, NavigationSetOptionsVerify, SendCodeWithViewVerify,} from '../../Global/Import/Imports';
 export default function VerifyScreen ({navigation}) {
+    const [Loading,setLoading] = useState(false);
     const {User,setUser} = useContext(UserContext)
     const {Auth,setAuth} = useContext(AuthContext)
     const [Errors,setErrors] = useState('');

@@ -5,7 +5,8 @@ import RegisterStyles from './RegisterStyles';
 
 import {ResponseData_Register_and_Login} from '../../components/FunctionAuth';
 
-export function handleRegister (Fields,setErrors,navigation,setAuth,setUser) {
+export function handleRegister (Fields,setErrors,navigation,setAuth,setUser,setLoading) {
+    setLoading(true)
     axios.post('v_1_0/register', {
         name: Fields.name,
         phone: Fields.phone,
@@ -13,7 +14,7 @@ export function handleRegister (Fields,setErrors,navigation,setAuth,setUser) {
         password_confirmation: Fields.password_confirmation,
     })
         .then(function (response) {
-            ResponseData_Register_and_Login(response,setErrors,navigation,setAuth,setUser)
+            ResponseData_Register_and_Login(response,setErrors,navigation,setAuth,setUser,setLoading)
         })
         .catch(function (error) {
             console.log(error);

@@ -1,9 +1,11 @@
 import 'react-native-gesture-handler';
 import {
-    MiddlewareAuth,MiddlewareVerify,MiddlewareNotAuth,MiddlewareVerifyShow,
-    Profile,EditProfile,Register,Login,ForgetPassword,Comments,Order,
-    ResetPassword,VerifyForgetPassword,VerifyScreen,Orders,PurchasedProducts,
-    About,createStackNavigator,Company,React} from '../../../Global/Import/Imports';
+    MiddlewareAuth, MiddlewareVerify, MiddlewareNotAuth, MiddlewareVerifyShow,
+    Profile, EditProfile, Register, Login, ForgetPassword, Comments, Order,
+    ResetPassword, VerifyForgetPassword, VerifyScreen, Orders, PurchasedProducts,
+    About, createStackNavigator, Company, React, useState, useEffect
+} from '../../../Global/Import/Imports';
+
 export default function Panel ({navigation ,route}) {
     const PanelStack = createStackNavigator();
     return (
@@ -41,7 +43,6 @@ export default function Panel ({navigation ,route}) {
                     </PanelStack.Navigator>
                 </MiddlewareVerifyShow>
             </MiddlewareAuth>
-
         </React.Fragment>
     );
 }

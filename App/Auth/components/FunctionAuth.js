@@ -55,7 +55,8 @@ export function LogOut (setAuth,setUser) {
     setUser(null)
     return null;
 }
-export function ResponseData_Register_and_Login (response,setErrors,navigation,setAuth,setUser) {
+export function ResponseData_Register_and_Login (response,setErrors,navigation,setAuth,setUser,setLoading) {
+    setLoading(false)
     const {data} = response;
     if (data.status == 'success'){
         setErrors('')

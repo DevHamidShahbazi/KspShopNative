@@ -1,13 +1,13 @@
 import {
-    React, useEffect, View, TextBold, useState, ListIsEmpty,
-    ScrollView,useFocusEffect,
+    React, useEffect, useState,useFocusEffect,LoadAgain,
+    ListIsEmpty,View,ScrollView
 } from '../../../Global/Import/Imports';
 import getData from './components/getData';
 import BoxTop from './components/BoxTop';
 import Products from './components/Products';
 import TopNavigation from './components/TopNavigation';
 export default function Basket ({navigation ,Route}) {
-    const [Render,setRender] = useState(1);
+    const [Render,setRender] = useState(false);
     const [Loading,setLoading] = useState(true);
     const [Basket,setBasket] = useState(null);
     const [IsEmpty,setIsEmpty] = useState(false);
@@ -27,7 +27,7 @@ export default function Basket ({navigation ,Route}) {
         <React.Fragment>
             <TopNavigation/>
             <ListIsEmpty IsEmpty={IsEmpty} Loading={Loading}/>
-            <View style={{display:Loading || IsEmpty?'none':'flex',flex:1,justifyContent:'center',backgroundColor:'#e5e7eb'}}>
+            <View style={{display:IsEmpty||Loading?'none':'flex',flex:1,justifyContent:'center',backgroundColor:'#e5e7eb'}}>
                 {Basket != null?
                     <ScrollView
                         keyboardShouldPersistTaps='handled' showsVerticalScrollIndicator={false}>
