@@ -1,4 +1,4 @@
-import {React,RFValue} from '../../../../../Global/Import/Imports';
+import React from 'react';
 import {StyleSheet} from 'react-native';
 
 const OrderStyles = StyleSheet.create({
@@ -17,17 +17,17 @@ const OrderStyles = StyleSheet.create({
         marginTop:"8%",
     },
     textBold:{
-        fontSize:RFValue(16+1),
+        fontSize:16,
         color:'#000',
         fontFamily:'Vazir-Bold'
     },
     title:{
-        fontSize:RFValue(14+1),
+        fontSize:14,
         color:'#000',
         fontFamily:'Vazir'
     },
     value:{
-        fontSize:RFValue(14+1),
+        fontSize:14,
         color:'#000',
         fontFamily:'iranyekanbold(fanum)'
     }

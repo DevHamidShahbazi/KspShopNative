@@ -1,11 +1,9 @@
 import {
-    React, View, Text, useEffect, useRef, MaterialCommunityIcons,RFValue,
+    React, View, Text, useEffect, useRef, MaterialCommunityIcons,
     LinearGradient, Animated,useState,TouchableOpacity,ActivityIndicator,
 } from '../../Global/Import/Imports';
 import NetInfo from "@react-native-community/netinfo";
-export default function SplashScreen () {
-    const [Loading,setLoading] = useState(false);
-    const [Connection,setConnection] = useState(null);
+export default function SplashScreen ({setConnection,Connection,setLoading,Loading}) {
     const startValue = useRef(new Animated.Value(0)).current;
     useEffect(()=>{
         Animated.timing(startValue, {
@@ -13,8 +11,7 @@ export default function SplashScreen () {
             duration: 1500,
             useNativeDriver: true,
         }).start();
-        NetInfo.fetch().then(state => {setConnection(state.isConnected)});
-    },[Connection,Loading]);
+    },[]);
     const ChangeNet = () => {
         setLoading(true)
         NetInfo.fetch().then(state => {setConnection(state.isConnected)});
@@ -38,7 +35,7 @@ export default function SplashScreen () {
                 <View style={{flex:2,justifyContent: 'flex-end',padding: 35}}>
                     {
                         Connection?
-                            <Text style={{textAlign:'center', fontSize:RFValue(26),
+                            <Text style={{textAlign:'center', fontSize:25,
                                 fontFamily:'Vazir-Bold', color:'#fff'}}>
                                 فروشگاه کا اس پی
                             </Text>:
@@ -48,8 +45,8 @@ export default function SplashScreen () {
                                         <ActivityIndicator size="large" color="#fff"/>
                                         :
                                         <TouchableOpacity activeOpacity={.6}
-                                                          onPress={() => {ChangeNet()} } style={{marginVertical:20,alignItems:'center'}}>
-                                            <Text style={{textAlign:'center', fontSize:RFValue(19), fontFamily:'Vazir-Bold', color:'#fff'}}>
+                                                          onPress={() => {() => ChangeNet()} } style={{marginVertical:20,alignItems:'center'}}>
+                                            <Text style={{textAlign:'center', fontSize:20, fontFamily:'Vazir-Bold', color:'#fff'}}>
                                                 ارتباط برقرار نشد
                                             </Text>
                                             <MaterialCommunityIcons size={35} color={'#fff'} name={'rotate-right'}/>

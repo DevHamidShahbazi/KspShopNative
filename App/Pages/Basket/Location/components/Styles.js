@@ -1,5 +1,4 @@
 import {StyleSheet} from 'react-native';
-import {RFValue} from 'react-native-responsive-fontsize';
 const Styles = StyleSheet.create({
     FormContainer:{
         margin: 7,
@@ -10,7 +9,7 @@ const Styles = StyleSheet.create({
         marginVertical: 10,
         textAlign: 'center',
         fontFamily: 'Vazir-Bold',
-        fontSize: RFValue(19),
+        fontSize: 18,
         color: '#fff',
     },
     btnSubmit: {
@@ -28,7 +27,7 @@ const Styles = StyleSheet.create({
     textBtnSubmit: {
         color: '#fff',
         fontFamily: 'Vazir',
-        fontSize: RFValue(19),
+        fontSize: 18,
         marginHorizontal: 10,
     },
 });

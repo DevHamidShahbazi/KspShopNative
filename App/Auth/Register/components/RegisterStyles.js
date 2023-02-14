@@ -1,9 +1,12 @@
 import {StyleSheet} from 'react-native';
 export default  StylesRegister = StyleSheet.create({
     Text_before_Register:{
-        marginTop:"10%",
         color:"#007bff",
-        textAlign : 'right',
         fontFamily: 'Vazir',
-    }
+    },
+    View_Go_To_Register:{
+        // flexDirection:'row',
+        // justifyContent:'space-around',
+        marginVertical:'7%'
+    },
 });

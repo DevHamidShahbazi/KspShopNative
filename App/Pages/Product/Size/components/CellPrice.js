@@ -1,4 +1,4 @@
-import {collect,useEffect,useState,RFValue ,React, Text, View, TouchableOpacity, ActivityIndicator} from '../../../../Global/Import/Imports';
+import {collect,useEffect,useState ,React, Text, View, TouchableOpacity, ActivityIndicator} from '../../../../Global/Import/Imports';
 import {ProductSizeStyles} from './ProductSizeStyle';
 
 export default function CellPrice (props) {
@@ -42,7 +42,7 @@ export default function CellPrice (props) {
                         activeOpacity={.85}
                         style={[ProductSizeStyles.ItemPrice,ActiveSize != null && ActiveSize.id == item.id?ProductSizeStyles.ActiveItem:{}]}
                         onPress={() => handleClick() }>
-                        <Text style={[ProductSizeStyles.CellPrice,{fontSize:RFValue(16)},ActiveSize != null && ActiveSize.id == item.id?{color:'#fff'}:{color:'#000'}]}>
+                        <Text style={[ProductSizeStyles.CellPrice,{fontSize:15},ActiveSize != null && ActiveSize.id == item.id?{color:'#fff'}:{color:'#000'}]}>
                             {item.price}
                         </Text>
                     </TouchableOpacity>

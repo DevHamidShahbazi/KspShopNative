@@ -1,15 +1,9 @@
-import React,{useEffect,useState} from 'react';
-import {ScrollView, Text, TextInput, TouchableOpacity, View} from 'react-native';
-import {NavigationSetOptionsPanel} from '../Index/components/PanelStyles';
-import {Error, Success} from '../../../Global/Alerts/GlobalAlert';
-import {UseSetFields} from '../../../Global/Hooks/CustomHooks';
-import Icon from 'react-native-vector-icons/dist/FontAwesome5';
-import {CustomTextInput} from '../../../Global/Components/Components';
-import StylesAuth from '../../../Auth/components/StylesAuth';
-import GlobalStyles from '../../../Global/Styles/GlobalStyles';
+import {
+    React,useEffect,useState,Error, Success,UseSetFields,
+    ScrollView, Text, TextInput, TouchableOpacity, View,Icon,
+    GlobalStyles,StylesAuth,CustomTextInput,NavigationSetOptionsPanel,
+} from '../../../Global/Import/Imports';
 import {handleResetPassword} from './components/ResetPasswordFunction';
-
-
 export default function ResetPassword ({navigation,route}) {
     const [Errors,setErrors] = useState('');
     const [Successes,setSuccesses] = useState('');

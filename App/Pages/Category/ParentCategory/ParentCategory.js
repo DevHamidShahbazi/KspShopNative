@@ -1,7 +1,7 @@
 import {
     React, useEffect, ScrollView, View, useState, CategoryItem,
     TextBold, SearchBarTouchNavigationSetOptions, getSliders, ShowSliders,
-    CategoriesBanner, GlobalStyles, LoadingScreen,RFValue
+    CategoriesBanner, GlobalStyles, LoadingScreen,
 } from '../../../Global/Import/Imports';
 import {getDetailParentCategory} from './components/ParentCategoryFunction';
 import {ProductItem} from '../../../Global/Components/Items';
@@ -26,7 +26,7 @@ export default function ParentCategory ({navigation,route}) {
                 <ScrollView  contentContainerStyle={{justifyContent:'center'}}>
                     <ShowSliders sliders={Sliders}/>
                     <View style={{flex:1,padding:10}}>
-                        <TextBold style={{fontSize:RFValue(24),textAlign:'center'}}>{Data.h1}</TextBold>
+                        <TextBold style={{fontSize:23,textAlign:'center'}}>{Data.h1}</TextBold>
                     </View>
                     <View style={GlobalStyles.ListGrid}>
                         {Data.ChildCategory?Data.ChildCategory.map((category,index) => (<CategoryItem key={index} category={category}/>)):null}

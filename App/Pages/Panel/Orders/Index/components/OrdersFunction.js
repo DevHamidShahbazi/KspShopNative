@@ -1,12 +1,9 @@
-import React from 'react';
-import {Text, View, TouchableNativeFeedback, Image} from 'react-native';
-import AsyncStorage from '@react-native-async-storage/async-storage';
-import axios from 'axios';
-import collect from 'collect.js';
+import {
+    React,Text, View, TouchableNativeFeedback, Image,
+    AsyncStorage,axios,collect,GlobalStyles,useNavigation,
+} from '../../../../../Global/Import/Imports';
 import {ColorTypeStatus, TextTypeStatus} from '../../../../../Global/Components/Components';
-import GlobalStyles from '../../../../../Global/Styles/GlobalStyles';
 import OrdersStyles from './OrdersStyles';
-import { useNavigation } from '@react-navigation/native';
 
 export const GetOrders =(setOrders,setLoading,setIsEmpty,Render,setRender) => {
     AsyncStorage.getItem('api_token',(error, result) => {

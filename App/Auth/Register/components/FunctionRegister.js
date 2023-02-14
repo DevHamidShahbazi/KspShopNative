@@ -1,24 +1,40 @@
 import {
-    React,axios,Text, TextInput, TouchableOpacity, View,Icon,StylesAuth
+    React, axios, Text, TextInput, TouchableOpacity, View, Icon, StylesAuth, Alert, GlobalStyles,
 } from '../../../Global/Import/Imports';
 import RegisterStyles from './RegisterStyles';
-
 import {ResponseData_Register_and_Login} from '../../components/FunctionAuth';
 
-export function handleRegister (Fields,setErrors,navigation,setAuth,setUser,setLoading) {
-    setLoading(true)
-    axios.post('v_1_0/register', {
-        name: Fields.name,
-        phone: Fields.phone,
-        password: Fields.password,
-        password_confirmation: Fields.password_confirmation,
-    })
-        .then(function (response) {
-            ResponseData_Register_and_Login(response,setErrors,navigation,setAuth,setUser,setLoading)
+export function BtnSubmit ({handleClick,Loading}) {
+    return (
+        <React.Fragment>
+            <TouchableOpacity onPress={() => handleClick()}
+                              activeOpacity={.7}
+                              style={[{display:!Loading?'flex':'none'},GlobalStyles.Btn_Royal,GlobalStyles.Shadow_lg,{marginTop:'5%'}]}>
+                <Text style={GlobalStyles.Text_Btn_Royal}>
+                    ثبت نام
+                </Text>
+            </TouchableOpacity>
+        </React.Fragment>
+    );
+}
+export function handleRegister (Fields,setErrors,navigation,setAuth,setUser,setLoading,Privacy) {
+    if (!Privacy){
+        Alert.alert('ابتدا تیک گزینه قبول کردن شرایط را بزنید')
+    }else {
+        setLoading(true)
+        axios.post('v_1_0/register', {
+            name: Fields.name,
+            phone: Fields.phone,
+            password: Fields.password,
+            password_confirmation: Fields.password_confirmation,
         })
-        .catch(function (error) {
-            console.log(error);
-        });
+            .then(function (response) {
+                ResponseData_Register_and_Login(response,setErrors,navigation,setAuth,setUser,setLoading)
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+    }
 }
 export function InputGroupPassConfirmAuth (props) {
     return (
@@ -43,11 +59,13 @@ export function InputGroupPassConfirmAuth (props) {
 export function GoToLoginFromRegister ({navigation,setErrors}) {
     return (
         <React.Fragment>
-            <TouchableOpacity activeOpacity={.4} onPress={() => {setErrors('');navigation.navigate('Login')}}>
-                <Text style={RegisterStyles.Text_before_Register}>
-                    قبلا ثبت نام کرده ام!!
-                </Text>
-            </TouchableOpacity>
+            <View style={RegisterStyles.View_Go_To_Register}>
+                <TouchableOpacity activeOpacity={.4} onPress={() => {setErrors('');navigation.navigate('Login')}}>
+                    <Text style={RegisterStyles.Text_before_Register}>
+                        قبلا ثبت نام کرده ام!!
+                    </Text>
+                </TouchableOpacity>
+            </View>
         </React.Fragment>
     );
 }

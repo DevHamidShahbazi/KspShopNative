@@ -1,4 +1,4 @@
-import {React,RFValue,TouchableOpacity,MaterialCommunityIcons} from '../../../../Global/Import/Imports';
+import {React,TouchableOpacity,MaterialCommunityIcons} from '../../../../Global/Import/Imports';
 import {StyleSheet} from 'react-native';
 import {CustomBadge} from '../../../../Global/Components/Components';
 const ProfileStyles = StyleSheet.create({
@@ -29,7 +29,7 @@ const ProfileStyles = StyleSheet.create({
     Name_Item_Body:{
         paddingRight:"2%",
         fontFamily:'Vazir',
-        fontSize:RFValue(18),
+        fontSize:17,
         color:'rgba(0,0,0,0.75)',
     },
     Container_Item_Body:{

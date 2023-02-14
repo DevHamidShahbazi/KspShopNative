@@ -1,16 +1,8 @@
 import {
-    React,
-    getSliders,
-    useState,
-    useEffect,
-    CarouselProducts,
-    SearchBarTouchNavigationSetOptions,
-    ShowSliders,
-    ScrollView,
-    LoadingScreen,
-    DisplayTabBarContext,
-    useContext,
-    useFocusEffect,
+    React, getSliders, useState, useEffect,
+    CarouselProducts, SearchBarTouchNavigationSetOptions,
+    ShowSliders, ScrollView, LoadingScreen,
+    DisplayTabBarContext, useContext, useFocusEffect,
 } from '../../Global/Import/Imports';
 import getData from './components/GetData';
 import HighlightSection from './components/HighlightSection';
@@ -24,6 +16,9 @@ export default function Home ({navigation ,route}) {
     useFocusEffect(
         React.useCallback(() => {
             setDisplayTabBar(true)
+            setLoading(true)
+            getSliders(0,setSliders)
+            getData(setData,setLoading)
         }, [])
     );
 

@@ -1,11 +1,10 @@
 import 'react-native-gesture-handler';
 import {
-    React, StatusBar, axios, createBottomTabNavigator,useEffect,
+    React, axios, createBottomTabNavigator,useEffect,
     IndexHome, IndexCategory, BasketIndex, Chat, Panel,useState,
     TabScreenOptions, NavigationContainer, CheckToken, CheckBasket,
     UserContext, BasketContext, DisplayTabBarContext, AuthContext,LogBox
 } from './Global/Import/Imports';
-// LogBox.ignoreLogs(['Remote debugger','Please report']);
 LogBox.ignoreAllLogs()
 axios.defaults.baseURL = 'https://ksp-shop.com/api/';
 // axios.defaults.baseURL = 'http://192.168.100.15:8000/api/';

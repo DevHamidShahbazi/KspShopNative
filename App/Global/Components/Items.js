@@ -8,7 +8,6 @@ import {
     GlobalStyles,
     Text,
     TextRegular,
-    RFValue
 } from '../Import/Imports';
 import {Dimensions} from 'react-native';
 const ScreenWidth = Dimensions.get('window').width;
@@ -51,7 +50,7 @@ export function PriceUnderProduct ({product}) {
          return (
             <React.Fragment>
                 <View style={{paddingHorizontal:10,paddingVertical:2,backgroundColor:'#0891b2',borderBottomLeftRadius:15,borderTopRightRadius:15}}>
-                    <Text style={{textAlign:'center',color:'#fff',fontSize:RFValue(13+1),fontFamily:'Vazir'}}>
+                    <Text style={{textAlign:'center',color:'#fff',fontSize:13,fontFamily:'Vazir'}}>
                         ناموجود
                     </Text>
                 </View>
@@ -64,18 +63,18 @@ export function PriceUnderProduct ({product}) {
                 <View style={{flexDirection:'row',alignItems:'center'}}>
 
                     <View style={{paddingHorizontal:3,paddingVertical:2,backgroundColor:'#0891b2',borderBottomLeftRadius:15,borderTopRightRadius:15}}>
-                        <Text style={{textAlign:'center',color:'#fff',fontSize:RFValue(13+1),fontFamily:'iranyekanbold(fanum)'}}>
+                        <Text style={{textAlign:'center',color:'#fff',fontSize:13,fontFamily:'iranyekanbold(fanum)'}}>
                             {'%'+percent}
                         </Text>
                     </View>
 
                     <Text >
-                        <Text style={{color:'#000',fontFamily:'iranyekanbold(fanum)',fontSize:RFValue(15+1)}}>{discount}</Text>
-                        <Text style={{color:'#000',fontFamily:'Vazir',fontSize:RFValue(12+1)}}>تومان</Text>
+                        <Text style={{color:'#000',fontFamily:'iranyekanbold(fanum)',fontSize:15}}>{discount}</Text>
+                        <Text style={{color:'#000',fontFamily:'Vazir',fontSize:12}}>تومان</Text>
                     </Text>
 
                     <Text style={{textDecorationLine: 'line-through', textDecorationStyle: 'solid'}}>
-                        <Text style={{color:'red',fontFamily:'iranyekanbold(fanum)',fontSize:RFValue(13+1)}}>{' '+price}</Text>
+                        <Text style={{color:'red',fontFamily:'iranyekanbold(fanum)',fontSize:13}}>{' '+price}</Text>
                     </Text>
                 </View>
             </React.Fragment>
@@ -85,8 +84,8 @@ export function PriceUnderProduct ({product}) {
         return (
             <React.Fragment>
                 <Text>
-                    <Text style={{color:'#000',fontFamily:'iranyekanbold(fanum)',fontSize:RFValue(15+1)}}>{price}</Text>
-                    <Text style={{color:'#000',fontFamily:'Vazir',fontSize:RFValue(12+1)}}>تومان</Text>
+                    <Text style={{color:'#000',fontFamily:'iranyekanbold(fanum)',fontSize:15}}>{price}</Text>
+                    <Text style={{color:'#000',fontFamily:'Vazir',fontSize:12}}>تومان</Text>
                 </Text>
             </React.Fragment>
         );

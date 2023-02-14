@@ -1,5 +1,5 @@
 import {
-    React,Alert, Text, View, CustomTextInput,RFValue,
+    React,Alert, Text, View, CustomTextInput,
     AsyncStorage, axios, MaterialCommunityIcons, GlobalStyles, CompanyStyles,
 } from '../../../../Global/Import/Imports';
 export function handleSubmitCompanyWithText (Fields,order,setErrors,handleChange) {
@@ -68,7 +68,7 @@ export function CompanyHeader ({children}) {
     return (
         <React.Fragment>
             <View style={[CompanyStyles.CompanyHeader]}>
-                <Text style={{fontFamily:'Vazir',fontSize:RFValue(16),color:'#fff',textAlign:'center'}}>
+                <Text style={{fontFamily:'Vazir',fontSize:15,color:'#fff',textAlign:'center'}}>
                     {children}
                 </Text>
             </View>

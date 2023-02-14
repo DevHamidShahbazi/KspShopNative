@@ -10,6 +10,8 @@ export default function Categories ({navigation,route}) {
     useFocusEffect(
         React.useCallback(() => {
             setDisplayTabBar(true)
+            setLoading(true)
+            GetCategories(setCategories,setLoading)
         }, [])
     );
     useEffect(()=>{

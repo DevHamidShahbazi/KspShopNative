@@ -1,4 +1,4 @@
-import {React,View,Text,TextBold, TextRegular,RFValue} from '../../Import/Imports';
+import {React,View,Text,TextBold, TextRegular} from '../../Import/Imports';
 export const ContainerDetailProduct = ({product}) => {
     return (
         <React.Fragment>
@@ -72,7 +72,7 @@ export const NameValueDetailProduct = ({item,name,prefix}) => {
          <View style={{flexDirection:'row-reverse'}}>
              <Text style={{color:'#000',fontFamily:'Vazir'}}>{name}
              <Text style={{color:'#000',fontFamily:'iranyekanbold(fanum)'}}>{item}</Text>
-                 <Text style={{color:'#000',fontFamily:'Vazir',fontSize:RFValue(13)}}>{prefix}</Text>
+                 <Text style={{color:'#000',fontFamily:'Vazir',fontSize:12}}>{prefix}</Text>
              </Text>
          </View>
      )
@@ -96,10 +96,10 @@ export const FinalPriceDetailProduct = ({discount,price,percent}) => {
                 </TextRegular>
                 <Text style={{color:discount?'red':'black',fontFamily:'iranyekanbold(fanum)'}}>
                     {discount ?
-                        <Text style={{color:'red',fontFamily:'iranyekanbold(fanum)',fontSize:RFValue(13)}}>{` (%${percent}) `}</Text>
+                        <Text style={{color:'red',fontFamily:'iranyekanbold(fanum)',fontSize:12}}>{` (%${percent}) `}</Text>
                         : null}
                     {price}
-                    <Text style={{color:discount?'red':'black',fontFamily:'Vazir',fontSize:RFValue(13)}}>{' تومان'}</Text>
+                    <Text style={{color:discount?'red':'black',fontFamily:'Vazir',fontSize:12}}>{' تومان'}</Text>
                 </Text>
             </View>
         </React.Fragment>

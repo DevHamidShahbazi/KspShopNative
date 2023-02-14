@@ -1,4 +1,3 @@
-import {RFValue} from '../../Global/Import/Imports';
 import {StyleSheet} from 'react-native';
 export default  StylesAuth = StyleSheet.create({
     ContainerRegister: {
@@ -10,7 +9,7 @@ export default  StylesAuth = StyleSheet.create({
     },
     Header_box : {
         fontFamily:'Vazir',
-        fontSize :RFValue(21),
+        fontSize :20,
         textAlign:'center',
         color:'black'
     },

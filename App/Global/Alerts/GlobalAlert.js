@@ -1,4 +1,4 @@
-import {React,StyleSheet, Text, View,RFValue} from '../Import/Imports';
+import {React,StyleSheet, Text, View} from '../Import/Imports';
 export function Error ({message,type = null}) {
     const StylesError = StyleSheet.create({
         MainError:{
@@ -21,7 +21,7 @@ export function Error ({message,type = null}) {
         TextError : {
             width:'100%',
             fontFamily: 'Vazir',
-            fontSize: RFValue(15),
+            fontSize: 14,
             textAlign: 'center',
             color: 'red'
         },
@@ -85,7 +85,7 @@ export function Success (props) {
         TextSuccess : {
             width:'100%',
             fontFamily: 'Vazir',
-            fontSize: RFValue(15),
+            fontSize: 14,
             textAlign: 'center',
             color: '#007f10'
         },

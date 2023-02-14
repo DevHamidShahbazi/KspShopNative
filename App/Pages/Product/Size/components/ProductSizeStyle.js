@@ -1,5 +1,4 @@
 import {StyleSheet} from 'react-native';
-import {RFValue} from 'react-native-responsive-fontsize';
 const leftColumnWidth = 100;
 export const ProductSizeStyles = StyleSheet.create({
     container:{
@@ -21,7 +20,7 @@ export const ProductSizeStyles = StyleSheet.create({
     NameSize:{
         textAlign: 'center',
         fontFamily:'Vazir',
-        fontSize:RFValue(17+1),
+        fontSize:17,
         color:'#fff'
     },
     ListLeftColumn:{
@@ -33,7 +32,7 @@ export const ProductSizeStyles = StyleSheet.create({
         justifyContent:'center'
     },
     CellItemLeftColumn:{
-        fontSize:RFValue(15+1),
+        fontSize:15,
         textAlign: 'center',
         fontFamily:'iranyekanregular(fanum)',
         color:'#fff'
@@ -59,7 +58,7 @@ export const ProductSizeStyles = StyleSheet.create({
     CellPrice:{
         color:'#000',
         textAlign: 'center',
-        fontSize:RFValue(15+1),
+        fontSize:15,
         fontFamily:'iranyekanregular(fanum)',
     },
 

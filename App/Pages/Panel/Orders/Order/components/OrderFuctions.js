@@ -1,4 +1,4 @@
-import {React,RFValue,Text,View,GlobalStyles} from '../../../../../Global/Import/Imports';
+import {React,Text,View,GlobalStyles} from '../../../../../Global/Import/Imports';
 import OrderStyles from './OrderStyles';
 import {ColorTypeStatus, TextTypeStatus} from '../../../../../Global/Components/Components';
 
@@ -41,7 +41,7 @@ export function TitleWithValue ({title,value,price}) {
                     {value}
                     {
                         price?
-                            <Text style={[OrderStyles.value,{fontSize:RFValue(11)}]}>
+                            <Text style={[OrderStyles.value,{fontSize:10}]}>
                                 {' تومان'}
                             </Text>
                             :null

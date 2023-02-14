@@ -1,5 +1,5 @@
 import {
-    React, Text, TextInput, View, MaterialCommunityIcons, GlobalStyles, axios,RFValue
+    React, Text, TextInput, View, MaterialCommunityIcons, GlobalStyles, axios,
 } from '../Import/Imports';
 
 export function TextRegular ({children,style}) {
@@ -61,7 +61,7 @@ export function TabScreenOptions (label,Icon,tabBarBadge=null) {
         tabBarLabel: label,
         tabBarIcon: ({ color, size }) => <MaterialCommunityIcons name={Icon} color={color} size={size} />,
         tabBarBadge:tabBarBadge,
-        tabBarBadgeStyle:{padding:1,fontSize:RFValue(13),fontFamily:'iranyekanbold(fanum)'},
+        tabBarBadgeStyle:{padding:1,fontSize:12,fontFamily:'iranyekanbold(fanum)'},
     }
 }
 export const CustomBadge = (style) => <View style={{backgroundColor:'red',borderRadius:25,width:12,height:12,marginRight:5,marginLeft:5,style}}/>

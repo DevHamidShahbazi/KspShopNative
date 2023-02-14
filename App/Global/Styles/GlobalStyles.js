@@ -1,4 +1,4 @@
-import {React,View,RFValue} from '../Import/Imports';
+import React from 'react';
 import {StyleSheet} from 'react-native';
 export default StylesGlobal = StyleSheet.create({
     ListItem:{
@@ -40,7 +40,7 @@ export default StylesGlobal = StyleSheet.create({
         alignItems:'center',
         color : 'black',
         fontFamily:"Vazir",
-        fontSize:RFValue(18),
+        fontSize:17,
         textAlign:'center'
     },
     Text_Btn_white : {
@@ -48,7 +48,7 @@ export default StylesGlobal = StyleSheet.create({
         alignItems:'center',
         color : 'white',
         fontFamily:"Vazir",
-        fontSize:RFValue(16),
+        fontSize:15,
         textAlign:'center'
     },
     Text_Btn_Royal : {
@@ -56,7 +56,7 @@ export default StylesGlobal = StyleSheet.create({
         alignItems:'center',
         color : 'white',
         fontFamily:"Vazir",
-        fontSize:RFValue(18),
+        fontSize:17,
         textAlign:'center'
     },
     Shadow : {

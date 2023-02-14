@@ -1,4 +1,4 @@
-import {React} from '../../../Global/Import/Imports';
+import React from 'react';
 import ProductSimple from '../Simple/ProductSimple';
 import ProductSize from '../Size/ProductSize';
 import ProductAttribute from '../Attribute/ProductAttribute';

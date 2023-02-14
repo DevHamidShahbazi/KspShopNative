@@ -1,11 +1,11 @@
-import {React,TextBold,TextRegular,View,RFValue} from '../../../Global/Import/Imports';
+import {React,TextBold,TextRegular,View} from '../../../Global/Import/Imports';
 const TextBody = ({check,body}) => {
      return (
         <React.Fragment>
             {
                 check != "" && body != "" ?
                     <View style={{flex:1,justifyContent:'center',alignItems:'center'}}>
-                        <TextBold style={{fontSize:RFValue(25),textAlign:'center'}}>توضیحات</TextBold>
+                        <TextBold style={{fontSize:24,textAlign:'center'}}>توضیحات</TextBold>
                         <TextRegular style={{textAlign:'center'}}>
                             {check}
                         </TextRegular>

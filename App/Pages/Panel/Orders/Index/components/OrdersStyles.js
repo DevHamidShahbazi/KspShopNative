@@ -1,6 +1,5 @@
-import {React,RFValue} from '../../../../../Global/Import/Imports';
+import {React} from '../../../../../Global/Import/Imports';
 import {StyleSheet} from 'react-native';
-
 const OrdersStyles = StyleSheet.create({
     Container:{
         padding:5,
@@ -16,13 +15,13 @@ const OrdersStyles = StyleSheet.create({
     },
     Header_Item_date:{
         color:'#000',
-        fontSize:RFValue(14+1),
+        fontSize:14,
         textAlign:'center',
         fontFamily:'iranyekanbold(fanum)'
     },
     Header_Item_Status:{
         fontFamily:'Vazir-Bold',
-        fontSize:RFValue(12+1),
+        fontSize:12,
         padding:3,
         borderRadius:5
     },
@@ -34,7 +33,7 @@ const OrdersStyles = StyleSheet.create({
     },
     Body_Price:{
         color:'#000',
-        fontSize:RFValue(20+1),
+        fontSize:20,
         textAlign:'center',
         fontFamily:'iranyekanbold(fanum)'
     },

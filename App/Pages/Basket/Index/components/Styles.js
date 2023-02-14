@@ -1,5 +1,4 @@
 import {StyleSheet} from 'react-native';
-import {RFValue} from '../../../../Global/Import/Imports';
 const Styles = StyleSheet.create({
     containerBoxTop: {
         margin: 7,
@@ -10,23 +9,23 @@ const Styles = StyleSheet.create({
         marginVertical: 10,
         textAlign: 'center',
         fontFamily: 'Vazir-Bold',
-        fontSize:RFValue( 18+1),
+        fontSize: 18,
         color: '#fff',
     },
     textPriceFinal: {
         color: 'red',
-        fontSize:RFValue( 19+1),
+        fontSize: 19,
         fontFamily: 'iranyekanbold(fanum)',
     },
     textRed: {
         color: 'red',
         fontFamily: 'Vazir',
-        fontSize:RFValue( 12+1),
+        fontSize: 12,
     },
     textRed2: {
         color: 'red',
         fontFamily: 'iranyekanbold(fanum)',
-        fontSize:RFValue( 14+1),
+        fontSize: 14,
     },
     btnSubmit: {
         alignItems: 'center',
@@ -41,7 +40,7 @@ const Styles = StyleSheet.create({
     textBtnSubmit: {
         color: '#fff',
         fontFamily: 'Vazir',
-        fontSize:RFValue( 15+1),
+        fontSize: 15,
         marginHorizontal: 10,
     },
     boxFactor: {
@@ -55,7 +54,7 @@ const Styles = StyleSheet.create({
     },
     textFactor: {
         fontFamily: 'Vazir',
-        fontSize:RFValue( 13+1),
+        fontSize: 13,
         color: '#696969',
         textAlign: 'center',
     },
@@ -75,7 +74,7 @@ const Styles = StyleSheet.create({
         backgroundColor: '#155e75',
     },
     defNameProduct: {
-        fontSize:RFValue(17+1),
+        fontSize:17,
         color: '#155e75',
         fontFamily: 'Vazir-Bold',
         textAlign: 'center',
@@ -122,5 +121,11 @@ const Styles = StyleSheet.create({
         paddingHorizontal: 5,
         borderRadius: 3,
     },
+    Text_Normal:{
+        color:"#000",fontSize:12, fontFamily: 'Vazir'
+    },
+    Text_Blue:{
+        color:"#007bff",fontSize:12, fontFamily: 'Vazir',marginHorizontal:3
+    }
 });
 export default Styles;

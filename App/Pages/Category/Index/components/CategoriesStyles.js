@@ -1,5 +1,4 @@
 import {StyleSheet} from 'react-native';
-import {RFValue} from 'react-native-responsive-fontsize';
 export const CategoriesStyles = StyleSheet.create({
     containerCategoryItem: {
         marginBottom: '2%',
@@ -32,7 +31,7 @@ export const CategoriesStyles = StyleSheet.create({
     TextCategoryItem: {
         color:'#155e75',
         fontFamily:'Vazir-Bold',
-        fontSize:RFValue(14)
+        fontSize:13
     },
     container: {
         height: 60,
@@ -56,7 +55,7 @@ export const CategoriesStyles = StyleSheet.create({
     text: {
         fontFamily: 'Vazir',
         color: 'rgba(33,56,84,0.65)',
-        fontSize:RFValue( 15),
+        fontSize:14,
     },
     btnSearch: {
         flex: 2, padding: 5, justifyContent: 'center',

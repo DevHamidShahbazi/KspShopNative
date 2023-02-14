@@ -1,7 +1,7 @@
 import {
     React,ScrollView,Linking,TouchableOpacity,
     useEffect, NavigationSetOptionsAbout,
-    TextRegular, TextBold, View, RFValue,} from '../../Global/Import/Imports';
+    TextRegular, TextBold, View,} from '../../Global/Import/Imports';
 import {Image} from 'react-native';
 export default function About ({navigation,route}) {
     useEffect(()=>{
@@ -12,7 +12,7 @@ export default function About ({navigation,route}) {
         <React.Fragment>
             <ScrollView showsVerticalScrollIndicator={false}>
                 <View style={{flex:1,padding:6,backgroundColor:'#fff'}}>
-                    <TextBold style={{top:0,textAlign:'center',fontSize:RFValue(20+1)}} >شرکت کا اس پی</TextBold>
+                    <TextBold style={{top:0,textAlign:'center',fontSize:20}} >شرکت کا اس پی</TextBold>
                     <Text>
                         سپاس خدایی را که به انسان اراده و تفکر کردن آموخت تا در مقابل دشواری های پیش آمد در جلوی راهش به اندیشیدن بپردازد تا از عالی به متعالی برسد
                     </Text>
@@ -56,7 +56,7 @@ const Text = (props) => {
     const {children,style} = props;
      return (
         <React.Fragment>
-            <TextRegular style={[style,{marginTop:'3%',textAlign:'center',fontSize:RFValue(14+1)}]}>
+            <TextRegular style={[style,{marginTop:'3%',textAlign:'center',fontSize:14}]}>
                 {children}
             </TextRegular>
         </React.Fragment>
