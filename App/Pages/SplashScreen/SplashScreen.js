@@ -35,17 +35,24 @@ export default function SplashScreen ({setConnection,Connection,setLoading,Loadi
                 <View style={{flex:2,justifyContent: 'flex-end',padding: 35}}>
                     {
                         Connection?
-                            <Text style={{textAlign:'center', fontSize:25,
-                                fontFamily:'Vazir-Bold', color:'#fff'}}>
-                                فروشگاه کا اس پی
-                            </Text>:
+                           <React.Fragment>
+                               <Text style={{textAlign:'center', fontSize:25,
+                                   fontFamily:'Vazir-Bold', color:'#fff'}}>
+                                   فروشگاه کا اس پی
+                               </Text>
+                               <Text style={{textAlign:'center', fontSize:12,
+                                   fontFamily:'Vazir', color:'#fff'}}>
+                                   version : 1.0
+                               </Text>
+                           </React.Fragment>
+                            :
                             <React.Fragment>
                                 {
                                     Loading?
                                         <ActivityIndicator size="large" color="#fff"/>
                                         :
                                         <TouchableOpacity activeOpacity={.6}
-                                                          onPress={() => {() => ChangeNet()} } style={{marginVertical:20,alignItems:'center'}}>
+                                                          onPress={() => ChangeNet() } style={{marginVertical:20,alignItems:'center'}}>
                                             <Text style={{textAlign:'center', fontSize:20, fontFamily:'Vazir-Bold', color:'#fff'}}>
                                                 ارتباط برقرار نشد
                                             </Text>
